@@ -1,62 +1,65 @@
-import { useState } from 'react'
-import { motion } from 'motion/react'
-import { staggerContainer, viewportOnce } from '@lib/animations'
-import { usePrefersReducedMotion } from '@hooks'
+import { useRef, useState } from 'react'
+import { useMediaQuery, usePrefersReducedMotion } from '@hooks'
+import { MobileServiceCarousel } from './MobileServiceCarousel'
 import { ServiceCard } from './ServiceCard'
+import { getDesktopCardState } from './serviceMotion'
+import { useDeckPointerMotion } from './useDeckPointerMotion'
 
 /**
- * Six overlapping cards, hand-tilted so the row reads as a dealt hand rather
- * than a grid. Every card shares a single CSS grid cell (`[grid-area:1/1]`),
- * which centres them all without a translate of our own — Motion then owns the
- * transform outright and the fan is expressed purely as variants.
- *
- * The deal is `whileInView` rather than scroll-linked: it keeps the section on
- * the same motion curve as the rest of the page, and a scroll-tied fan spends
- * most of its life half-open, which reads as a rendering glitch.
- *
- * `STEP` is a percentage of card width, so the fan keeps its proportions from
- * the tablet size up to the widest card without per-breakpoint maths.
+ * Chooses by both available space and input capability. A wide touch device
+ * receives the drag model; a precise pointer receives the connected stack.
  */
-const STEP = 44
-
-/** Hand-tuned, not generated: an even scatter looks mechanical at this size. */
-const TILTS = [-7, 4.5, -3.5, 3, -5.5, 6.5]
-const LIFTS = [6, -3, 7, -2, 5, 1]
-
 export function ServiceDeck({ services, onBook }) {
   const reduced = usePrefersReducedMotion()
-  const [active, setActive] = useState(null)
+  const hasDesktopSpace = useMediaQuery('(min-width: 960px)')
+  const isLargeDesktop = useMediaQuery('(min-width: 1200px)')
+  const hasFinePointer = useMediaQuery('(any-hover: hover) and (any-pointer: fine)')
+  const desktopStack = hasDesktopSpace && hasFinePointer
+  const restingIndex = Math.floor(services.length / 2)
+  const [activeIndex, setActiveIndex] = useState(restingIndex)
+  const deckRef = useRef(null)
+  const pointerMotion = useDeckPointerMotion(deckRef, reduced, desktopStack)
 
-  const centre = (services.length - 1) / 2
+  if (!desktopStack) {
+    return <MobileServiceCarousel services={services} onBook={onBook} reduced={reduced} />
+  }
 
   return (
-    <motion.div
-      variants={staggerContainer(0.07)}
-      initial={reduced ? false : 'hidden'}
-      whileInView="visible"
-      viewport={viewportOnce}
-      className="relative hidden h-[17rem] select-none md:block lg:h-[23rem] xl:h-[29rem]"
-      onMouseLeave={() => setActive(null)}
+    <div
+      ref={deckRef}
+      className="relative h-[24rem] select-none md:block lg:h-[29rem] xl:h-[31rem]"
+      style={{ perspective: '1200px' }}
+      onPointerLeave={() => {
+        setActiveIndex(restingIndex)
+        pointerMotion.release()
+      }}
       onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setActive(null)
+        if (!event.currentTarget.contains(event.relatedTarget)) setActiveIndex(restingIndex)
       }}
     >
-      <div className="grid h-full place-items-center">
+      <div className="grid h-full place-items-center [transform-style:preserve-3d]">
         {services.map((service, index) => (
           <ServiceCard
             key={service.id}
-            service={service}
             index={index}
-            offset={(index - centre) * STEP}
-            tilt={TILTS[index % TILTS.length]}
-            lift={LIFTS[index % LIFTS.length]}
-            isActive={active === index}
-            isMuted={active !== null && active !== index}
-            onActivate={() => setActive(index)}
+            service={service}
+            state={getDesktopCardState(
+              index,
+              reduced ? null : activeIndex,
+              services.length,
+              isLargeDesktop,
+            )}
+            isActive={activeIndex === index}
+            reduced={reduced}
+            onActivate={() => setActiveIndex(index)}
+            onPointerActivate={(element, clientX, clientY) =>
+              pointerMotion.activate(element, clientX, clientY)
+            }
+            onPointerUpdate={(clientX, clientY) => pointerMotion.update(clientX, clientY)}
             onBook={onBook}
           />
         ))}
       </div>
-    </motion.div>
+    </div>
   )
 }
