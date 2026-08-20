@@ -21,7 +21,13 @@ export const SERVICES = [
     stack: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Motion'],
     startingAt: 6000,
     timeline: '3–8 weeks',
-    accent: '#0071e3',
+    accent: '#55d6ff',
+    art: {
+      primary: '#55d6ff',
+      secondary: '#4169ff',
+      primaryRgb: '85 214 255',
+      secondaryRgb: '65 105 255',
+    },
   },
   {
     id: 'backend',
@@ -40,14 +46,20 @@ export const SERVICES = [
     stack: ['Node.js', 'Python', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
     startingAt: 7500,
     timeline: '4–10 weeks',
-    accent: '#7f5af0',
+    accent: '#8090ff',
+    art: {
+      primary: '#8090ff',
+      secondary: '#3957d9',
+      primaryRgb: '128 144 255',
+      secondaryRgb: '57 87 217',
+    },
   },
   {
     id: 'mobile',
     icon: 'Smartphone',
     title: 'Mobile Applications',
     summary:
-      'iOS and Android apps that feel native — because they behave like the platform, not like a website.',
+      'iOS and Android apps that feel native because they behave like the platform, not like a website.',
     description:
       'Cross-platform with React Native when speed matters, fully native Swift or Kotlin when it does not. We handle the parts teams underestimate: offline state, push, deep links, and store review.',
     deliverables: [
@@ -59,14 +71,20 @@ export const SERVICES = [
     stack: ['React Native', 'Expo', 'Swift', 'Kotlin', 'Firebase'],
     startingAt: 9000,
     timeline: '6–14 weeks',
-    accent: '#ff5c8a',
+    accent: '#c383ff',
+    art: {
+      primary: '#c383ff',
+      secondary: '#695cff',
+      primaryRgb: '195 131 255',
+      secondaryRgb: '105 92 255',
+    },
   },
   {
     id: 'ai',
     icon: 'BrainCircuit',
     title: 'AI, LLM & Models',
     summary:
-      'Agents, RAG and fine-tuned models wired into real products — with evals that prove they work.',
+      'Agents, RAG and fine-tuned models wired into real products, with evals that prove they work.',
     description:
       'We ship AI features that survive contact with users: retrieval pipelines over your own data, tool-using agents, fine-tuned and distilled models, and the evaluation harness that keeps quality from drifting.',
     deliverables: [
@@ -78,7 +96,13 @@ export const SERVICES = [
     stack: ['Claude', 'OpenAI', 'LangChain', 'PyTorch', 'pgvector', 'vLLM'],
     startingAt: 12000,
     timeline: '4–12 weeks',
-    accent: '#22d3ee',
+    accent: '#5be9ff',
+    art: {
+      primary: '#5be9ff',
+      secondary: '#936cff',
+      primaryRgb: '91 233 255',
+      secondaryRgb: '147 108 255',
+    },
   },
   {
     id: 'bugfix',
@@ -97,7 +121,13 @@ export const SERVICES = [
     stack: ['Any stack', 'Profilers', 'Playwright', 'Sentry'],
     startingAt: 1500,
     timeline: '2 days – 3 weeks',
-    accent: '#ff9f0a',
+    accent: '#ff806f',
+    art: {
+      primary: '#ff806f',
+      secondary: '#ffb055',
+      primaryRgb: '255 128 111',
+      secondaryRgb: '255 176 85',
+    },
   },
   {
     id: 'solutions',
@@ -116,7 +146,13 @@ export const SERVICES = [
     stack: ['Workshops', 'ADRs', 'Roadmaps', 'Prototypes'],
     startingAt: 2500,
     timeline: '1–3 weeks',
-    accent: '#30d158',
+    accent: '#5ce2bd',
+    art: {
+      primary: '#5ce2bd',
+      secondary: '#35a9e8',
+      primaryRgb: '92 226 189',
+      secondaryRgb: '53 169 232',
+    },
   },
 ]
 

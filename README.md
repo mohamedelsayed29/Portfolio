@@ -103,11 +103,15 @@ The hero is a **full-bleed dark panel**, inset from the viewport edges, rounded,
 up under the fixed nav (`-mt-[var(--nav-h)]`) so the nav pill floats inside it.
 
 - The panel is dark in **both themes** — it is a brand surface, not a themed one.
-- The background is four stacked radial blooms over near-black plus a `.grain` overlay.
-  A single flat gradient at this scale looks cheap; the noise is what makes it read as a
-  printed surface. Keep the blooms in one hue family — an unrelated third hue turns the
-  whole field muddy.
-- It is **static**. No drift, no parallax, no animated blobs.
+- The background is a custom raw-WebGL fragment shader rendered as one fullscreen quad.
+  Multi-octave FBM, two-stage domain warping, procedural refraction, and aspect-aware
+  light masses create a slow cobalt liquid field without textures or scene dependencies.
+- Pointer input is damped outside React and becomes a localized magnetic force with a
+  short velocity memory. Reduced-motion mode renders one static premium frame; mobile
+  compiles fewer FBM octaves and uses a lower effective resolution.
+- A matching CSS composition remains underneath the canvas for first paint, WebGL
+  failure, and context loss. The canvas is sized from the panel via `ResizeObserver`,
+  clipped by the existing rounded container, and paused when hidden or off-screen.
 - Content: display headline, a monospace strapline, centred CTAs, and a right-aligned
   monospace meta rail (availability / location / contact). The rail is deliberately
   qualitative — the reference it is modelled on shows live download counters, and

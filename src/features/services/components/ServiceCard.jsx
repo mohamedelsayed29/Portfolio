@@ -1,132 +1,151 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
+import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@lib/cn'
-import { EASE_APPLE } from '@lib/animations'
 import { SERVICE_ICONS } from '../icons'
+import { CARD_SPRING, REDUCED_TRANSITION, getServiceArtStyle } from './serviceMotion'
+
+export function ServiceArtwork({ Icon }) {
+  if (!Icon) return null
+
+  return (
+    <div className="service-card__art" aria-hidden="true">
+      <span className="service-card__orbit service-card__orbit--outer" />
+      <span className="service-card__orbit service-card__orbit--inner" />
+      <span className="service-card__beam" />
+      <span className="service-card__glyph-halo" />
+      <Icon className="service-card__glyph" strokeWidth={0.72} />
+    </div>
+  )
+}
 
 /**
- * One card in the fanned deck. The deal (x / y / rotate) lives on the outer
- * motion element; the hover lift lives on the inner one as a plain CSS
- * transition. Keeping them on separate elements means the two never fight over
- * the same `transform`, and hover stays responsive while the deal is in flight.
- *
- * Offsets are expressed in percentages of the card's own width, so the spread
- * scales with the responsive card size without a breakpoint-aware step value.
+ * Desktop service card. Stack motion is owned by the outer element while the
+ * inner surface carries a tiny pointer response. Both paths use transforms,
+ * and live pointer values never enter React state.
  */
-const dealCard = (offset, tilt, lift) => ({
-  // Every card starts squared up on the pile and slides out to its place.
-  hidden: { opacity: 0, x: '0%', y: '0%', rotate: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    x: `${offset}%`,
-    y: `${lift}%`,
-    rotate: tilt,
-    scale: 1,
-    transition: { duration: 0.85, ease: EASE_APPLE },
-  },
-})
-
 export function ServiceCard({
   service,
   index,
-  offset,
-  tilt,
-  lift,
+  state,
   isActive,
-  isMuted,
+  reduced,
   onActivate,
+  onPointerActivate,
+  onPointerUpdate,
   onBook,
 }) {
   const Icon = SERVICE_ICONS[service.icon]
 
+  const handlePointerEnter = (event) => {
+    onActivate()
+    if (!reduced && event.pointerType !== 'touch') {
+      onPointerActivate(event.currentTarget, event.clientX, event.clientY)
+    }
+  }
+
+  const handlePointerMove = (event) => {
+    if (reduced || event.pointerType === 'touch') return
+    onPointerUpdate(event.clientX, event.clientY)
+  }
+
   return (
     <motion.div
-      variants={dealCard(offset, tilt, lift)}
-      style={{ zIndex: isActive ? 50 : index + 1 }}
-      className="[grid-area:1/1] size-[13rem] lg:size-[18rem] xl:size-[23rem]"
-      onMouseEnter={onActivate}
-      onFocus={onActivate}
+      initial={false}
+      animate={{
+        x: state.x,
+        y: state.y,
+        rotate: reduced ? 0 : state.rotate,
+        scale: reduced ? 1 : state.scale,
+        opacity: reduced ? 1 : state.opacity,
+      }}
+      transition={reduced ? REDUCED_TRANSITION : CARD_SPRING}
+      style={{ zIndex: isActive ? 40 : state.zIndex, ...getServiceArtStyle(service) }}
+      className="service-card-shell relative [grid-area:1/1] h-[clamp(22rem,29vw,27rem)] w-[clamp(18rem,25.5vw,23.75rem)]"
+      onPointerEnter={handlePointerEnter}
+      onPointerMove={handlePointerMove}
+      onFocusCapture={onActivate}
     >
-      {/* `--untilt` cancels the deal's rotation, so a hovered card stands
-          upright and square to the reader instead of lifting still crooked. */}
+      <span
+        aria-hidden="true"
+        className={cn('service-card__outer-glow', isActive && 'service-card__outer-glow--active')}
+      />
+
       <article
-        style={{ '--untilt': `${-tilt}deg` }}
+        data-service={service.id}
         className={cn(
-          'group relative flex h-full w-full flex-col justify-between overflow-hidden',
-          'rounded-[26px] border border-line bg-surface p-5 shadow-card lg:rounded-[32px] lg:p-7',
-          'transition-[transform,box-shadow,opacity,border-color] duration-500 ease-[var(--ease-apple)]',
-          'hover:[transform:translateY(-1.5rem)_scale(1.04)_rotate(var(--untilt))]',
-          'focus-within:[transform:translateY(-1.5rem)_scale(1.04)_rotate(var(--untilt))]',
-          'hover:border-line-strong hover:shadow-float focus-within:shadow-float',
-          isMuted && 'opacity-55',
+          'service-card group relative z-[1] flex h-full w-full flex-col overflow-hidden rounded-[28px] border p-6 text-[#f7f9ff] lg:rounded-[32px] lg:p-7 xl:p-8',
+          isActive && 'service-card--active',
         )}
       >
-        {/* Accent wash — barely there, but it stops six identical grey cards. */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          style={{
-            background: `radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, ${service.accent} 16%, transparent) 0%, transparent 62%)`,
-          }}
-        />
+        <span aria-hidden="true" className="service-card__top-sheen" />
+        <span aria-hidden="true" className="service-card__wash" />
+        <span aria-hidden="true" className="service-card__pointer-light" />
+        <span aria-hidden="true" className="service-card__active-edge" />
 
-        {/* The card is mostly empty at this size; the oversized mark fills the
-            middle the way the reference's 3D renders do. */}
-        {Icon && (
-          <Icon
-            aria-hidden="true"
-            strokeWidth={1}
-            className="pointer-events-none absolute top-1/2 left-1/2 size-24 -translate-x-1/2 -translate-y-1/2 opacity-[0.07] transition-opacity duration-500 group-hover:opacity-[0.16] lg:size-32 xl:size-40"
-            style={{ color: service.accent }}
-          />
-        )}
+        <ServiceArtwork Icon={Icon} />
+        <span aria-hidden="true" className="service-card__index">
+          0{index + 1} / 06
+        </span>
 
-        {/* Card-sized hit target for the details route. The Book button sits above it. */}
         <Link
           to={`/services#${service.id}`}
-          className="absolute inset-0 rounded-[26px] lg:rounded-[32px]"
-          aria-label={`${service.title} — details`}
+          className="absolute inset-0 z-10 rounded-[28px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-primary)] focus-visible:ring-inset lg:rounded-[32px]"
+          aria-label={`${service.title}, details`}
         />
 
-        <div className="relative flex items-start justify-between">
-          <span
-            className="grid size-10 place-items-center rounded-[12px] lg:size-12 lg:rounded-[14px]"
-            style={{ background: `color-mix(in srgb, ${service.accent} 14%, transparent)` }}
-          >
-            {Icon && <Icon className="size-5 lg:size-6" aria-hidden="true" style={{ color: service.accent }} />}
+        <div className="relative z-[2] flex items-center justify-between">
+          <span className="service-card__icon-chip grid size-12 place-items-center rounded-[15px] border lg:size-13">
+            {Icon && <Icon className="size-5 lg:size-[22px]" strokeWidth={1.6} aria-hidden="true" />}
           </span>
-          <span className="font-mono text-[11px] text-text-subtle lg:text-[12px]">
-            {String(index + 1).padStart(2, '0')}
+          <span className="text-[9px] font-medium tracking-[0.18em] text-white/48 uppercase">
+            Studio service
           </span>
         </div>
 
-        <div className="relative flex flex-col gap-2 lg:gap-3">
-          <h3 className="text-[17px] leading-snug font-semibold tracking-[-0.02em] lg:text-[22px] xl:text-[26px]">
+        <div className="service-card__content relative z-[2] mt-auto min-h-[10rem] lg:min-h-[11.25rem]">
+          <span
+            aria-hidden="true"
+            className="mb-4 block h-px w-10 bg-[var(--service-primary)] shadow-[0_0_12px_rgb(var(--service-primary-rgb)/0.45)]"
+          />
+          <h3 className="max-w-[14ch] text-[21px] leading-[1.08] font-semibold tracking-[-0.035em] lg:text-[24px] xl:text-[27px]">
             {service.title}
           </h3>
 
-          <p className="text-[11px] leading-relaxed text-text-subtle lg:text-[13px]">
-            {service.stack.slice(0, 3).join(' · ')}
-          </p>
+          <motion.p
+            aria-hidden={!isActive}
+            animate={{ opacity: isActive ? 1 : 0.72, y: isActive && !reduced ? 0 : 3 }}
+            transition={reduced ? REDUCED_TRANSITION : { duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="service-card__description mt-3 line-clamp-3 text-[12px] leading-[1.55] lg:text-[13px] xl:text-[14px]"
+          >
+            {service.summary}
+          </motion.p>
 
-          {/* Held back until the card is the one in focus — the fan hides most of
-              this area anyway, and revealing it is what makes the top card feel live. */}
-          <div
+          <motion.div
+            aria-hidden={!isActive}
+            animate={{ opacity: isActive ? 1 : 0, y: isActive && !reduced ? 0 : 6 }}
+            transition={
+              reduced
+                ? REDUCED_TRANSITION
+                : { duration: 0.2, delay: isActive ? 0.035 : 0, ease: [0.16, 1, 0.3, 1] }
+            }
             className={cn(
-              'flex items-center gap-4 opacity-0 transition-all duration-400 ease-[var(--ease-apple)]',
-              'translate-y-1 group-hover:translate-y-0 group-hover:opacity-100',
-              'group-focus-within:translate-y-0 group-focus-within:opacity-100',
+              'mt-3 flex items-center gap-4 text-[11px] font-medium lg:text-[12px] xl:text-[13px]',
+              isActive ? 'pointer-events-auto' : 'pointer-events-none',
             )}
           >
             <button
               type="button"
+              tabIndex={isActive ? 0 : -1}
               onClick={() => onBook?.(service)}
-              className="relative z-10 text-[12px] font-medium text-accent underline-offset-4 transition-colors duration-200 hover:underline lg:text-[14px]"
+              className="service-card__book relative z-20 underline-offset-4 hover:underline"
             >
               Book this
             </button>
-            <span className="text-[12px] text-text-subtle lg:text-[14px]">Details →</span>
-          </div>
+            <span className="service-card__details flex items-center gap-1">
+              Details <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            </span>
+          </motion.div>
         </div>
       </article>
     </motion.div>
