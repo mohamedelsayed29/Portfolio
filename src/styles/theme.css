@@ -1,0 +1,86 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — Apple-inspired: restrained palette, generous space, one accent.
+   Values live as raw CSS vars so the theme can flip at runtime via [data-theme].
+--------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* Fixed nav height — referenced by the mobile menu and scroll offsets. */
+  --nav-h: 76px;
+
+  /* Surfaces */
+  --bg: #fbfbfd;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f5f5f7;
+  --surface-sunken: #ededf0;
+
+  /* Text */
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --text-subtle: #86868b;
+  --text-inverse: #f5f5f7;
+
+  /* Accent */
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-soft: rgba(0, 113, 227, 0.1);
+  --accent-contrast: #ffffff;
+
+  /* Lines & glass */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+  --glass: rgba(251, 251, 253, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.06);
+
+  /* Feedback */
+  --success: #1d9e5e;
+  --warning: #b25000;
+  --danger: #d70015;
+
+  /* Shadows — soft, wide, low opacity */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08), 0 32px 64px rgba(0, 0, 0, 0.1);
+
+  /* Brand gradient stops — headline sweep and the closing CTA halo */
+  --aurora-1: #0071e3;
+  --aurora-2: #7f5af0;
+  --aurora-3: #ff5c8a;
+  --aurora-4: #22d3ee;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #000000;
+  --bg-elevated: #0a0a0c;
+  --surface: #1d1d1f;
+  --surface-muted: #161618;
+  --surface-sunken: #0f0f11;
+
+  --text: #f5f5f7;
+  --text-muted: #a1a1a6;
+  --text-subtle: #86868b;
+  --text-inverse: #1d1d1f;
+
+  --accent: #0a84ff;
+  --accent-hover: #339cff;
+  --accent-soft: rgba(10, 132, 255, 0.16);
+  --accent-contrast: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --glass: rgba(10, 10, 12, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --success: #30d158;
+  --warning: #ff9f0a;
+  --danger: #ff453a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6), 0 32px 64px rgba(0, 0, 0, 0.5);
+
+}

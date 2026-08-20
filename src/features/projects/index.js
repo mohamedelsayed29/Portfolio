@@ -1,0 +1,5 @@
+export { ProjectsSection } from './ProjectsSection'
+export { ProjectCard } from './components/ProjectCard'
+export { ProjectGrid } from './components/ProjectGrid'
+export { ProjectFilter } from './components/ProjectFilter'
+export { useProjectFilter } from './hooks/useProjectFilter'
