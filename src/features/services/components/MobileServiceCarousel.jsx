@@ -62,7 +62,7 @@ function MobileServiceCard({
         opacity,
       }}
       className={cn(
-        'service-card service-card--mobile relative flex shrink-0 flex-col overflow-hidden rounded-[30px] border p-7 text-[#f7f9ff]',
+        'service-card service-card--mobile relative flex shrink-0 flex-col overflow-hidden rounded-[30px] border p-7',
         isActive && 'service-card--active',
       )}
       data-service={service.id}

@@ -8,26 +8,25 @@ export function Logo({ className, onClick, onDark = false }) {
       to="/"
       onClick={onClick}
       aria-label={`${SITE.name} home`}
-      className={cn('group inline-flex items-center gap-2.5', className)}
+      className={cn('group inline-flex items-center py-1', className)}
     >
       <span
         className={cn(
-          'relative grid size-8 place-items-center overflow-hidden rounded-[10px]',
-          onDark ? 'bg-white' : 'bg-text',
+          'relative text-[19px] font-semibold tracking-normal sm:text-[20px]',
+          'transition-colors duration-300 ease-[var(--ease-apple)]',
+          onDark ? 'text-white' : 'text-text',
         )}
       >
-        <span className={cn('text-[15px] font-semibold', onDark ? 'text-[#0a0a0c]' : 'text-bg')}>
-          E
-        </span>
-        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-black/20 to-transparent transition-transform duration-700 ease-[var(--ease-apple)] group-hover:translate-x-full" />
-      </span>
-      <span
-        className={cn(
-          'text-[17px] font-semibold tracking-[-0.02em]',
-          onDark && 'text-white',
-        )}
-      >
-        {SITE.shortName}
+        <span>Hammer</span>
+        <span className={cn(onDark ? 'text-white/72' : 'text-text-muted')}>Load</span>
+        <span
+          aria-hidden="true"
+          className={cn(
+            'absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 rounded-full',
+            'transition-transform duration-500 ease-[var(--ease-apple)] group-hover:scale-x-100',
+            onDark ? 'bg-white/55' : 'bg-text/45',
+          )}
+        />
       </span>
     </Link>
   )

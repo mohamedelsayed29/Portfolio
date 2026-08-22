@@ -74,7 +74,7 @@ export function ServiceCard({
       <article
         data-service={service.id}
         className={cn(
-          'service-card group relative z-[1] flex h-full w-full flex-col overflow-hidden rounded-[28px] border p-6 text-[#f7f9ff] lg:rounded-[32px] lg:p-7 xl:p-8',
+          'service-card group relative z-[1] flex h-full w-full flex-col overflow-hidden rounded-[28px] border p-6 lg:rounded-[32px] lg:p-7 xl:p-8',
           isActive && 'service-card--active',
         )}
       >
@@ -98,7 +98,7 @@ export function ServiceCard({
           <span className="service-card__icon-chip grid size-12 place-items-center rounded-[15px] border lg:size-13">
             {Icon && <Icon className="size-5 lg:size-[22px]" strokeWidth={1.6} aria-hidden="true" />}
           </span>
-          <span className="text-[9px] font-medium tracking-[0.18em] text-white/48 uppercase">
+          <span className="service-card__label text-[9px] font-medium tracking-[0.18em] uppercase">
             Studio service
           </span>
         </div>

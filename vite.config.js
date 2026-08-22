@@ -22,6 +22,10 @@ export default defineConfig({
       { find: '@', replacement: resolvePath('./src') },
     ],
   },
-  server: { port: 5173, open: false },
+  server: {
+    port: 5173,
+    open: false,
+    allowedHosts: ['pattern-population-mirror-attempting.trycloudflare.com'],
+  },
   build: { outDir: 'dist', sourcemap: false },
 })

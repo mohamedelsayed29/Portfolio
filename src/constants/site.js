@@ -1,6 +1,6 @@
 export const SITE = {
-  name: 'ELRAYAN',
-  shortName: 'ELRAYAN',
+  name: 'HammerLoad',
+  shortName: 'HammerLoad',
   tagline: 'Software development & AI solutions',
   description:
     'We design, build and rescue software — web, mobile, backend and AI/LLM systems — for teams that care about the details.',
@@ -22,4 +22,3 @@ export const STATS = [
   { value: '24h', label: 'Median first response' },
   { value: '98%', label: 'Clients who return' },
 ]
-

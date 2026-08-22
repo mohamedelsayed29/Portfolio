@@ -12,7 +12,7 @@ export function ServicesSection({ services = SERVICES }) {
     <Section
       id="services"
       width="wide"
-      className="service-section overflow-hidden border-y border-white/[0.075] text-[#f7f8fc]"
+      className="service-section overflow-hidden border-y border-line text-text"
       containerClassName="relative z-[1]"
     >
       <div className="mb-10 max-w-[60ch] sm:mb-12 lg:mb-14">
