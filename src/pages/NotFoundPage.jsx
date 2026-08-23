@@ -6,7 +6,7 @@ import { Button } from '@components/ui'
 export default function NotFoundPage() {
   return (
     <PageTransition>
-      <Seo title="Page not found" />
+      <Seo title="Page not found" noIndex />
 
       <Container className="grid min-h-[70vh] place-items-center text-center">
         <div className="flex flex-col items-center gap-6">

@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'HammerLoad',
   shortName: 'HammerLoad',
+  url: 'https://hammerload.com',
   tagline: 'Software development & AI solutions',
   description:
     'We design, build and rescue software — web, mobile, backend and AI/LLM systems — for teams that care about the details.',
