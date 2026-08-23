@@ -66,32 +66,6 @@ export const PROJECTS = [
     services: ['mobile', 'ai', 'backend'],
   },
   {
-    slug: 'atlas-rag-platform',
-    title: 'Atlas',
-    subtitle: 'Retrieval platform for legal teams',
-    category: 'ai',
-    year: 2026,
-    client: 'Atlas Legal',
-    featured: true,
-    cover: 'linear-gradient(135deg, #0071e3 0%, #7f5af0 55%, #22d3ee 100%)',
-    summary:
-      'A retrieval layer over 4M contract pages, answering in under two seconds with citations lawyers actually trust.',
-    problem:
-      'Associates were spending nine hours a week searching precedent across three disconnected document stores, and the first vendor pilot hallucinated clause numbers.',
-    approach:
-      'We built a hybrid retrieval pipeline — BM25 alongside pgvector embeddings, reranked by a fine-tuned cross-encoder — and made every answer refuse to render without a verifiable span citation. An eval suite of 1,200 labelled questions gates every deploy.',
-    outcome:
-      'Search time dropped from nine hours to under one per associate per week, with a 94% citation-accuracy score held across six months of model updates.',
-    metrics: [
-      { value: '1.8s', label: 'Median answer time' },
-      { value: '94%', label: 'Citation accuracy' },
-      { value: '4M', label: 'Pages indexed' },
-    ],
-    stack: ['Python', 'FastAPI', 'pgvector', 'Claude', 'Next.js'],
-    services: ['ai', 'backend'],
-    href: 'https://example.com',
-  },
-  {
     slug: 'mkank',
     title: 'Mkank',
     subtitle: 'Compound management platform',

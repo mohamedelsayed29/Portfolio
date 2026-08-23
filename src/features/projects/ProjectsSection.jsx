@@ -14,7 +14,7 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
         <SectionHeading
           eyebrow="Selected work"
           title="Things we shipped that stayed shipped"
-          description="Five recent case studies across web, mobile and backend systems."
+          description="Four recent case studies across web, mobile and backend systems."
           className="max-w-2xl"
         />
         <Reveal delay={0.15}>
@@ -27,12 +27,14 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-6">
         {projects.map((project, index) => {
           const centerLastRow = projects.length === 5 && index >= 3
+          const useTwoColumnLayout = projects.length === 4
 
           return (
             <div
               key={project.slug}
               className={cn(
-                'h-full xl:col-span-2',
+                'h-full',
+                useTwoColumnLayout ? 'xl:col-span-3' : 'xl:col-span-2',
                 centerLastRow && index === 3 && 'xl:col-start-2',
                 centerLastRow && index === 4 && 'xl:col-start-4',
               )}

@@ -14,6 +14,7 @@ export const SITE = {
       label: 'Instagram',
       href: 'https://www.instagram.com/hammerloadofficial?igsi=MXExc25rZmp5cnN3cQ==',
     },
+    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61593453309833' },
     { label: 'X', href: 'https://x.com/hammerload?s=11' },
   ],
 }
