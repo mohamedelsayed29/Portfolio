@@ -28,9 +28,10 @@ npm run preview
 npm run lint
 ```
 
-Copy `.env.example` to `.env` and set `VITE_API_URL` to point the booking feature at a
-real backend. With it unset, `src/features/booking/api/bookingApi.js` serves deterministic
-mock availability and bookings, so the whole UI is demoable offline.
+Copy `.env.example` to `.env`, configure the server-only Resend credentials, and run the
+site with `npm run dev`. Booking submissions use the same-origin `/api/bookings` endpoint
+and only show success after email delivery is confirmed. `VITE_API_URL` is optional and
+only replaces the deterministic local availability data.
 
 ## Folder structure
 
@@ -160,7 +161,8 @@ holders' request, and shipping redrawn substitutes would be worse than omitting 
 
 ## Booking flow
 
-Three steps — **Engagement → Details → Contact** — then a success screen with a reference.
+Three steps — **Engagement → Details → Contact** — then a server-confirmed success screen
+with a reference.
 
 - **Project branch**: service, budget range, timeline, description, optional repo link.
 - **Meeting branch**: day strip (weekdays only, live slot counts), time grid with

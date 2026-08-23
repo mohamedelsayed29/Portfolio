@@ -1,33 +1,30 @@
 import { Link } from 'react-router-dom'
 import { SITE } from '@constants/site'
+import { HammerLoadLogo } from '@components/brand'
 import { cn } from '@lib/cn'
 
 export function Logo({ className, onClick, onDark = false }) {
+  const handleClick = (event) => {
+    onClick?.(event)
+
+    if (event.defaultPrevented || window.location.pathname !== '/') return
+
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'instant' : 'smooth' })
+  }
+
   return (
     <Link
       to="/"
-      onClick={onClick}
+      onClick={handleClick}
       aria-label={`${SITE.name} home`}
-      className={cn('group inline-flex items-center py-1', className)}
+      className={cn(
+        'group inline-flex min-w-[120px] items-center rounded-[8px] py-0.5',
+        'transition-opacity duration-300 ease-[var(--ease-apple)] hover:opacity-[0.82]',
+        className,
+      )}
     >
-      <span
-        className={cn(
-          'relative text-[19px] font-semibold tracking-normal sm:text-[20px]',
-          'transition-colors duration-300 ease-[var(--ease-apple)]',
-          onDark ? 'text-white' : 'text-text',
-        )}
-      >
-        <span>Hammer</span>
-        <span className={cn(onDark ? 'text-white/72' : 'text-text-muted')}>Load</span>
-        <span
-          aria-hidden="true"
-          className={cn(
-            'absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 rounded-full',
-            'transition-transform duration-500 ease-[var(--ease-apple)] group-hover:scale-x-100',
-            onDark ? 'bg-white/55' : 'bg-text/45',
-          )}
-        />
-      </span>
+      <HammerLoadLogo variant={onDark ? 'onDark' : 'theme'} />
     </Link>
   )
 }

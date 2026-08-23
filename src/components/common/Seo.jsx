@@ -14,6 +14,7 @@ export function Seo({ title, description = SITE.description, image }) {
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={SITE.name} />
       {image && <meta property="og:image" content={image} />}
       <meta name="twitter:card" content="summary_large_image" />
     </>

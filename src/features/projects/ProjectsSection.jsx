@@ -3,9 +3,10 @@ import { Section } from '@components/layout'
 import { SectionHeading, Reveal } from '@components/common'
 import { Button } from '@components/ui'
 import { FEATURED_PROJECTS } from '@data/projects'
+import { cn } from '@lib/cn'
 import { ProjectCard } from './components/ProjectCard'
 
-/** Home-page teaser: the three featured case studies, then a link to the index. */
+/** Home-page teaser: featured case studies, then a link to the full index. */
 export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
   return (
     <Section id="work" width="wide" className="bg-surface-muted/40">
@@ -13,7 +14,7 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
         <SectionHeading
           eyebrow="Selected work"
           title="Things we shipped that stayed shipped"
-          description="Six years of case studies, three of them below. Every number here came from the client's own dashboards."
+          description="Five recent case studies across web, mobile and backend systems."
           className="max-w-2xl"
         />
         <Reveal delay={0.15}>
@@ -23,10 +24,23 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
         </Reveal>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-6">
+        {projects.map((project, index) => {
+          const centerLastRow = projects.length === 5 && index >= 3
+
+          return (
+            <div
+              key={project.slug}
+              className={cn(
+                'h-full xl:col-span-2',
+                centerLastRow && index === 3 && 'xl:col-start-2',
+                centerLastRow && index === 4 && 'xl:col-start-4',
+              )}
+            >
+              <ProjectCard project={project} index={index} />
+            </div>
+          )
+        })}
       </div>
     </Section>
   )

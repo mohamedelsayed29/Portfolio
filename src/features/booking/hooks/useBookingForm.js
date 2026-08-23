@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import { createBooking } from '../api/bookingApi'
 import { INITIAL_VALUES, toBookingPayload, validateStep } from '../validation'
 
@@ -22,6 +22,7 @@ export function useBookingForm(overrides = {}) {
   const [status, setStatus] = useState('idle')
   const [submitError, setSubmitError] = useState(null)
   const [result, setResult] = useState(null)
+  const submittingRef = useRef(false)
 
   const step = STEPS[stepIndex]
   const stepErrors = useMemo(() => validateStep(step, values), [step, values])
@@ -71,6 +72,8 @@ export function useBookingForm(overrides = {}) {
   }, [])
 
   const submit = useCallback(async () => {
+    if (submittingRef.current) return
+
     const errors = validateStep('contact', values)
     if (Object.keys(errors).length > 0) {
       setTouched((current) => ({ ...current, __step: true }))
@@ -79,14 +82,17 @@ export function useBookingForm(overrides = {}) {
 
     setStatus('submitting')
     setSubmitError(null)
+    submittingRef.current = true
 
     try {
       const response = await createBooking(toBookingPayload(values))
       setResult(response)
       setStatus('success')
     } catch (error) {
-      setSubmitError(error.message ?? 'Something went wrong. Try again in a moment.')
+      setSubmitError(error.message ?? 'We could not send your request. Please try again.')
       setStatus('error')
+    } finally {
+      submittingRef.current = false
     }
   }, [values])
 
@@ -98,6 +104,7 @@ export function useBookingForm(overrides = {}) {
       setStatus('idle')
       setSubmitError(null)
       setResult(null)
+      submittingRef.current = false
     },
     [overrides],
   )

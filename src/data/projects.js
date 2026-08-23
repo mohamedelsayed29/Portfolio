@@ -92,6 +92,72 @@ export const PROJECTS = [
     href: 'https://example.com',
   },
   {
+    slug: 'mkank',
+    title: 'Mkank',
+    subtitle: 'Compound management platform',
+    category: 'mobile',
+    year: 2026,
+    client: 'Mkank',
+    cardLabel: 'Residential compounds',
+    featured: true,
+    image: '/work/mkank.jpg',
+    cover: 'linear-gradient(135deg, #10251b 0%, #274334 58%, #b89a55 100%)',
+    summary:
+      'One platform for residents, compound management and gate security, covering permits, payments, support, community services and real-time access control.',
+    problem:
+      'Resident services, management operations and gate decisions are tightly connected, but each role needs a different interface. Mkank brings permits, dues, documents, support, community activity and access records into one compound-aware system without exposing one role\'s data to another.',
+    approach:
+      'Three role-specific surfaces share the same live domain: an offline-friendly resident app, an administration dashboard, and a focused gate interface for QR scanning, visitor registration and entry decisions. Arabic RTL, English and Russian are supported alongside light and dark modes, with per-compound permissions and audit trails.',
+    outcome:
+      'Residents can handle access, payments and services from one app while management and security see the same updates in real time. The platform keeps buildings, units, people and operations isolated by compound and usable across connectivity conditions.',
+    metrics: [
+      { value: '3', label: 'Role-specific interfaces' },
+      { value: 'AR / EN / RU', label: 'Languages with full RTL' },
+      { value: 'Online / offline', label: 'Resident experience' },
+    ],
+    stack: ['Realtime', 'QR access', 'Offline-first', 'Arabic RTL'],
+    stackLabel: 'Platform capabilities',
+    services: ['frontend', 'mobile', 'backend'],
+  },
+  {
+    slug: 'fitway',
+    title: 'FitWay',
+    subtitle: 'Multi-branch gym platform',
+    category: 'mobile',
+    year: 2026,
+    client: 'FitWay',
+    cardLabel: 'Multi-branch gyms',
+    featured: true,
+    image: '/work/fitway.jpg',
+    cover: 'linear-gradient(135deg, #15161a 0%, #22262f 62%, #b7ff36 100%)',
+    summary:
+      'A multi-branch gym platform combining QR access, memberships, live occupancy, CRM, trainer bookings and real-time communication across web and mobile.',
+    problem:
+      'Multi-branch gyms need access control, memberships, CRM, coaching and member communication to agree in real time. FitWay unifies those workflows so a check-in, subscription state or booking is visible to the right role across every branch.',
+    approach:
+      'Django and DRF manage core workflows in PostgreSQL, MongoDB stores chat and comments, Redis supports caching and occupancy, and WebSockets carry live messages. React and TypeScript power web operations while Flutter serves members on mobile, all shipped with Docker and Swagger documentation.',
+    outcome:
+      'Owners and managers can run multiple branches, trainers can manage availability and conversations, and members can check in, see occupancy, book sessions and chat from the mobile app. Arabic RTL, English, and light and dark modes carry across web and mobile.',
+    metrics: [
+      { value: 'Multi-branch', label: 'Organization model' },
+      { value: '4', label: 'Role-specific experiences' },
+      { value: 'Web / mobile', label: 'Connected applications' },
+    ],
+    stack: [
+      'Django',
+      'WebSockets',
+      'React',
+      'Flutter',
+      'PostgreSQL',
+      'MongoDB',
+      'Redis',
+      'TypeScript',
+      'Docker',
+      'Swagger',
+    ],
+    services: ['frontend', 'mobile', 'backend'],
+  },
+  {
     slug: 'northwind-commerce',
     title: 'Northwind',
     subtitle: 'Headless commerce replatform',

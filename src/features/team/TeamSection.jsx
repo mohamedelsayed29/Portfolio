@@ -28,7 +28,7 @@ const TEAM = [
   {
     role: 'AI / Software Engineer',
     name: 'Mohamed Nehad',
-    bio: 'Turns complex requirements into clean, maintainable systems.',
+    bio: 'Connects data, automation and AI features into production workflows.',
     tags: ['Frontend', 'Backend', 'Databases', 'Performance', 'RAG', 'LLM'],
     image: '/team/mohamed-nehad-halftone.png',
     portraitHeight: '88%',
@@ -38,7 +38,7 @@ const TEAM = [
   {
     role: 'Software Engineer',
     name: 'Mohamed Elsayed',
-    bio: 'Connects data, automation and AI features into production workflows.',
+    bio: 'Turns complex requirements into clean, maintainable systems.',
     tags: ['Backend', 'Frontend', 'Database', 'Mobile Application', 'System Design'],
     image: '/team/mohamed-elsayed-halftone.png',
     portraitHeight: '86%',

@@ -67,7 +67,7 @@ export default function ProjectDetailPage() {
           {project.image && (
             <img
               src={project.image}
-              alt={`${project.title} — ${project.subtitle}`}
+              alt={`${project.title} - ${project.subtitle}`}
               className="size-full object-cover object-top"
             />
           )}
@@ -104,7 +104,7 @@ export default function ProjectDetailPage() {
 
             <Reveal delay={0.08} className="flex flex-col gap-4">
               <h2 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                Stack
+                {project.stackLabel ?? 'Stack'}
               </h2>
               <ul className="flex flex-wrap gap-2">
                 {project.stack.map((tech) => (

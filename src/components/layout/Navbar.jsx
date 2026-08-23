@@ -84,7 +84,7 @@ export function Navbar() {
               to="/book"
               size="sm"
               variant={onDark ? 'inverse' : 'primary'}
-              className="hidden sm:inline-flex"
+              className="max-sm:hidden"
             >
               Book a call
             </Button>

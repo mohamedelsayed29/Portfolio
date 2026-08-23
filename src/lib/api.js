@@ -16,8 +16,11 @@ export class ApiError extends Error {
   }
 }
 
-export async function request(path, { method = 'GET', body, headers, signal } = {}) {
-  const response = await fetch(`${BASE_URL}${path}`, {
+export async function request(
+  path,
+  { method = 'GET', body, headers, signal, baseUrl = BASE_URL } = {},
+) {
+  const response = await fetch(`${baseUrl}${path}`, {
     method,
     signal,
     headers: {

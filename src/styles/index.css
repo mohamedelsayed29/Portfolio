@@ -34,6 +34,7 @@
     'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
   --font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-brand: 'Space Grotesk', var(--font-sans);
 
   --shadow-soft: var(--shadow-sm);
   --shadow-card: var(--shadow-md);
@@ -143,6 +144,19 @@
 }
 
 @layer components {
+  .hammerload-mark--theme {
+    --hammerload-mark-ink: #0b1b33;
+    --hammerload-mark-track: rgba(11, 27, 51, 0.14);
+    --hammerload-mark-accent: #c97e0a;
+  }
+
+  [data-theme='dark'] .hammerload-mark--theme,
+  .hammerload-mark--onDark {
+    --hammerload-mark-ink: #ffffff;
+    --hammerload-mark-track: rgba(255, 255, 255, 0.18);
+    --hammerload-mark-accent: #f2a31b;
+  }
+
   .glass-panel {
     background-color: var(--glass);
     backdrop-filter: saturate(180%) blur(20px);

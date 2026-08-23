@@ -19,7 +19,7 @@ export function BookingDialog() {
       description={
         type === 'project'
           ? 'Three short steps. You get a written scope back, not a sales call.'
-          : 'Pick a slot that works and we will send the invite.'
+          : 'Pick a slot that works and send us the details.'
       }
       className="max-w-2xl"
     >

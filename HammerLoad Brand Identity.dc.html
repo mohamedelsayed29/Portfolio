@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#F7F7F5; }
+  a { color:#0B1B33; }
+  a:hover { color:#C97E0A; }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;color:#0B1B33;background:#F7F7F5;padding:64px 0 96px">
+
+  <div style="max-width:1180px;margin:0 auto;padding:0 48px;display:flex;flex-direction:column;gap:96px">
+
+    <!-- HEADER -->
+    <header style="display:flex;flex-direction:column;gap:28px;border-bottom:1px solid #0B1B3316;padding-bottom:48px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#0B1B3388">Brand Identity System — v1.0 — 2026</div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:76px;line-height:.98;letter-spacing:-.035em;margin:0">HammerLoad</h1>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:22px;line-height:1.4;margin:0;max-width:380px;color:#0B1B33">We build software.<br><span style="color:#C97E0A">We also fix it.</span></p>
+      </div>
+    </header>
+
+    <!-- 1. LOGO -->
+    <section style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C97E0A">01</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Logo</h2>
+        <span dir="rtl" style="font-size:15px;color:#0B1B3399">اللوجو — نسخة أفقية + أيقونة</span>
+      </div>
+
+      <!-- horizontal lockup -->
+      <div style="background:#fff;border:1px solid #0B1B3314;padding:72px 64px;display:flex;align-items:center;justify-content:center">
+        <div style="display:flex;align-items:center;gap:22px">
+          <div style="width:76px;height:76px;overflow:hidden;flex:none">
+            <div style="transform:scale(.38);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+              <div style="position:relative;width:104px;height:112px">
+                <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                  <div style="height:100%;background:#F2A31B;width:{{ loadPct }}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:46px;line-height:1;letter-spacing:-.035em">HammerLoad</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#0B1B3399">We build software. We also fix it.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- symbol grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:44px;display:flex;flex-direction:column;align-items:center;gap:24px">
+          <div style="width:160px;height:160px;overflow:hidden">
+            <div style="transform:scale(.8);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+              <div style="position:relative;width:104px;height:112px">
+                <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                  <div style="width:62%;height:100%;background:#F2A31B"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Primary / Navy</div>
+        </div>
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:44px;display:flex;flex-direction:column;align-items:center;gap:24px">
+          <div style="width:160px;height:160px;overflow:hidden">
+            <div style="transform:scale(.8);transform-origin:0 0;position:relative;width:200px;height:200px;background:#fff;border:1px solid #0B1B3314;box-sizing:border-box;display:flex;align-items:center;justify-content:center">
+              <div style="position:relative;width:104px;height:112px">
+                <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#0B1B33"></div>
+                <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#0B1B33"></div>
+                <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#0B1B3324;display:flex">
+                  <div style="width:62%;height:100%;background:#C97E0A"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Light / Reversed</div>
+        </div>
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:44px;display:flex;flex-direction:column;align-items:center;gap:24px">
+          <div style="width:160px;height:160px;overflow:hidden">
+            <div style="transform:scale(.8);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+              <div style="position:relative;width:104px;height:112px">
+                <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#fff"></div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Mono / 1-color</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start">
+        <p dir="rtl" style="font-size:16px;line-height:1.75;margin:0;color:#0B1B33CC;text-wrap:pretty;text-align:right">
+          الأيقونة عبارة عن حرف <strong>H</strong> مبني من ثلاث كتل هندسية — والعارضة الأفقية هي شريط تحميل (load bar) نصفه مليان بالـ Amber. المعنى: البناء (Hammer) + التقدّم والتشغيل (Load) في شكل واحد بسيط يشتغل من 16px لحد اللوحات الكبيرة.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0B1B3399;line-height:1.9">
+          <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #0B1B3322;padding-bottom:8px"><span>CLEARSPACE</span><span dir="rtl" style="color:#0B1B33">= عرض العارضة × 1</span></div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #0B1B3322;padding-bottom:8px"><span>MIN SIZE — SYMBOL</span><span style="color:#0B1B33">16 px</span></div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px dashed #0B1B3322;padding-bottom:8px"><span>MIN SIZE — LOCKUP</span><span style="color:#0B1B33">120 px</span></div>
+          <div style="display:flex;justify-content:space-between"><span>NEVER</span><span dir="rtl" style="color:#0B1B33">تدوير / ظل / تدرّج / تمديد</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COLOR -->
+    <section style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C97E0A">02</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Color</h2>
+        <span dir="rtl" style="font-size:15px;color:#0B1B3399">لوحة الألوان</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px">
+        <div style="background:#0B1B33;color:#fff;padding:28px;height:220px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700">Deep Navy</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;color:#ffffffB3">#0B1B33<br>rgb(11 27 51)<br>PRIMARY<br><span dir="rtl">نصوص، خلفيات داكنة</span></div>
+        </div>
+        <div style="background:#F2A31B;color:#0B1B33;padding:28px;height:220px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700">Amber</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;color:#0B1B33B3">#F2A31B<br>ACCENT<br><span dir="rtl">على خلفية داكنة</span></div>
+        </div>
+        <div style="background:#C97E0A;color:#fff;padding:28px;height:220px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700">Amber Deep</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;color:#ffffffB3">#C97E0A<br>ACCENT — TEXT<br><span dir="rtl">على خلفية فاتحة</span></div>
+        </div>
+        <div style="background:#fff;color:#0B1B33;padding:28px;height:220px;border:1px solid #0B1B3314;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700">Paper</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;color:#0B1B3399">#FFFFFF / #F7F7F5<br>BASE<br><span dir="rtl">الخلفية الأساسية</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0B1B3399">
+        <span>RATIO — 70% Paper</span><span>·</span><span>25% Navy</span><span>·</span><span>5% Amber</span><span>·</span><span dir="rtl" style="color:#0B1B33">الأمبر للأزرار والتفاصيل فقط، مش للمساحات الكبيرة</span>
+      </div>
+    </section>
+
+    <!-- 3. TYPOGRAPHY -->
+    <section style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C97E0A">03</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Typography</h2>
+        <span dir="rtl" style="font-size:15px;color:#0B1B3399">الخطوط</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:40px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Display / Headings</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:64px;font-weight:700;letter-spacing:-.035em;line-height:1">Space Grotesk</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;line-height:1.5">Aa Bb Cc — 0123456789<br>Weights 500 / 700 · tracking −3.5%</div>
+          <div dir="rtl" style="font-size:15px;line-height:1.7;color:#0B1B33CC;text-align:right">Geometric sans قوي وتقني، حواف حادة — مناسب للعناوين والوردمارك.</div>
+        </div>
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:40px;display:flex;flex-direction:column;gap:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Text / Body — AR + EN</div>
+          <div style="font-family:'IBM Plex Sans Arabic',sans-serif;font-size:52px;font-weight:600;letter-spacing:-.02em;line-height:1.15">IBM Plex Sans<br>آي بي إم بلكس</div>
+          <div dir="rtl" style="font-family:'IBM Plex Sans Arabic',sans-serif;font-size:17px;line-height:1.8;text-align:right">نبني سوفتوير، وكمان بنصلّحه. مواقع، تطبيقات موبايل، أنظمة backend، وحلول AI.</div>
+          <div style="font-size:15px;line-height:1.7;color:#0B1B33CC">Weights 400 / 500 / 600 · line-height 1.7–1.8 · <span dir="rtl">دعم عربي كامل</span>.</div>
+        </div>
+      </div>
+      <div style="background:#0B1B33;color:#fff;padding:36px 40px;display:flex;flex-wrap:wrap;gap:48px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:2;color:#ffffffB3">
+        <div><span style="color:#F2A31B">H1</span> · Space Grotesk 700 · 64/60px</div>
+        <div><span style="color:#F2A31B">H2</span> · Space Grotesk 700 · 36px</div>
+        <div><span style="color:#F2A31B">BODY</span> · Plex Sans 400 · 17px</div>
+        <div><span style="color:#F2A31B">LABEL</span> · Plex Mono 500 · 11px / .14em</div>
+      </div>
+    </section>
+
+    <!-- 4. APPLICATIONS -->
+    <section style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C97E0A">04</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Applications</h2>
+        <span dir="rtl" style="font-size:15px;color:#0B1B3399">التطبيقات</span>
+      </div>
+
+      <!-- profile pictures -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Profile picture — 400 × 400 · LinkedIn / X / Instagram</div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+            <div style="width:180px;height:180px;overflow:hidden">
+              <div style="transform:scale(.9);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                <div style="position:relative;width:104px;height:112px">
+                  <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                    <div style="width:62%;height:100%;background:#F2A31B"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1B3399">SQUARE</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+            <div style="width:180px;height:180px;overflow:hidden;border-radius:50%">
+              <div style="transform:scale(.9);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                <div style="position:relative;width:104px;height:112px">
+                  <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                    <div style="width:62%;height:100%;background:#F2A31B"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1B3399">CIRCLE CROP</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+            <div style="width:180px;height:180px;overflow:hidden;border:1px solid #0B1B3314;box-sizing:border-box">
+              <div style="transform:scale(.895);transform-origin:0 0;position:relative;width:200px;height:200px;background:#fff;display:flex;align-items:center;justify-content:center">
+                <div style="position:relative;width:104px;height:112px">
+                  <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#0B1B33"></div>
+                  <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#0B1B33"></div>
+                  <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#0B1B3324;display:flex">
+                    <div style="width:62%;height:100%;background:#C97E0A"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1B3399">LIGHT ALT</span>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-end;padding:0 0 34px 12px">
+            <div style="width:48px;height:48px;overflow:hidden">
+              <div style="transform:scale(.24);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                <div style="position:relative;width:104px;height:112px">
+                  <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                    <div style="width:62%;height:100%;background:#F2A31B"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="width:24px;height:24px;overflow:hidden">
+              <div style="transform:scale(.12);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                <div style="position:relative;width:104px;height:112px">
+                  <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                  <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                    <div style="width:62%;height:100%;background:#F2A31B"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B1B3399;padding-bottom:4px">48 / 24 px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- linkedin cover -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">LinkedIn cover — 1584 × 396</div>
+        <div style="width:1084px;height:271px;overflow:hidden;border:1px solid #0B1B3314;max-width:100%">
+          <div style="transform:scale(.6843);transform-origin:0 0;width:1584px;height:396px;background:#fff;box-sizing:border-box;padding:0 96px;display:flex;align-items:center;justify-content:space-between;position:relative">
+            <div style="position:absolute;left:0;bottom:0;height:14px;width:62%;background:#F2A31B"></div>
+            <div style="position:absolute;left:62%;right:0;bottom:0;height:14px;background:#0B1B33"></div>
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <div style="display:flex;align-items:center;gap:18px">
+                <div style="width:64px;height:64px;overflow:hidden">
+                  <div style="transform:scale(.32);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                    <div style="position:relative;width:104px;height:112px">
+                      <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                        <div style="width:62%;height:100%;background:#F2A31B"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;letter-spacing:-.035em;color:#0B1B33">HammerLoad</div>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;line-height:1.25;color:#0B1B33;letter-spacing:-.02em">We build software.<br><span style="color:#C97E0A">We also fix it.</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#0B1B3399">
+              <span>Web</span><span>Mobile</span><span>Backend</span><span style="color:#0B1B33">AI Solutions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- social posts -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0B1B3399">Social post template — 1080 × 1080</div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap">
+          <div style="width:480px;height:480px;overflow:hidden;border:1px solid #0B1B3314">
+            <div style="transform:scale(.4444);transform-origin:0 0;width:1080px;height:1080px;background:#fff;box-sizing:border-box;padding:96px;display:flex;flex-direction:column;justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:22px">
+                <div style="width:72px;height:72px;overflow:hidden">
+                  <div style="transform:scale(.36);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                    <div style="position:relative;width:104px;height:112px">
+                      <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                        <div style="width:62%;height:100%;background:#F2A31B"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:#0B1B3399">HammerLoad</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:40px">
+                <div style="width:120px;height:10px;background:#F2A31B"></div>
+                <h3 style="font-family:'Space Grotesk',sans-serif;font-size:96px;line-height:1.05;letter-spacing:-.035em;font-weight:700;margin:0;color:#0B1B33;text-wrap:pretty">Legacy code isn't a life sentence.</h3>
+                <p dir="rtl" style="font-family:'IBM Plex Sans Arabic',sans-serif;font-size:34px;line-height:1.6;margin:0;color:#0B1B33B3;max-width:760px;text-align:right;align-self:flex-end">بنراجع النظام القديم، بنصلّح اللي واقف، وبنسلّمك بيس بناء واضح.</p>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="background:#F2A31B;color:#0B1B33;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;padding:22px 40px">Book a code audit</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#0B1B3399">hammerload.com</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="width:480px;height:480px;overflow:hidden;border:1px solid #0B1B3314">
+            <div style="transform:scale(.4444);transform-origin:0 0;width:1080px;height:1080px;background:#0B1B33;box-sizing:border-box;padding:96px;display:flex;flex-direction:column;justify-content:space-between">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:#ffffff99">Case note / 04</div>
+                <div style="width:72px;height:72px;overflow:hidden">
+                  <div style="transform:scale(.36);transform-origin:0 0;position:relative;width:200px;height:200px;background:#0B1B33;display:flex;align-items:center;justify-content:center">
+                    <div style="position:relative;width:104px;height:112px">
+                      <div style="position:absolute;left:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;right:0;top:0;width:24px;height:112px;background:#fff"></div>
+                      <div style="position:absolute;left:24px;right:24px;top:44px;height:24px;background:#ffffff2e;display:flex">
+                        <div style="width:62%;height:100%;background:#F2A31B"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:36px">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:190px;line-height:.9;letter-spacing:-.045em;font-weight:700;color:#F2A31B">6 wks</div>
+                <h3 style="font-family:'Space Grotesk',sans-serif;font-size:64px;line-height:1.1;letter-spacing:-.03em;font-weight:500;margin:0;color:#fff;max-width:820px;text-wrap:pretty">From broken checkout to 99.9% uptime.</h3>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ffffff2e;padding-top:32px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:.12em;text-transform:uppercase;color:#ffffff99">We build software. We also fix it.</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#fff">hammerload.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. VOICE -->
+    <section style="display:flex;flex-direction:column;gap:28px;border-top:1px solid #0B1B3316;padding-top:56px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C97E0A">05</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;margin:0">Voice</h2>
+        <span dir="rtl" style="font-size:15px;color:#0B1B3399">نبرة الكلام</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:32px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#C97E0A">DO</div>
+          <div dir="rtl" style="font-size:17px;line-height:1.9;color:#0B1B33;text-align:right">جمل قصيرة. فعل + نتيجة.<br>أرقام وتواريخ بدل صفات.<br>«بنصلّح اللي واقف» بدل «حلول مبتكرة».</div>
+        </div>
+        <div style="background:#fff;border:1px solid #0B1B3314;padding:32px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#0B1B3366">DON'T</div>
+          <div dir="rtl" style="font-size:17px;line-height:1.9;color:#0B1B3399;text-align:right">مصطلحات تسويقية فاضية.<br>وعود مطّاطة من غير مدى زمني.<br>إيموجي أو علامات تعجب.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;loadProgress&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:62,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Logo&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = Math.max(0, Math.min(100, this.props.loadProgress ?? 62));
+    return { loadPct: p + "%" };
+  }
+}
+</script>
+</body>
+</html>

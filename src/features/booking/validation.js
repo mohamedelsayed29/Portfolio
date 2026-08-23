@@ -18,6 +18,7 @@ export const INITIAL_VALUES = {
   heardFrom: '',
   consent: false,
   projectSlug: '',
+  website: '',
 }
 
 /**
@@ -65,6 +66,9 @@ export function toBookingPayload(values) {
     company: values.company.trim(),
     heardFrom: values.heardFrom,
     projectSlug: values.projectSlug || undefined,
+    consent: values.consent,
+    website: values.website,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   }
 
   if (values.type === 'project') {

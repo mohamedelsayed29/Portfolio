@@ -1,4 +1,4 @@
-import { api, delay, isBackendConfigured } from '@lib/api'
+import { api, delay, isBackendConfigured, request } from '@lib/api'
 import { MEETING_SLOTS } from '@data/booking'
 import { toISODate } from '@lib/format'
 
@@ -42,26 +42,9 @@ export async function fetchAvailability(days = 10) {
   return buildMockAvailability(days)
 }
 
-const makeReference = (isoDate, email) => {
-  const seed = [...`${isoDate}${email}`].reduce((total, char) => total + char.charCodeAt(0), 0)
-  return `QW-${String(seed % 100000).padStart(5, '0')}`
-}
-
 export async function createBooking(payload) {
-  if (isBackendConfigured) {
-    return api.post('/bookings', payload)
-  }
-
-  await delay(1200)
-
-  // Mock rejection path so the error state is reachable in the demo.
-  if (payload.email.endsWith('@example.com')) {
-    throw new Error('That address is a placeholder domain — use a reachable inbox.')
-  }
-
-  return {
-    reference: makeReference(payload.date || toISODate(new Date()), payload.email),
-    receivedAt: new Date().toISOString(),
-    ...payload,
-  }
+  // Booking delivery is always owned by this application. Availability may
+  // still come from VITE_API_URL, but successful submissions cannot bypass the
+  // same-origin endpoint that sends to HammerLoad's configured inbox.
+  return request('/api/bookings', { method: 'POST', body: payload, baseUrl: '' })
 }

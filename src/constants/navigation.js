@@ -7,7 +7,7 @@ export const NAV_LINKS = [
 
 export const FOOTER_SECTIONS = [
   {
-    title: 'Services',
+    title: 'Capabilities',
     links: [
       { label: 'Frontend engineering', to: '/services#frontend' },
       { label: 'Backend & APIs', to: '/services#backend' },
@@ -17,21 +17,12 @@ export const FOOTER_SECTIONS = [
     ],
   },
   {
-    title: 'Studio',
+    title: 'Company',
     links: [
       { label: 'Selected work', to: '/work' },
       { label: 'About us', to: '/about' },
       { label: 'Process', to: '/#process' },
-      { label: 'Book a call', to: '/book' },
-    ],
-  },
-  {
-    title: 'Engage',
-    links: [
-      { label: 'Book a project', to: '/book?type=project' },
-      { label: 'Book a meeting', to: '/book?type=meeting' },
-      { label: 'Bug triage sprint', to: '/book?type=project&service=bugfix' },
-      { label: 'Technical audit', to: '/book?type=meeting&service=ai' },
+      { label: 'Contact', to: '/book' },
     ],
   },
 ]

@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import { Check } from 'lucide-react'
 import { Button } from '@components/ui'
 import { EASE_APPLE } from '@lib/animations'
-import { formatDayLabel } from '@lib/format'
 import { getServiceById } from '@data/services'
 import { SITE } from '@constants/site'
 
@@ -27,13 +26,10 @@ export function BookingSuccess({ result, onReset, onDone }) {
       </motion.span>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-[26px] font-semibold tracking-[-0.02em]">
-          {result?.type === 'meeting' ? 'Your slot is held' : 'Request received'}
-        </h3>
+        <h3 className="text-[26px] font-semibold tracking-[-0.02em]">Request received</h3>
         <p className="max-w-[42ch] text-[15px] leading-relaxed text-text-muted">
-          {result?.type === 'meeting'
-            ? `We have pencilled in ${formatDayLabel(result.date)} at ${result.time}. A calendar invite is on its way to ${result.email}.`
-            : `We will come back to you at ${result?.email} within one working day with questions or a scope.`}
+          {result?.type === 'meeting' ? 'Your call request' : 'Your project request'} has been
+          received. We will get back to you shortly at {result?.email}.
         </p>
       </div>
 

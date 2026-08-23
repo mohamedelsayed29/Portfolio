@@ -1,12 +1,26 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
+import { createBookingRequestHandler } from './server/booking.js'
 
 const resolvePath = (path) => fileURLToPath(new URL(path, import.meta.url))
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
+function bookingApiPlugin(env) {
+  const handler = createBookingRequestHandler({ env })
+  const install = (server) => {
+    server.middlewares.use('/api/bookings', handler)
+  }
+
+  return {
+    name: 'hammerload-booking-api',
+    configureServer: install,
+    configurePreviewServer: install,
+  }
+}
+
+export default defineConfig(({ mode }) => ({
+  plugins: [bookingApiPlugin({ ...process.env, ...loadEnv(mode, process.cwd(), '') }), react(), tailwindcss()],
   resolve: {
     // Order matters: alias entries are matched as prefixes in order, so the
     // bare '@' catch-all has to come last or it swallows '@app', '@lib', etc.
@@ -28,4 +42,4 @@ export default defineConfig({
     allowedHosts: ['pattern-population-mirror-attempting.trycloudflare.com'],
   },
   build: { outDir: 'dist', sourcemap: false },
-})
+}))

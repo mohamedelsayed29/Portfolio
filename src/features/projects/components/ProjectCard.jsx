@@ -25,7 +25,7 @@ export function ProjectCard({ project, index = 0, featured = false }) {
           {project.image ? (
             <img
               src={project.image}
-              alt={`${project.title} — ${project.subtitle}`}
+              alt={`${project.title} - ${project.subtitle}`}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 size-full scale-105 object-cover object-left-top transition-transform duration-[900ms] ease-[var(--ease-apple)] group-hover:scale-115"
@@ -47,7 +47,9 @@ export function ProjectCard({ project, index = 0, featured = false }) {
 
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
             <div>
-              <p className="text-[13px] font-medium text-white/70">{project.client}</p>
+              <p className="text-[13px] font-medium text-white/70">
+                {project.cardLabel ?? project.client}
+              </p>
               <h3 className="text-[26px] leading-tight font-semibold text-white">
                 {project.title}
               </h3>

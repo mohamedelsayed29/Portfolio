@@ -6,6 +6,18 @@ import { cn } from '@lib/cn'
 export function ContactStep({ values, errors, setField }) {
   return (
     <div className="flex flex-col gap-6">
+      <div className="absolute left-[-10000px] top-auto size-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="booking-website">Website</label>
+        <input
+          id="booking-website"
+          name="website"
+          value={values.website}
+          tabIndex={-1}
+          autoComplete="off"
+          onChange={(event) => setField('website', event.target.value)}
+        />
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2">
         <Field id="booking-name" label="Your name" required error={errors.name}>
           <Input

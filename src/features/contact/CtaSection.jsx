@@ -1,52 +1,54 @@
-import { ArrowRight, Calendar } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Section } from '@components/layout'
-import { Reveal } from '@components/common'
-import { Button } from '@components/ui'
-import { useBooking } from '@app/providers'
 import { SITE } from '@constants/site'
 
-/** Closing band. One decision, two doors: scope a project, or just talk. */
+/** A compact final invitation that flows directly into the footer. */
 export function CtaSection() {
-  const { openBooking } = useBooking()
-
   return (
-    <Section spacing="lg" width="wide">
-      <Reveal>
-        <div className="relative overflow-hidden rounded-[36px] border border-line bg-surface px-8 py-20 text-center sm:px-16">
-          <div className="relative flex flex-col items-center gap-7">
-            <h2 className="max-w-[18ch] text-[clamp(2.25rem,6vw,4rem)] leading-[1.04] font-semibold">
-              Tell us what you are building.
-            </h2>
+    <Section
+      id="closing-cta"
+      width="wide"
+      className="bg-[#08090b] py-0! text-white"
+      aria-labelledby="footer-cta-title"
+    >
+      <div className="grid gap-7 border-y border-white/10 py-10 sm:py-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12">
+        <h2
+          id="footer-cta-title"
+          className="max-w-[18ch] font-brand text-[clamp(2rem,4vw,3rem)] leading-[1.02] font-bold tracking-[-0.04em]"
+        >
+          Bring us the hard part.
+        </h2>
 
-            <p className="max-w-[52ch] text-[17px] leading-relaxed text-text-muted sm:text-[19px]">
-              Or what stopped working. Both conversations start the same way — thirty minutes, no
-              deck, and an honest answer about whether we are the right team.
-            </p>
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7 md:justify-end">
+          <a
+            href={`mailto:${SITE.email}`}
+            aria-label={`Email HammerLoad at ${SITE.email}`}
+            className="group inline-flex items-center gap-1.5 rounded-[6px] text-[14px] text-white/58 transition-colors duration-200 hover:text-white"
+          >
+            {SITE.email}
+            <ArrowUpRight
+              size={13}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
 
-            <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <Button size="lg" icon={ArrowRight} onClick={() => openBooking({ type: 'project' })}>
-                Book a project
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                icon={Calendar}
-                iconPosition="left"
-                onClick={() => openBooking({ type: 'meeting' })}
-              >
-                Book a meeting
-              </Button>
-            </div>
-
-            <a
-              href={`mailto:${SITE.email}`}
-              className="text-[14px] text-text-subtle transition-colors hover:text-text"
-            >
-              or email {SITE.email}
-            </a>
-          </div>
+          <Link
+            to="/book?type=meeting"
+            className="group inline-flex items-center gap-2 rounded-[6px] text-[15px] font-semibold text-white transition-colors duration-200 hover:text-[#F2A31B]"
+          >
+            Book a call
+            <ArrowRight
+              size={16}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              className="text-[#F2A31B] transition-transform duration-200 group-hover:translate-x-1"
+            />
+          </Link>
         </div>
-      </Reveal>
+      </div>
     </Section>
   )
 }
