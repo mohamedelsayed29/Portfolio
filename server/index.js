@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { createBookingRequestHandler } from './booking.js'
 
 const root = fileURLToPath(new URL('../dist', import.meta.url))
-const port = Number(process.env.PORT || 4173)
+const port = Number(process.env.PORT || 4000)
 
 function loadEnvFile(path) {
   if (!existsSync(path)) return
@@ -62,6 +62,15 @@ const server = createServer(async (request, response) => {
 
   if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
     await bookingHandler(request, response)
+    return
+  }
+
+  if (pathname === '/health') {
+    response.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-store',
+    })
+    response.end(JSON.stringify({ ok: true }))
     return
   }
 
