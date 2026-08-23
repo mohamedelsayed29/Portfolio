@@ -4,7 +4,7 @@ export const SITE = {
   tagline: 'Software development & AI solutions',
   description:
     'We design, build and rescue software — web, mobile, backend and AI/LLM systems — for teams that care about the details.',
-  email: 'info@hammerload.com',
+  email: 'contact@hammerload.com',
   phone: '+1 (555) 010-4477',
   location: 'Cairo, Egypt',
   bookingWindowDays: 14,

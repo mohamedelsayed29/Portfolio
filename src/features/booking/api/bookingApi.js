@@ -1,4 +1,4 @@
-import { api, delay, isBackendConfigured, request } from '@lib/api'
+import { api, ApiError, delay, isBackendConfigured } from '@lib/api'
 import { MEETING_SLOTS } from '@data/booking'
 import { toISODate } from '@lib/format'
 
@@ -42,9 +42,56 @@ export async function fetchAvailability(days = 10) {
   return buildMockAvailability(days)
 }
 
+const label = (value = '') =>
+  String(value)
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+
 export async function createBooking(payload) {
-  // Booking delivery is always owned by this application. Availability may
-  // still come from VITE_API_URL, but successful submissions cannot bypass the
-  // same-origin endpoint that sends to HammerLoad's configured inbox.
-  return request('/api/bookings', { method: 'POST', body: payload, baseUrl: '' })
+  const requestType = payload.type === 'meeting' ? 'Meeting' : label(payload.service || payload.type)
+  const response = await fetch('/api/send-booking', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ...payload,
+      requestType,
+      preferredDate: payload.date,
+      preferredTime: payload.time,
+    }),
+  })
+
+  const text = await response.text()
+  let body = null
+
+  if (text) {
+    try {
+      body = JSON.parse(text)
+    } catch (error) {
+      console.error('Booking response JSON parse failed:', { text, error })
+    }
+  }
+
+  console.log('Booking response:', {
+    status: response.status,
+    ok: response.ok,
+    body,
+  })
+
+  if (!response.ok) {
+    throw new ApiError(body?.message ?? `Request failed with ${response.status}`, {
+      status: response.status,
+      details: body?.details,
+    })
+  }
+
+  if (body?.success === false) {
+    throw new ApiError(body?.message ?? 'We could not send your request.', {
+      status: response.status,
+      details: body?.details,
+    })
+  }
+
+  return body ?? { success: true, type: payload.type, email: payload.email }
 }

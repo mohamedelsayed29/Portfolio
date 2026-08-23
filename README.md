@@ -28,8 +28,8 @@ npm run preview
 npm run lint
 ```
 
-Copy `.env.example` to `.env`, configure the server-only Resend credentials, and run the
-site with `npm run dev`. Booking submissions use the same-origin `/api/bookings` endpoint
+Copy `.env.example` to `.env`, configure the server-only `RESEND_API_KEY`, and run the
+site with `npm run dev`. Booking submissions use the same-origin `/api/send-booking` endpoint
 and only show success after email delivery is confirmed. `VITE_API_URL` is optional and
 only replaces the deterministic local availability data.
 

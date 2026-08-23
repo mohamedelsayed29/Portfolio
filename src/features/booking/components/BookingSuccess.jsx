@@ -26,10 +26,11 @@ export function BookingSuccess({ result, onReset, onDone }) {
       </motion.span>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-[26px] font-semibold tracking-[-0.02em]">Request received</h3>
+        <h3 className="text-[26px] font-semibold tracking-[-0.02em]">
+          Request received
+        </h3>
         <p className="max-w-[42ch] text-[15px] leading-relaxed text-text-muted">
-          {result?.type === 'meeting' ? 'Your call request' : 'Your project request'} has been
-          received. We will get back to you shortly at {result?.email}.
+          {`${result?.type === 'meeting' ? 'Your call request' : 'Your project request'} has been received. We will get back to you shortly at ${result?.email}.`}
         </p>
       </div>
 

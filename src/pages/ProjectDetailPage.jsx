@@ -1,9 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'motion/react'
-import { ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, FileText, PlayCircle } from 'lucide-react'
 import { Container, Section } from '@components/layout'
 import { Seo, Reveal, PageTransition } from '@components/common'
-import { Badge, Button } from '@components/ui'
+import { Badge, Button, Card } from '@components/ui'
 import { getProjectBySlug, getRelatedProjects } from '@data/projects'
 import { ProjectCard } from '@features/projects'
 import { CtaSection } from '@features/contact'
@@ -73,6 +73,65 @@ export default function ProjectDetailPage() {
           )}
         </motion.div>
       </Container>
+
+      {project.resources && (
+        <Section width="wide" spacing="sm">
+          <div className="grid gap-6 lg:grid-cols-[1.45fr_0.75fr]">
+            {project.resources.video && (
+              <Reveal className="flex flex-col gap-4">
+                <div className="flex items-center gap-2 text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
+                  <PlayCircle size={16} aria-hidden="true" />
+                  {project.resources.video.label}
+                </div>
+                <div className="aspect-video overflow-hidden rounded-[var(--radius-apple-lg)] border border-line bg-surface-muted shadow-card">
+                  <iframe
+                    src={project.resources.video.embed}
+                    title={`${project.title} ${project.resources.video.label}`}
+                    className="size-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              </Reveal>
+            )}
+
+            {project.resources.pdf && (
+              <Reveal delay={0.08}>
+                <Card className="flex h-full flex-col justify-between gap-8 p-6 sm:p-8">
+                  <div className="flex flex-col gap-4">
+                    <span className="grid size-12 place-items-center rounded-[14px] bg-accent/10 text-accent">
+                      <FileText size={22} aria-hidden="true" />
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <h2 className="text-[24px] font-semibold tracking-[-0.02em]">
+                        {project.resources.pdf.label}
+                      </h2>
+                      <p className="text-[14px] leading-relaxed text-text-muted">
+                        Open the {project.title} feature PDF for a deeper look at the platform modules,
+                        resident flows and management tools.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <Button href={project.resources.pdf.href}>
+                      Open PDF
+                    </Button>
+                    <a
+                      href={project.resources.pdf.href}
+                      download
+                      className="inline-flex h-11 items-center justify-center rounded-full border border-line bg-surface px-6 text-[15px] font-medium tracking-[-0.01em] text-text transition-all duration-300 ease-[var(--ease-apple)] hover:border-line-strong hover:bg-surface-muted"
+                    >
+                      Download
+                    </a>
+                  </div>
+                </Card>
+              </Reveal>
+            )}
+          </div>
+        </Section>
+      )}
 
       <Section width="wide" spacing="md">
         <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr] lg:gap-20">

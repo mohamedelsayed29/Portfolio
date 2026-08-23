@@ -5,10 +5,8 @@
  */
 export const PROJECT_CATEGORIES = [
   { id: 'all', label: 'All work' },
-  { id: 'ai', label: 'AI & LLM' },
   { id: 'web', label: 'Web' },
   { id: 'mobile', label: 'Mobile' },
-  { id: 'backend', label: 'Backend' },
 ]
 
 export const PROJECTS = [
@@ -92,6 +90,17 @@ export const PROJECTS = [
     stack: ['Realtime', 'QR access', 'Offline-first', 'Arabic RTL'],
     stackLabel: 'Platform capabilities',
     services: ['frontend', 'mobile', 'backend'],
+    resources: {
+      video: {
+        label: 'Product walkthrough',
+        href: 'https://youtu.be/wsxRj9YJRJM',
+        embed: 'https://www.youtube-nocookie.com/embed/wsxRj9YJRJM',
+      },
+      pdf: {
+        label: 'Feature deck',
+        href: '/mkank_assets/mkank-features.pdf',
+      },
+    },
   },
   {
     slug: 'fitway',
@@ -130,136 +139,17 @@ export const PROJECTS = [
       'Swagger',
     ],
     services: ['frontend', 'mobile', 'backend'],
-  },
-  {
-    slug: 'northwind-commerce',
-    title: 'Northwind',
-    subtitle: 'Headless commerce replatform',
-    category: 'web',
-    year: 2025,
-    client: 'Northwind Supply',
-    featured: false,
-    cover: 'linear-gradient(135deg, #1d1d1f 0%, #3a3a3f 45%, #0071e3 100%)',
-    summary:
-      'Moved a 40k-SKU retailer off a decade-old monolith without a single hour of downtime.',
-    problem:
-      'Page loads averaged 6.4 seconds on mobile and the checkout abandoned 71% of carts. Every merchandising change needed an engineer.',
-    approach:
-      'A strangler-fig migration: we put Next.js in front of the legacy system, moved routes across one category at a time, and handed merchandising to the business through a headless CMS.',
-    outcome:
-      'Largest Contentful Paint fell to 1.1s, checkout abandonment dropped 23 points, and the merchandising team now ships changes without engineering.',
-    metrics: [
-      { value: '1.1s', label: 'LCP on mobile' },
-      { value: '+38%', label: 'Mobile conversion' },
-      { value: '0h', label: 'Downtime migrating' },
-    ],
-    stack: ['Next.js', 'TypeScript', 'GraphQL', 'PostgreSQL', 'Vercel'],
-    services: ['frontend', 'backend'],
-    href: 'https://example.com',
-  },
-  {
-    slug: 'pulse-health',
-    title: 'Pulse',
-    subtitle: 'Clinical companion app',
-    category: 'mobile',
-    year: 2025,
-    client: 'Pulse Health',
-    featured: false,
-    cover: 'linear-gradient(135deg, #ff5c8a 0%, #ff9f0a 100%)',
-    summary:
-      'An offline-first iOS and Android app used on ward rounds where the wifi does not reach.',
-    problem:
-      'Clinicians were writing observations on paper because the existing app lost data whenever it dropped signal in the building basement.',
-    approach:
-      'React Native with a local-first CRDT store that syncs opportunistically, plus biometric lock and a strict audit trail for HIPAA compliance.',
-    outcome:
-      'Zero data-loss incidents in eighteen months, and a 4.8 rating across both stores from 12,000 clinical users.',
-    metrics: [
-      { value: '4.8★', label: 'Store rating' },
-      { value: '12k', label: 'Daily clinicians' },
-      { value: '0', label: 'Data-loss incidents' },
-    ],
-    stack: ['React Native', 'Expo', 'SQLite', 'Node.js', 'AWS'],
-    services: ['mobile', 'backend'],
-    href: 'https://example.com',
-  },
-  {
-    slug: 'vertex-ledger',
-    title: 'Vertex',
-    subtitle: 'Real-time settlement engine',
-    category: 'backend',
-    year: 2024,
-    client: 'Vertex Payments',
-    featured: false,
-    cover: 'linear-gradient(135deg, #30d158 0%, #0071e3 100%)',
-    summary:
-      'A double-entry ledger clearing 40,000 transactions a second without losing a cent.',
-    problem:
-      'Nightly batch settlement meant merchants waited up to 36 hours for funds, and reconciliation errors took days to trace.',
-    approach:
-      'Event-sourced ledger on Kafka with deterministic replay, idempotent writes, and a reconciliation service that proves the books balance on every commit.',
-    outcome:
-      'Settlement moved from 36 hours to near-instant, and reconciliation disputes fell by 91%.',
-    metrics: [
-      { value: '40k/s', label: 'Peak throughput' },
-      { value: '99.99%', label: 'Uptime' },
-      { value: '−91%', label: 'Reconciliation disputes' },
-    ],
-    stack: ['Go', 'Kafka', 'PostgreSQL', 'Kubernetes', 'Grafana'],
-    services: ['backend'],
-    href: 'https://example.com',
-  },
-  {
-    slug: 'lumen-studio',
-    title: 'Lumen',
-    subtitle: 'Generative design tool',
-    category: 'ai',
-    year: 2024,
-    client: 'Lumen Labs',
-    featured: false,
-    cover: 'linear-gradient(135deg, #7f5af0 0%, #ff5c8a 100%)',
-    summary:
-      'A canvas where designers direct a fine-tuned diffusion model instead of fighting a prompt box.',
-    problem:
-      'Their existing tool produced striking one-off images that never matched the brand, so nothing reached production.',
-    approach:
-      'We distilled a brand-specific LoRA from 3,000 approved assets and built a layered canvas where every generation is constrained by the designer, not the prompt.',
-    outcome:
-      'Concept-to-approval dropped from four days to six hours, with 80% of output passing brand review first time.',
-    metrics: [
-      { value: '6h', label: 'Concept to approval' },
-      { value: '80%', label: 'First-pass approval' },
-      { value: '3k', label: 'Training assets' },
-    ],
-    stack: ['PyTorch', 'Diffusers', 'React', 'WebGL', 'Modal'],
-    services: ['ai', 'frontend'],
-    href: 'https://example.com',
-  },
-  {
-    slug: 'harbor-rescue',
-    title: 'Harbor',
-    subtitle: 'Production rescue engagement',
-    category: 'web',
-    year: 2024,
-    client: 'Harbor Logistics',
-    featured: false,
-    cover: 'linear-gradient(135deg, #ff9f0a 0%, #d70015 100%)',
-    summary:
-      'Nine weeks of outages, traced to one unindexed join. Then eleven more fixes nobody had found.',
-    problem:
-      'A logistics dashboard collapsed under load every Monday morning, and the original team had left no tests and no documentation.',
-    approach:
-      'We reproduced the failure under load, profiled it to a missing composite index, then spent the remaining sprint writing the regression suite that caught eleven further latent bugs.',
-    outcome:
-      'p99 latency fell from 14 seconds to 340ms, and the Monday incident has not recurred in two years.',
-    metrics: [
-      { value: '340ms', label: 'p99 latency' },
-      { value: '12', label: 'Root causes fixed' },
-      { value: '4 days', label: 'To first fix' },
-    ],
-    stack: ['PostgreSQL', 'Node.js', 'Playwright', 'Sentry'],
-    services: ['bugfix', 'backend'],
-    href: 'https://example.com',
+    resources: {
+      video: {
+        label: 'Product walkthrough',
+        href: 'https://youtu.be/3k7gGTS5akY',
+        embed: 'https://www.youtube-nocookie.com/embed/3k7gGTS5akY',
+      },
+      pdf: {
+        label: 'Feature deck',
+        href: '/fitway_assets/fitway_features_ar.pdf',
+      },
+    },
   },
 ]
 

@@ -9,6 +9,7 @@ const resolvePath = (path) => fileURLToPath(new URL(path, import.meta.url))
 function bookingApiPlugin(env) {
   const handler = createBookingRequestHandler({ env })
   const install = (server) => {
+    server.middlewares.use('/api/send-booking', handler)
     server.middlewares.use('/api/bookings', handler)
   }
 

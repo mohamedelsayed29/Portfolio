@@ -14,7 +14,7 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
         <SectionHeading
           eyebrow="Selected work"
           title="Things we shipped that stayed shipped"
-          description="Four recent case studies across web, mobile and backend systems."
+          description="Recent case studies across web, mobile and backend systems."
           className="max-w-2xl"
         />
         <Reveal delay={0.15}>

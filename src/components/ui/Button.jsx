@@ -76,12 +76,15 @@ export const Button = forwardRef(function Button(
   }
 
   if (href) {
+    const externalProps = href.startsWith('mailto:')
+      ? {}
+      : { target: '_blank', rel: 'noreferrer noopener' }
+
     return (
       <a
         ref={ref}
         href={href}
-        target="_blank"
-        rel="noreferrer noopener"
+        {...externalProps}
         className={classes}
         {...props}
       >

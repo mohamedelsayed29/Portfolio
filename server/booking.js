@@ -1,4 +1,5 @@
 import { randomBytes } from 'node:crypto'
+import { Resend } from 'resend'
 
 const MAX_BODY_BYTES = 32 * 1024
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000
@@ -12,6 +13,8 @@ const SERVICES = new Set(['frontend', 'backend', 'mobile', 'ai', 'bugfix', 'solu
 const BUDGETS = new Set(['under-5k', '5k-15k', '15k-40k', '40k-100k', '100k-plus', 'unsure'])
 const TIMELINES = new Set(['asap', '1-month', 'quarter', 'exploring'])
 const HEARD_FROM = new Set(['', 'search', 'referral', 'social', 'event', 'other'])
+const BOOKING_FROM_EMAIL = 'booking@hammerload.com'
+const BOOKING_TO_EMAIL = 'contact@hammerload.com'
 
 class PublicError extends Error {
   constructor(message, status = 400, details) {
@@ -21,9 +24,35 @@ class PublicError extends Error {
   }
 }
 
+class DeliveryError extends Error {
+  constructor(message, details = 'Resend email delivery failed.') {
+    super(message)
+    this.status = 500
+    this.details = details
+  }
+}
+
 const cleanText = (value) => {
   if (typeof value !== 'string') return ''
   return value.replace(/\r\n?/g, '\n').trim()
+}
+
+const normalizeRequestType = (input) => {
+  const requestType = cleanText(input.requestType)
+  const type = cleanText(input.type).toLowerCase()
+  if (BOOKING_TYPES.has(type)) return { type, requestType: requestType || label(type) }
+
+  const normalizedRequestType = requestType.toLowerCase()
+  if (
+    cleanText(input.preferredDate) ||
+    cleanText(input.preferredTime) ||
+    normalizedRequestType.includes('meeting') ||
+    normalizedRequestType.includes('consultation')
+  ) {
+    return { type: 'meeting', requestType }
+  }
+
+  return { type: type || 'project', requestType }
 }
 
 const escapeHtml = (value) =>
@@ -39,12 +68,10 @@ function validateBooking(input) {
     throw new PublicError('Please check the form and try again.')
   }
 
-  if (cleanText(input.website)) {
-    throw new PublicError('We could not send your request. Please try again.')
-  }
-
+  const normalized = normalizeRequestType(input)
   const booking = {
-    type: cleanText(input.type),
+    type: normalized.type,
+    requestType: normalized.requestType,
     name: cleanText(input.name),
     email: cleanText(input.email).toLowerCase(),
     company: cleanText(input.company),
@@ -52,7 +79,7 @@ function validateBooking(input) {
     projectSlug: cleanText(input.projectSlug),
     message: cleanText(input.message),
     timezone: cleanText(input.timezone),
-    consent: input.consent === true,
+    consent: input.consent !== false,
   }
 
   const details = {}
@@ -82,9 +109,9 @@ function validateBooking(input) {
   }
 
   if (booking.type === 'meeting') {
-    booking.date = cleanText(input.date)
-    booking.time = cleanText(input.time)
-    booking.duration = Number(input.duration)
+    booking.date = cleanText(input.preferredDate) || cleanText(input.date)
+    booking.time = cleanText(input.preferredTime) || cleanText(input.time)
+    booking.duration = Number(input.duration || 30)
 
     const parsedDate = new Date(`${booking.date}T00:00:00.000Z`)
     const today = new Date()
@@ -119,7 +146,7 @@ const label = (value) =>
 
 function bookingRows(booking, submittedAt) {
   const rows = [
-    ['Request type', label(booking.type)],
+    ['Request type', booking.requestType || label(booking.type)],
     ['Name', booking.name],
     ['Email', booking.email],
   ]
@@ -148,7 +175,7 @@ function bookingRows(booking, submittedAt) {
 export function buildBookingEmail(booking, submittedAt = new Date().toISOString()) {
   const rows = bookingRows(booking, submittedAt)
   const subjectName = booking.company ? `${booking.name} / ${booking.company}` : booking.name
-  const subject = `New HammerLoad booking - ${subjectName}`
+  const subject = `New HammerLoad booking request - ${subjectName}`
   const text = [
     'New HammerLoad booking request',
     '',
@@ -158,19 +185,19 @@ export function buildBookingEmail(booking, submittedAt = new Date().toISOString(
     .map(
       ([key, value]) => `
         <tr>
-          <th style="padding:10px 16px;text-align:left;vertical-align:top;color:#667085;font-size:13px;font-weight:600;border-bottom:1px solid #e7e9ee">${escapeHtml(key)}</th>
-          <td style="padding:10px 16px;color:#0B1B33;font-size:14px;line-height:1.55;white-space:pre-wrap;border-bottom:1px solid #e7e9ee">${escapeHtml(value)}</td>
+          <th style="padding:12px 16px;text-align:left;vertical-align:top;color:#0B1F3A;font-size:13px;font-weight:700;border-bottom:1px solid #edf0f4;background:#fbfcfd">${escapeHtml(key)}</th>
+          <td style="padding:12px 16px;color:#233044;font-size:14px;line-height:1.55;white-space:pre-wrap;border-bottom:1px solid #edf0f4">${escapeHtml(value)}</td>
         </tr>`,
     )
     .join('')
 
   const html = `<!doctype html>
 <html lang="en">
-  <body style="margin:0;padding:28px;background:#f7f7f5;font-family:Arial,sans-serif">
-    <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #e7e9ee">
-      <div style="padding:24px 28px;background:#0B1B33;color:#ffffff;border-bottom:6px solid #F2A31B">
-        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#F2A31B">HammerLoad</div>
-        <h1 style="margin:8px 0 0;font-size:22px;line-height:1.25">New booking request</h1>
+  <body style="margin:0;padding:28px;background:#ffffff;font-family:Arial,sans-serif">
+    <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #edf0f4;border-radius:18px;overflow:hidden">
+      <div style="padding:26px 28px;background:#ffffff;border-bottom:4px solid #E08B2E">
+        <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#E08B2E;font-weight:700">HammerLoad</div>
+        <h1 style="margin:8px 0 0;color:#0B1F3A;font-size:24px;line-height:1.25">New HammerLoad booking request</h1>
       </div>
       <table role="presentation" style="width:100%;border-collapse:collapse">${htmlRows}</table>
     </div>
@@ -182,33 +209,47 @@ export function buildBookingEmail(booking, submittedAt = new Date().toISOString(
 
 export async function sendWithResend(message, env = process.env) {
   const apiKey = env.RESEND_API_KEY
-  const from = env.BOOKING_FROM_EMAIL
 
-  if (!apiKey || !from) {
-    throw new PublicError('Booking is temporarily unavailable. Please try again later.', 503)
+  console.log('API key exists:', Boolean(apiKey))
+
+  if (!apiKey) {
+    throw new PublicError('Email delivery is not configured. Please add RESEND_API_KEY.', 500)
   }
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from,
-      to: [message.to],
-      reply_to: message.replyTo,
-      subject: message.subject,
-      text: message.text,
-      html: message.html,
-    }),
-  })
-
-  if (!response.ok) {
-    throw new Error(`Resend rejected the booking email with status ${response.status}`)
+  const resend = new Resend(apiKey)
+  const payload = {
+    from: BOOKING_FROM_EMAIL,
+    to: [BOOKING_TO_EMAIL],
+    replyTo: message.replyTo,
+    subject: message.subject,
+    text: message.text,
+    html: message.html,
   }
 
-  return response.json()
+  console.log('Resend payload:', payload)
+
+  let result
+  try {
+    result = await resend.emails.send(payload)
+  } catch (error) {
+    logResendError(error)
+    throw new DeliveryError(
+      error instanceof Error ? error.message : 'Resend API request failed.',
+      'Resend API request failed. Check the server logs for the full error.',
+    )
+  }
+
+  const { data, error } = result
+
+  if (error) {
+    logResendError(error)
+    throw new DeliveryError(
+      error.message || 'Resend rejected the booking email.',
+      error.message || 'Resend rejected the booking email.',
+    )
+  }
+
+  return data
 }
 
 export async function processBooking(input, options = {}) {
@@ -217,20 +258,21 @@ export async function processBooking(input, options = {}) {
   const booking = validateBooking(input)
   const receivedAt = new Date().toISOString()
   const email = buildBookingEmail(booking, receivedAt)
-  const recipient = env.BOOKING_EMAIL || 'booking@hammerload.com'
 
-  await sendEmail(
+  const delivery = await sendEmail(
     {
       ...email,
-      to: recipient,
+      to: BOOKING_TO_EMAIL,
       replyTo: booking.email,
     },
     env,
   )
 
   return {
+    success: true,
     reference: `HL-${randomBytes(4).toString('hex').toUpperCase()}`,
     receivedAt,
+    emailId: delivery?.id,
     type: booking.type,
     email: booking.email,
     service: booking.service,
@@ -301,12 +343,31 @@ function readJson(request) {
 }
 
 function sendJson(response, status, payload, headers = {}) {
+  console.log('Booking API response:', {
+    status,
+    message: payload?.message,
+    success: payload?.success,
+    details: payload?.details,
+  })
+
   response.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
     'Cache-Control': 'no-store',
     ...headers,
   })
   response.end(JSON.stringify(payload))
+}
+
+function logResendError(error) {
+  console.error('Resend error diagnostics:', {
+    name: error?.name,
+    message: error?.message,
+    response: error?.response,
+    statusCode: error?.statusCode,
+    status: error?.status,
+    cause: error?.cause,
+    raw: error,
+  })
 }
 
 export function createBookingRequestHandler(options = {}) {
@@ -349,15 +410,26 @@ export function createBookingRequestHandler(options = {}) {
     try {
       const payload = await readJson(request)
       const result = await processBooking(payload, options)
-      sendJson(response, 201, result)
+      sendJson(response, 200, result)
     } catch (error) {
       if (error instanceof PublicError) {
         sendJson(response, error.status, { message: error.message, details: error.details })
         return
       }
 
+      if (error instanceof DeliveryError) {
+        logResendError(error)
+        console.error('Booking delivery failed:', error.message)
+        sendJson(response, error.status, {
+          message: 'We could not send your request.',
+          details: error.details,
+        })
+        return
+      }
+
+      logResendError(error)
       console.error('Booking delivery failed:', error instanceof Error ? error.message : 'Unknown error')
-      sendJson(response, 502, {
+      sendJson(response, 500, {
         message: 'We could not send your request. Please try again in a moment.',
       })
     }

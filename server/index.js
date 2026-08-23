@@ -1,4 +1,4 @@
-import { createReadStream, existsSync } from 'node:fs'
+import { createReadStream, existsSync, readFileSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, join, normalize } from 'node:path'
@@ -6,8 +6,31 @@ import { fileURLToPath } from 'node:url'
 import { createBookingRequestHandler } from './booking.js'
 
 const root = fileURLToPath(new URL('../dist', import.meta.url))
-const bookingHandler = createBookingRequestHandler()
 const port = Number(process.env.PORT || 4173)
+
+function loadEnvFile(path) {
+  if (!existsSync(path)) return
+
+  const contents = readFileSync(path, 'utf8')
+  for (const line of contents.split('\n')) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+
+    const separatorIndex = trimmed.indexOf('=')
+    if (separatorIndex === -1) continue
+
+    const key = trimmed.slice(0, separatorIndex).trim()
+    const rawValue = trimmed.slice(separatorIndex + 1).trim()
+    if (!key || process.env[key] !== undefined) continue
+
+    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
+  }
+}
+
+loadEnvFile('.env')
+loadEnvFile('.env.local')
+
+const bookingHandler = createBookingRequestHandler()
 
 const CONTENT_TYPES = {
   '.css': 'text/css; charset=utf-8',
@@ -37,7 +60,7 @@ function serveFile(response, path) {
 const server = createServer(async (request, response) => {
   const pathname = new URL(request.url || '/', 'http://localhost').pathname
 
-  if (pathname === '/api/bookings') {
+  if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
     await bookingHandler(request, response)
     return
   }

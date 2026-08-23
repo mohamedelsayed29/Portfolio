@@ -14,7 +14,7 @@ async function startHandler(options = {}) {
   servers.push(server)
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
   const address = server.address()
-  return `http://127.0.0.1:${address.port}/api/bookings`
+  return `http://127.0.0.1:${address.port}/api/send-booking`
 }
 
 const upcomingDate = new Date()
@@ -32,15 +32,13 @@ const validMeeting = {
   message: 'We would like to discuss a product build.',
   timezone: 'Africa/Cairo',
   consent: true,
-  website: '',
+  bookingVerification: '',
 }
 
 test('delivers a validated booking to the central recipient with customer reply-to', async () => {
   let delivered
   const url = await startHandler({
     env: {
-      BOOKING_EMAIL: 'booking@hammerload.com',
-      BOOKING_FROM_EMAIL: 'HammerLoad Website <website@hammerload.com>',
       RESEND_API_KEY: 'test-key',
     },
     sendEmail: async (message) => {
@@ -56,12 +54,46 @@ test('delivers a validated booking to the central recipient with customer reply-
   })
   const result = await response.json()
 
-  assert.equal(response.status, 201)
+  assert.equal(response.status, 200)
+  assert.equal(result.success, true)
   assert.match(result.reference, /^HL-[A-F0-9]{8}$/)
-  assert.equal(delivered.to, 'booking@hammerload.com')
+  assert.equal(result.emailId, 'email-test-id')
+  assert.equal(delivered.to, 'contact@hammerload.com')
   assert.equal(delivered.replyTo, 'alex@company.com')
-  assert.equal(delivered.subject, 'New HammerLoad booking - Alex Moreau / Acme Inc.')
+  assert.equal(delivered.subject, 'New HammerLoad booking request - Alex Moreau / Acme Inc.')
   assert.match(delivered.text, new RegExp(`Preferred date:\\n${upcomingIsoDate}`))
+})
+
+test('accepts the public send-booking field names', async () => {
+  let delivered
+  const url = await startHandler({
+    env: { RESEND_API_KEY: 'test-key' },
+    sendEmail: async (message) => {
+      delivered = message
+      return { id: 'email-test-id' }
+    },
+  })
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      requestType: 'Consultation',
+      name: 'Mona Hassan',
+      email: 'mona@example.com',
+      company: 'HammerLoad Client',
+      preferredDate: upcomingIsoDate,
+      preferredTime: '12:30',
+      bookingVerification: '',
+    }),
+  })
+  const result = await response.json()
+
+  assert.equal(response.status, 200)
+  assert.equal(result.success, true)
+  assert.equal(result.date, upcomingIsoDate)
+  assert.equal(result.time, '12:30')
+  assert.match(delivered.text, /Request type:\nConsultation/)
 })
 
 test('rejects invalid input before attempting delivery', async () => {
@@ -94,25 +126,52 @@ test('does not report success when email delivery is unavailable', async () => {
   })
   const result = await response.json()
 
-  assert.equal(response.status, 503)
-  assert.match(result.message, /temporarily unavailable/i)
+  assert.equal(response.status, 500)
+  assert.match(result.message, /not configured/i)
 })
 
-test('rejects the honeypot without sending an email', async () => {
-  let attempts = 0
+test('ignores the legacy website field if a browser autofills it', async () => {
+  let delivered
   const url = await startHandler({
-    env: {},
-    sendEmail: async () => {
-      attempts += 1
+    env: {
+      RESEND_API_KEY: 'test-key',
+    },
+    sendEmail: async (message) => {
+      delivered = message
+      return { id: 'email-test-id' }
     },
   })
 
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ...validMeeting, website: 'https://spam.invalid' }),
+    body: JSON.stringify({ ...validMeeting, website: 'https://company.example' }),
   })
 
-  assert.equal(response.status, 400)
-  assert.equal(attempts, 0)
+  assert.equal(response.status, 200)
+  assert.equal(delivered.to, 'contact@hammerload.com')
+})
+
+test('ignores browser-filled bookingVerification noise after a successful delivery', async () => {
+  let delivered
+  const url = await startHandler({
+    env: {
+      RESEND_API_KEY: 'test-key',
+    },
+    sendEmail: async (message) => {
+      delivered = message
+      return { id: 'email-test-id' }
+    },
+  })
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...validMeeting, bookingVerification: 'Animi minim unde et' }),
+  })
+  const result = await response.json()
+
+  assert.equal(response.status, 200)
+  assert.equal(result.success, true)
+  assert.equal(delivered.to, 'contact@hammerload.com')
 })
