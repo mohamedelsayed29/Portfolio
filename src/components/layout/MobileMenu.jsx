@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { NAV_LINKS } from '@constants/navigation'
 import { SITE } from '@constants/site'
-import { useLocalized, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { EASE_APPLE } from '@lib/animations'
 import { Button } from '@components/ui'
 import { useLockBodyScroll } from '@hooks'
@@ -27,6 +27,7 @@ const item = {
 
 export function MobileMenu({ open, onClose }) {
   useLockBodyScroll(open)
+  const { language } = useLanguage()
   const navLinks = useLocalized(NAV_LINKS)
   const s = useStrings(STRINGS)
 
@@ -44,7 +45,7 @@ export function MobileMenu({ open, onClose }) {
             {navLinks.map((link) => (
               <motion.div key={link.to} variants={item}>
                 <Link
-                  to={link.to}
+                  to={localizedPath(link.to, language)}
                   onClick={onClose}
                   className="group flex items-center justify-between border-b border-line py-5 text-[28px] font-semibold tracking-[-0.02em]"
                 >
@@ -60,7 +61,7 @@ export function MobileMenu({ open, onClose }) {
           </nav>
 
           <motion.div variants={item} className="mt-10 flex flex-col gap-5">
-            <Button to="/book" size="lg" onClick={onClose} className="w-full">
+            <Button to={localizedPath('/book', language)} size="lg" onClick={onClose} className="w-full">
               {s.bookCta}
             </Button>
             <a

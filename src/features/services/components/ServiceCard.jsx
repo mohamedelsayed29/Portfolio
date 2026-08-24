@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@lib/cn'
-import { useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
 import { CARD_STRINGS } from './cardStrings'
 import { CARD_SPRING, REDUCED_TRANSITION, getServiceArtStyle } from './serviceMotion'
@@ -38,6 +38,7 @@ export function ServiceCard({
   onBook,
 }) {
   const Icon = SERVICE_ICONS[service.icon]
+  const { language } = useLanguage()
   const s = useStrings(CARD_STRINGS)
 
   const handlePointerEnter = (event) => {
@@ -92,7 +93,7 @@ export function ServiceCard({
         </span>
 
         <Link
-          to={`/services#${service.id}`}
+          to={localizedPath(`/services#${service.id}`, language)}
           className="absolute inset-0 z-10 rounded-[28px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-primary)] focus-visible:ring-inset lg:rounded-[32px]"
           aria-label={s.detailsAria(service.title)}
         />

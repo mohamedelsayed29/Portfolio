@@ -1,9 +1,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useLocalStorage } from '@hooks'
 import { localize } from './localize'
+import { LANGUAGES, languageFromPathname, localizedPath } from './routes'
 
 const STORAGE_KEY = 'portfolio:language'
-export const LANGUAGES = ['en', 'ar']
 
 const LanguageContext = createContext(null)
 
@@ -16,8 +17,10 @@ const browserDefault = () => (navigator.language?.toLowerCase().startsWith('ar')
  * reset in index.css — components only ever read the context.
  */
 export function LanguageProvider({ children }) {
-  const [stored, setLanguage] = useLocalStorage(STORAGE_KEY, browserDefault())
-  const language = LANGUAGES.includes(stored) ? stored : 'en'
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [, storeLanguage] = useLocalStorage(STORAGE_KEY, browserDefault())
+  const language = languageFromPathname(location.pathname)
   const isRTL = language === 'ar'
   const dir = isRTL ? 'rtl' : 'ltr'
 
@@ -26,9 +29,18 @@ export function LanguageProvider({ children }) {
     document.documentElement.dir = dir
   }, [language, dir])
 
+  const setLanguage = useCallback(
+    (nextLanguage) => {
+      const normalized = LANGUAGES.includes(nextLanguage) ? nextLanguage : 'en'
+      storeLanguage(normalized)
+      navigate(localizedPath(`${location.pathname}${location.search}${location.hash}`, normalized))
+    },
+    [location.hash, location.pathname, location.search, navigate, storeLanguage],
+  )
+
   const toggleLanguage = useCallback(() => {
-    setLanguage((current) => (current === 'ar' ? 'en' : 'ar'))
-  }, [setLanguage])
+    setLanguage(language === 'ar' ? 'en' : 'ar')
+  }, [language, setLanguage])
 
   const value = useMemo(
     () => ({ language, setLanguage, toggleLanguage, isRTL, dir }),
@@ -48,6 +60,11 @@ export function useLanguage() {
 export function useLocalized(value) {
   const { language } = useLanguage()
   return useMemo(() => localize(value, language), [value, language])
+}
+
+export function useLocalizedPath(to) {
+  const { language } = useLanguage()
+  return useMemo(() => localizedPath(to, language), [language, to])
 }
 
 /** For component-local UI strings: `const s = useStrings({ en: {…}, ar: {…} })`. */

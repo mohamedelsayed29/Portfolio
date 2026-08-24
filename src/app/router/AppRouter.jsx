@@ -14,51 +14,64 @@ const BookingPage = lazy(() => import('@/pages/BookingPage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
+function pageRoutes() {
+  return (
+    <>
+      <Route index element={<HomePage />} />
+      <Route
+        path="work"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ProjectsPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="work/:slug"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ProjectDetailPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <ServicesPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="book"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <BookingPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="about"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <AboutPage />
+          </Suspense>
+        }
+      />
+    </>
+  )
+}
+
 export function AppRouter() {
   return (
     <Routes>
+      <Route path="/" element={<RootLayout />}>
+        {pageRoutes()}
+      </Route>
+      <Route path="/ar" element={<RootLayout />}>
+        {pageRoutes()}
+      </Route>
       <Route element={<RootLayout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path={PATHS.work}
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <ProjectsPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path={PATHS.workDetail()}
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <ProjectDetailPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path={PATHS.services}
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <ServicesPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path={PATHS.book}
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <BookingPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path={PATHS.about}
-          element={
-            <Suspense fallback={<RouteFallback />}>
-              <AboutPage />
-            </Suspense>
-          }
-        />
         <Route
           path={PATHS.notFound}
           element={

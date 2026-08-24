@@ -4,7 +4,7 @@ import { Button } from '@components/ui'
 import { EASE_APPLE } from '@lib/animations'
 import { usePrefersReducedMotion } from '@hooks'
 import { useBooking } from '@app/providers'
-import { useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useStrings } from '@/i18n'
 import { SITE } from '@constants/site'
 import { HeroMarquee } from './components/HeroMarquee'
 
@@ -53,6 +53,7 @@ const line = {
 export function Hero() {
   const reduced = usePrefersReducedMotion()
   const { openBooking } = useBooking()
+  const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
   const panelRef = useRef(null)
@@ -129,7 +130,7 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="inverseGhost"
-                to="/work"
+                to={localizedPath('/work', language)}
                 className="w-full sm:w-auto"
               >
                 {s.seeWork}

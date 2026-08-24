@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SITE } from '@constants/site'
-import { useStrings } from '@/i18n'
+import { localizedPath, stripLanguagePrefix, useLanguage, useStrings } from '@/i18n'
 import { HammerLoadLogo } from '@components/brand'
 import { cn } from '@lib/cn'
 
@@ -10,12 +10,13 @@ const STRINGS = {
 }
 
 export function Logo({ className, onClick, onDark = false }) {
+  const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
   const handleClick = (event) => {
     onClick?.(event)
 
-    if (event.defaultPrevented || window.location.pathname !== '/') return
+    if (event.defaultPrevented || stripLanguagePrefix(window.location.pathname) !== '/') return
 
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
     window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? 'instant' : 'smooth' })
@@ -23,7 +24,7 @@ export function Logo({ className, onClick, onDark = false }) {
 
   return (
     <Link
-      to="/"
+      to={localizedPath('/', language)}
       onClick={handleClick}
       aria-label={s.homeLabel}
       className={cn(

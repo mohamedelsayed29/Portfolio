@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { cn } from '@lib/cn'
-import { useLocalized, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
 
 const STRINGS = {
@@ -14,6 +14,7 @@ const STRINGS = {
  * list puts the reading order where it belongs and lets the type do the work.
  */
 export function ServiceRow({ service: rawService, onBook }) {
+  const { language } = useLanguage()
   const service = useLocalized(rawService)
   const s = useStrings(STRINGS)
   const Icon = SERVICE_ICONS[service.icon]
@@ -56,7 +57,7 @@ export function ServiceRow({ service: rawService, onBook }) {
               {s.book}
             </button>
             <Link
-              to={`/services#${service.id}`}
+              to={localizedPath(`/services#${service.id}`, language)}
               className="text-[13px] text-text-subtle underline-offset-4 transition-colors duration-200 hover:text-text hover:underline"
             >
               {s.details}

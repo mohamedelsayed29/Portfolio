@@ -9,7 +9,7 @@ import { ProjectCard } from '@features/projects'
 import { CtaSection } from '@features/contact'
 import { useBooking } from '@app/providers'
 import { EASE_APPLE } from '@lib/animations'
-import { useLocalized, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 
 const NARRATIVE = [
   { key: 'problem', label: { en: 'The problem', ar: 'المشكلة' } },
@@ -48,10 +48,11 @@ export default function ProjectDetailPage() {
   const { slug } = useParams()
   const project = useLocalized(getProjectBySlug(slug))
   const narrative = useLocalized(NARRATIVE)
+  const { language } = useLanguage()
   const s = useStrings(STRINGS)
   const { openBooking } = useBooking()
 
-  if (!project) return <Navigate to="/work" replace />
+  if (!project) return <Navigate to={localizedPath('/work', language)} replace />
 
   const related = getRelatedProjects(slug)
 
@@ -61,7 +62,7 @@ export default function ProjectDetailPage() {
 
       <Section width="wide" spacing="sm" className="pt-14">
         <Link
-          to="/work"
+          to={localizedPath('/work', language)}
           className="mb-10 inline-flex items-center gap-2 text-[14px] text-text-muted transition-colors hover:text-text"
         >
           <ArrowLeft size={15} aria-hidden="true" className="rtl:-scale-x-100" />

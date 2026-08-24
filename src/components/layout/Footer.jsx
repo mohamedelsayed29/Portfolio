@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { FOOTER_SECTIONS } from '@constants/navigation'
 import { SITE } from '@constants/site'
-import { useLocalized, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { Container } from './Container'
 import { Logo } from './Logo'
 
@@ -26,6 +26,7 @@ const STRINGS = {
 
 export function Footer() {
   const year = new Date().getFullYear()
+  const { language } = useLanguage()
   const sections = useLocalized(FOOTER_SECTIONS)
   const site = useLocalized(SITE)
   const s = useStrings(STRINGS)
@@ -48,7 +49,7 @@ export function Footer() {
                 <ul className="grid gap-2">
                   {section.links.map((link) => (
                     <li key={link.to}>
-                      <Link to={link.to} className={footerLinkClasses}>
+                      <Link to={localizedPath(link.to, language)} className={footerLinkClasses}>
                         <span>{link.label}</span>
                         <ArrowRight
                           size={12}

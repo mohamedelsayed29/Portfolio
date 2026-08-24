@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@constants/navigation'
-import { useLocalized, useStrings } from '@/i18n'
+import { localizedPath, stripLanguagePrefix, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { useScrollPosition, useScrolledPastViewport } from '@hooks'
 import { cn } from '@lib/cn'
 import { Button } from '@components/ui'
@@ -43,13 +43,14 @@ const STRINGS = {
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const { language } = useLanguage()
   const navLinks = useLocalized(NAV_LINKS)
   const s = useStrings(STRINGS)
 
   const scrolled = useScrollPosition(48)
   const pastHero = useScrolledPastViewport(0.85)
 
-  const isHome = pathname === '/'
+  const isHome = stripLanguagePrefix(pathname) === '/'
   const onDark = isHome && !pastHero && !menuOpen
   const raised = isHome && !scrolled && !menuOpen
 
@@ -77,7 +78,7 @@ export function Navbar() {
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
-                to={link.to}
+                to={localizedPath(link.to, language)}
                 className={({ isActive }) =>
                   cn(
                     'rounded-full px-4 py-2 text-[14px] font-medium tracking-[-0.01em]',
@@ -101,7 +102,7 @@ export function Navbar() {
             <LanguageToggle onDark={onDark} />
             <ThemeToggle onDark={onDark} />
             <Button
-              to="/book"
+              to={localizedPath('/book', language)}
               size="sm"
               variant={onDark ? 'inverse' : 'primary'}
               className="max-sm:hidden"

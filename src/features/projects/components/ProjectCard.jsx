@@ -4,16 +4,17 @@ import { Badge } from '@components/ui'
 import { Reveal } from '@components/common'
 import { cn } from '@lib/cn'
 import { PATHS } from '@app/router/paths'
-import { useLocalized } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized } from '@/i18n'
 
 export function ProjectCard({ project: rawProject, index = 0, featured = false }) {
   // Collapse { en, ar } fields here so every call site can pass raw data.
+  const { language } = useLanguage()
   const project = useLocalized(rawProject)
 
   return (
     <Reveal delay={(index % 3) * 0.07} className="h-full">
       <Link
-        to={PATHS.workDetail(project.slug)}
+        to={localizedPath(PATHS.workDetail(project.slug), language)}
         className={cn(
           'group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-apple-lg)]',
           'border border-line bg-surface transition-all duration-500 ease-[var(--ease-apple)]',

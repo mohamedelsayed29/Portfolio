@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import { Container } from '@components/layout'
 import { Seo, PageTransition } from '@components/common'
 import { Button } from '@components/ui'
-import { useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useStrings } from '@/i18n'
 
 const STRINGS = {
   en: {
@@ -27,6 +27,7 @@ function HomeArrow(props) {
 }
 
 export default function NotFoundPage() {
+  const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
   return (
@@ -41,10 +42,10 @@ export default function NotFoundPage() {
           </h1>
           <p className="max-w-[44ch] text-[17px] text-text-muted">{s.body}</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Button to="/" icon={HomeArrow}>
+            <Button to={localizedPath('/', language)} icon={HomeArrow}>
               {s.home}
             </Button>
-            <Button to="/work" variant="secondary">
+            <Button to={localizedPath('/work', language)} variant="secondary">
               {s.browse}
             </Button>
           </div>

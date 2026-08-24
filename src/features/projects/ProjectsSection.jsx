@@ -4,7 +4,7 @@ import { SectionHeading, Reveal } from '@components/common'
 import { Button } from '@components/ui'
 import { FEATURED_PROJECTS } from '@data/projects'
 import { cn } from '@lib/cn'
-import { useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useStrings } from '@/i18n'
 import { ProjectCard } from './components/ProjectCard'
 
 const STRINGS = {
@@ -27,6 +27,7 @@ const ArrowRightIcon = (props) => <ArrowRight {...props} className="rtl:-scale-x
 
 /** Home-page teaser: featured case studies, then a link to the full index. */
 export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
+  const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
   return (
@@ -39,7 +40,7 @@ export function ProjectsSection({ projects = FEATURED_PROJECTS }) {
           className="max-w-2xl"
         />
         <Reveal delay={0.15}>
-          <Button variant="secondary" to="/work" icon={ArrowRightIcon}>
+          <Button variant="secondary" to={localizedPath('/work', language)} icon={ArrowRightIcon}>
             {s.allProjects}
           </Button>
         </Reveal>

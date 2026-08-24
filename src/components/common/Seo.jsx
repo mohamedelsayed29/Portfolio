@@ -1,5 +1,11 @@
 import { SITE } from '@constants/site'
-import { buildRouteJsonLd, formatSeoTitle, getSeoForPath } from '@constants/seo'
+import {
+  buildRouteJsonLd,
+  formatSeoTitle,
+  getLanguageAlternates,
+  getSeoForPath,
+  localizedAbsoluteUrl,
+} from '@constants/seo'
 import { useLocation } from 'react-router-dom'
 import { localize, useLanguage } from '@/i18n'
 
@@ -21,7 +27,8 @@ export function Seo({ title, description = SITE.description, image, jsonLd, noIn
     language,
   )
   const fullTitle = formatSeoTitle(seoTitle, language)
-  const canonicalUrl = `${SITE.url}${location.pathname === '/' ? '' : location.pathname}`
+  const canonicalUrl = localizedAbsoluteUrl(routeSeo.path, language)
+  const alternates = getLanguageAlternates(routeSeo.path)
   const imageUrl = image?.startsWith('http') ? image : image ? `${SITE.url}${image}` : undefined
   const structuredData = jsonLd ?? buildRouteJsonLd(routeSeo, language)
 
@@ -31,12 +38,16 @@ export function Seo({ title, description = SITE.description, image, jsonLd, noIn
       <meta name="description" content={seoDescription} />
       <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="en" href={alternates.en} />
+      <link rel="alternate" hrefLang="ar" href={alternates.ar} />
+      <link rel="alternate" hrefLang="x-default" href={alternates.xDefault} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={seoDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={SITE.name} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:locale" content={language === 'ar' ? 'ar_EG' : 'en_US'} />
+      <meta property="og:locale:alternate" content={language === 'ar' ? 'en_US' : 'ar_EG'} />
       {imageUrl && <meta property="og:image" content={imageUrl} />}
       <meta name="twitter:card" content="summary_large_image" />
       {structuredData && (

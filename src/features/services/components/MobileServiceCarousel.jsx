@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { animate, motion, useMotionValue, useTransform } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@lib/cn'
-import { useLanguage, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
 import { CARD_STRINGS } from './cardStrings'
 import { ServiceArtwork } from './ServiceCard'
@@ -36,6 +36,7 @@ const CAROUSEL_STRINGS = {
 function MobileServiceCard({
   service,
   index,
+  language,
   cardWidth,
   signedStride,
   trackX,
@@ -93,7 +94,7 @@ function MobileServiceCard({
       </span>
 
       <Link
-        to={`/services#${service.id}`}
+        to={localizedPath(`/services#${service.id}`, language)}
         draggable="false"
         className="absolute inset-0 z-10 rounded-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-primary)] focus-visible:ring-inset"
         aria-label={s.detailsAria(service.title)}
@@ -146,7 +147,7 @@ function MobileServiceCard({
 }
 
 export function MobileServiceCarousel({ services, onBook, reduced }) {
-  const { isRTL } = useLanguage()
+  const { isRTL, language } = useLanguage()
   const s = useStrings(CAROUSEL_STRINGS)
   const viewportRef = useRef(null)
   const trackRef = useRef(null)
@@ -295,8 +296,9 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
         {services.map((service, index) => (
           <MobileServiceCard
             key={service.id}
-            service={service}
-            index={index}
+              service={service}
+              index={index}
+              language={language}
             cardWidth={metrics.cardWidth}
             signedStride={signedStride}
             trackX={trackX}
