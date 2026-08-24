@@ -4,8 +4,12 @@ import { Badge } from '@components/ui'
 import { Reveal } from '@components/common'
 import { cn } from '@lib/cn'
 import { PATHS } from '@app/router/paths'
+import { useLocalized } from '@/i18n'
 
-export function ProjectCard({ project, index = 0, featured = false }) {
+export function ProjectCard({ project: rawProject, index = 0, featured = false }) {
+  // Collapse { en, ar } fields here so every call site can pass raw data.
+  const project = useLocalized(rawProject)
+
   return (
     <Reveal delay={(index % 3) * 0.07} className="h-full">
       <Link
@@ -55,7 +59,7 @@ export function ProjectCard({ project, index = 0, featured = false }) {
               </h3>
             </div>
             <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white backdrop-blur-md transition-all duration-500 ease-[var(--ease-apple)] group-hover:bg-white group-hover:text-black">
-              <ArrowUpRight size={17} aria-hidden="true" />
+              <ArrowUpRight size={17} aria-hidden="true" className="rtl:-scale-x-100" />
             </span>
           </div>
         </div>

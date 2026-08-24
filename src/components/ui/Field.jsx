@@ -15,7 +15,7 @@ export function Field({ id, label, hint, error, required = false, className, chi
         >
           {label}
           {required && (
-            <span className="ml-1 text-danger" aria-hidden="true">
+            <span className="ms-1 text-danger" aria-hidden="true">
               *
             </span>
           )}

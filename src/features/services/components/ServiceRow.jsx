@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom'
 import { cn } from '@lib/cn'
+import { useLocalized, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
+
+const STRINGS = {
+  en: { book: 'Book this', details: 'Details' },
+  ar: { book: 'احجز الآن', details: 'التفاصيل' },
+}
 
 /**
  * A row, not a card. Six identical bordered cards with icon tiles, checkmark
  * bullets and "From $X" badges is the stock template layout; a plain two-column
  * list puts the reading order where it belongs and lets the type do the work.
  */
-export function ServiceRow({ service, onBook }) {
+export function ServiceRow({ service: rawService, onBook }) {
+  const service = useLocalized(rawService)
+  const s = useStrings(STRINGS)
   const Icon = SERVICE_ICONS[service.icon]
 
   return (
@@ -45,13 +53,13 @@ export function ServiceRow({ service, onBook }) {
                 'transition-colors duration-200 hover:underline',
               )}
             >
-              Book this
+              {s.book}
             </button>
             <Link
               to={`/services#${service.id}`}
               className="text-[13px] text-text-subtle underline-offset-4 transition-colors duration-200 hover:text-text hover:underline"
             >
-              Details
+              {s.details}
             </Link>
           </div>
         </div>

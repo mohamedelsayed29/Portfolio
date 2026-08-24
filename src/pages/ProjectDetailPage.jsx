@@ -9,16 +9,46 @@ import { ProjectCard } from '@features/projects'
 import { CtaSection } from '@features/contact'
 import { useBooking } from '@app/providers'
 import { EASE_APPLE } from '@lib/animations'
+import { useLocalized, useStrings } from '@/i18n'
 
 const NARRATIVE = [
-  { key: 'problem', label: 'The problem' },
-  { key: 'approach', label: 'What we did' },
-  { key: 'outcome', label: 'The outcome' },
+  { key: 'problem', label: { en: 'The problem', ar: 'المشكلة' } },
+  { key: 'approach', label: { en: 'What we did', ar: 'ما قمنا به' } },
+  { key: 'outcome', label: { en: 'The outcome', ar: 'النتيجة' } },
 ]
+
+const STRINGS = {
+  en: {
+    allWork: 'All work',
+    results: 'Results',
+    stack: 'Stack',
+    startProject: 'Start something like this',
+    visitSite: 'Visit the live product',
+    nextCaseStudy: 'Next case study',
+    openPdf: 'Open PDF',
+    download: 'Download',
+    pdfDescription: (title) =>
+      `Open the ${title} feature PDF for a deeper look at the platform modules, resident flows and management tools.`,
+  },
+  ar: {
+    allWork: 'كل الأعمال',
+    results: 'النتائج',
+    stack: 'التقنيات',
+    startProject: 'ابدأ مشروعًا كهذا',
+    visitSite: 'شاهد المنتج مباشرةً',
+    nextCaseStudy: 'دراسة الحالة التالية',
+    openPdf: 'فتح ملف PDF',
+    download: 'تحميل',
+    pdfDescription: (title) =>
+      `افتح ملف مزايا ${title} لنظرة أعمق على وحدات المنصة ومسارات المستخدمين وأدوات الإدارة.`,
+  },
+}
 
 export default function ProjectDetailPage() {
   const { slug } = useParams()
-  const project = getProjectBySlug(slug)
+  const project = useLocalized(getProjectBySlug(slug))
+  const narrative = useLocalized(NARRATIVE)
+  const s = useStrings(STRINGS)
   const { openBooking } = useBooking()
 
   if (!project) return <Navigate to="/work" replace />
@@ -34,8 +64,8 @@ export default function ProjectDetailPage() {
           to="/work"
           className="mb-10 inline-flex items-center gap-2 text-[14px] text-text-muted transition-colors hover:text-text"
         >
-          <ArrowLeft size={15} aria-hidden="true" />
-          All work
+          <ArrowLeft size={15} aria-hidden="true" className="rtl:-scale-x-100" />
+          {s.allWork}
         </Link>
 
         <div className="flex max-w-3xl flex-col gap-6">
@@ -86,7 +116,7 @@ export default function ProjectDetailPage() {
                 <div className="aspect-video overflow-hidden rounded-[var(--radius-apple-lg)] border border-line bg-surface-muted shadow-card">
                   <iframe
                     src={project.resources.video.embed}
-                    title={`${project.title} ${project.resources.video.label}`}
+                    title={`${project.title} — ${project.resources.video.label}`}
                     className="size-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -108,22 +138,21 @@ export default function ProjectDetailPage() {
                         {project.resources.pdf.label}
                       </h2>
                       <p className="text-[14px] leading-relaxed text-text-muted">
-                        Open the {project.title} feature PDF for a deeper look at the platform modules,
-                        resident flows and management tools.
+                        {s.pdfDescription(project.title)}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap gap-3">
                     <Button href={project.resources.pdf.href}>
-                      Open PDF
+                      {s.openPdf}
                     </Button>
                     <a
                       href={project.resources.pdf.href}
                       download
                       className="inline-flex h-11 items-center justify-center rounded-full border border-line bg-surface px-6 text-[15px] font-medium tracking-[-0.01em] text-text transition-all duration-300 ease-[var(--ease-apple)] hover:border-line-strong hover:bg-surface-muted"
                     >
-                      Download
+                      {s.download}
                     </a>
                   </div>
                 </Card>
@@ -136,7 +165,7 @@ export default function ProjectDetailPage() {
       <Section width="wide" spacing="md">
         <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr] lg:gap-20">
           <div className="flex flex-col gap-12">
-            {NARRATIVE.map((part, index) => (
+            {narrative.map((part, index) => (
               <Reveal key={part.key} delay={index * 0.06} className="flex flex-col gap-3">
                 <h2 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
                   {part.label}
@@ -149,11 +178,11 @@ export default function ProjectDetailPage() {
           <aside className="flex flex-col gap-10">
             <Reveal className="flex flex-col gap-5">
               <h2 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                Results
+                {s.results}
               </h2>
               <dl className="flex flex-col gap-5">
                 {project.metrics.map((metric) => (
-                  <div key={metric.label} className="border-l-2 border-accent pl-4">
+                  <div key={metric.label} className="border-s-2 border-accent ps-4">
                     <dd className="text-[30px] font-semibold tracking-[-0.02em]">{metric.value}</dd>
                     <dt className="text-[13px] text-text-subtle">{metric.label}</dt>
                   </div>
@@ -163,7 +192,7 @@ export default function ProjectDetailPage() {
 
             <Reveal delay={0.08} className="flex flex-col gap-4">
               <h2 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                {project.stackLabel ?? 'Stack'}
+                {project.stackLabel ?? s.stack}
               </h2>
               <ul className="flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
@@ -183,7 +212,7 @@ export default function ProjectDetailPage() {
                   openBooking({ type: 'project', service: project.services[0], projectSlug: slug })
                 }
               >
-                Start something like this
+                {s.startProject}
               </Button>
               {project.href && (
                 <a
@@ -192,8 +221,8 @@ export default function ProjectDetailPage() {
                   rel="noreferrer noopener"
                   className="inline-flex items-center gap-1.5 text-[14px] text-text-muted transition-colors hover:text-text"
                 >
-                  Visit the live product
-                  <ArrowUpRight size={14} aria-hidden="true" />
+                  {s.visitSite}
+                  <ArrowUpRight size={14} aria-hidden="true" className="rtl:-scale-x-100" />
                 </a>
               )}
             </Reveal>
@@ -203,7 +232,7 @@ export default function ProjectDetailPage() {
 
       {related.length > 0 && (
         <Section width="wide" spacing="sm" className="bg-surface-muted/40">
-          <h2 className="mb-10 text-[28px] font-semibold tracking-[-0.02em]">Next case study</h2>
+          <h2 className="mb-10 text-[28px] font-semibold tracking-[-0.02em]">{s.nextCaseStudy}</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {related.map((item, index) => (
               <ProjectCard key={item.slug} project={item} index={index} featured />

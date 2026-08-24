@@ -1,15 +1,24 @@
 import { motion } from 'motion/react'
 import { Check } from 'lucide-react'
+import { useLocalized, useStrings } from '@/i18n'
 import { BOOKING_TYPES } from '@data/booking'
 import { cn } from '@lib/cn'
 import { EASE_APPLE } from '@lib/animations'
 
+const STRINGS = {
+  en: { legend: 'What would you like to book?' },
+  ar: { legend: 'ما الذي تودّ حجزه؟' },
+}
+
 export function BookingTypeToggle({ value, onChange }) {
+  const s = useStrings(STRINGS)
+  const bookingTypes = useLocalized(BOOKING_TYPES)
+
   return (
     <fieldset className="grid gap-4 sm:grid-cols-2">
-      <legend className="sr-only">What would you like to book?</legend>
+      <legend className="sr-only">{s.legend}</legend>
 
-      {BOOKING_TYPES.map((type) => {
+      {bookingTypes.map((type) => {
         const selected = value === type.id
         const Icon = type.icon
 
@@ -21,7 +30,7 @@ export function BookingTypeToggle({ value, onChange }) {
             aria-checked={selected}
             onClick={() => onChange(type.id)}
             className={cn(
-              'group relative flex flex-col gap-3 rounded-[var(--radius-apple)] border p-5 text-left',
+              'group relative flex flex-col gap-3 rounded-[var(--radius-apple)] border p-5 text-start',
               'transition-all duration-400 ease-[var(--ease-apple)]',
               selected
                 ? 'border-accent bg-accent-soft'

@@ -2,12 +2,29 @@ import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@constants/navigation'
+import { useLocalized, useStrings } from '@/i18n'
 import { useScrollPosition, useScrolledPastViewport } from '@hooks'
 import { cn } from '@lib/cn'
 import { Button } from '@components/ui'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
+import { LanguageToggle } from './LanguageToggle'
 import { MobileMenu } from './MobileMenu'
+
+const STRINGS = {
+  en: {
+    primaryNav: 'Primary',
+    bookCall: 'Book a call',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+  },
+  ar: {
+    primaryNav: 'التنقل الرئيسي',
+    bookCall: 'احجز مكالمة',
+    openMenu: 'فتح القائمة',
+    closeMenu: 'إغلاق القائمة',
+  },
+}
 
 /**
  * A floating pill with two independent states, because they change at very
@@ -26,6 +43,8 @@ import { MobileMenu } from './MobileMenu'
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { pathname } = useLocation()
+  const navLinks = useLocalized(NAV_LINKS)
+  const s = useStrings(STRINGS)
 
   const scrolled = useScrollPosition(48)
   const pastHero = useScrolledPastViewport(0.85)
@@ -44,7 +63,7 @@ export function Navbar() {
         <div
           className={cn(
             'pointer-events-auto mx-auto flex h-14 w-full max-w-[1320px] items-center justify-between gap-6',
-            'rounded-full border py-2 pr-2 pl-4 backdrop-blur-xl sm:pl-6',
+            'rounded-full border py-2 pe-2 ps-4 backdrop-blur-xl sm:ps-6',
             'transition-[transform,background-color,border-color,box-shadow] duration-[600ms] ease-[var(--ease-apple)]',
             'will-change-transform',
             raised ? 'translate-y-7 sm:translate-y-9' : 'translate-y-0',
@@ -54,8 +73,8 @@ export function Navbar() {
         >
           <Logo onDark={onDark} />
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-            {NAV_LINKS.map((link) => (
+          <nav className="hidden items-center gap-1 lg:flex" aria-label={s.primaryNav}>
+            {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
@@ -79,6 +98,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-1.5">
+            <LanguageToggle onDark={onDark} />
             <ThemeToggle onDark={onDark} />
             <Button
               to="/book"
@@ -86,12 +106,12 @@ export function Navbar() {
               variant={onDark ? 'inverse' : 'primary'}
               className="max-sm:hidden"
             >
-              Book a call
+              {s.bookCall}
             </Button>
             <button
               type="button"
               onClick={() => setMenuOpen((open) => !open)}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? s.closeMenu : s.openMenu}
               aria-expanded={menuOpen}
               className={cn(
                 'grid size-10 place-items-center rounded-full transition-colors lg:hidden',

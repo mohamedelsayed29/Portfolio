@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useLanguage } from '@/i18n'
 import { useMediaQuery, usePrefersReducedMotion } from '@hooks'
 import { MobileServiceCarousel } from './MobileServiceCarousel'
 import { ServiceCard } from './ServiceCard'
@@ -10,6 +11,7 @@ import { useDeckPointerMotion } from './useDeckPointerMotion'
  * receives the drag model; a precise pointer receives the connected stack.
  */
 export function ServiceDeck({ services, onBook }) {
+  const { isRTL } = useLanguage()
   const reduced = usePrefersReducedMotion()
   const hasDesktopSpace = useMediaQuery('(min-width: 960px)')
   const isLargeDesktop = useMediaQuery('(min-width: 1200px)')
@@ -37,7 +39,12 @@ export function ServiceDeck({ services, onBook }) {
         if (!event.currentTarget.contains(event.relatedTarget)) setActiveIndex(restingIndex)
       }}
     >
-      <div className="grid h-full place-items-center [transform-style:preserve-3d]">
+      {/* Keyed on direction so a runtime language toggle re-springs the fan
+          cleanly instead of animating cards across the whole deck. */}
+      <div
+        key={isRTL ? 'rtl' : 'ltr'}
+        className="grid h-full place-items-center [transform-style:preserve-3d]"
+      >
         {services.map((service, index) => (
           <ServiceCard
             key={service.id}
@@ -48,6 +55,7 @@ export function ServiceDeck({ services, onBook }) {
               reduced ? null : activeIndex,
               services.length,
               isLargeDesktop,
+              isRTL ? -1 : 1,
             )}
             isActive={activeIndex === index}
             reduced={reduced}

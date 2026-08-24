@@ -6,27 +6,58 @@ import { SERVICES } from '@data/services'
 import { SERVICE_ICONS } from '@features/services'
 import { CtaSection, FaqSection } from '@features/contact'
 import { useBooking } from '@app/providers'
+import { useLanguage, useLocalized, useStrings } from '@/i18n'
+import { formatCurrency } from '@lib/format'
+
+const STRINGS = {
+  en: {
+    seoTitle: 'Services',
+    seoDescription:
+      'Frontend, backend, mobile, AI/LLM, bug fixing and technical discovery — what each engagement includes and what it costs.',
+    eyebrow: 'Services',
+    title: 'What you can hand us',
+    description:
+      'Six practices, one team. Most engagements combine two or three of them — pick the closest fit and we will shape the rest in the scoping call.',
+    from: (price) => `From ${price}`,
+    book: (title) => `Book ${title.toLowerCase()}`,
+    whatYouGet: 'What you get',
+    typicalStack: 'Typical stack',
+  },
+  ar: {
+    seoTitle: 'الخدمات',
+    seoDescription:
+      'واجهات أمامية وأنظمة خلفية وتطبيقات موبايل وذكاء اصطناعي وإصلاح أخطاء واستكشاف تقني — ما تشمله كل خدمة وكم تكلّف.',
+    eyebrow: 'الخدمات',
+    title: 'ما يمكنك إسناده إلينا',
+    description:
+      'ست ممارسات وفريق واحد. معظم المشاريع تجمع بين اثنتين أو ثلاث منها — اختر الأقرب إلى احتياجك، ونتولى رسم الباقي معك في مكالمة تحديد النطاق.',
+    from: (price) => `تبدأ من ${price}`,
+    book: (title) => `احجز خدمة ${title}`,
+    whatYouGet: 'ما الذي ستحصل عليه',
+    typicalStack: 'التقنيات المعتادة',
+  },
+}
 
 export default function ServicesPage() {
   const { openBooking } = useBooking()
+  const { language } = useLanguage()
+  const s = useStrings(STRINGS)
+  const services = useLocalized(SERVICES)
 
   return (
     <PageTransition>
-      <Seo
-        title="Services"
-        description="Frontend, backend, mobile, AI/LLM, bug fixing and technical discovery — what each engagement includes and what it costs."
-      />
+      <Seo title={s.seoTitle} description={s.seoDescription} />
 
       <Section width="wide" spacing="sm" className="pt-20">
         <SectionHeading
-          eyebrow="Services"
-          title="What you can hand us"
-          description="Six practices, one team. Most engagements combine two or three of them — pick the closest fit and we will shape the rest in the scoping call."
+          eyebrow={s.eyebrow}
+          title={s.title}
+          description={s.description}
           className="mb-16 max-w-3xl"
         />
 
         <div className="flex flex-col gap-6">
-          {SERVICES.map((service, index) => {
+          {services.map((service, index) => {
             const Icon = SERVICE_ICONS[service.icon]
 
             return (
@@ -58,7 +89,7 @@ export default function ServicesPage() {
                     <div className="mt-2 flex flex-wrap items-center gap-3">
                       <Badge tone="outline">{service.timeline}</Badge>
                       <Badge tone="accent">
-                        From ${service.startingAt.toLocaleString('en-US')}
+                        {s.from(formatCurrency(service.startingAt, 'USD', language))}
                       </Badge>
                     </div>
 
@@ -66,14 +97,14 @@ export default function ServicesPage() {
                       className="mt-3 self-start"
                       onClick={() => openBooking({ type: 'project', service: service.id })}
                     >
-                      Book {service.title.toLowerCase()}
+                      {s.book(service.title)}
                     </Button>
                   </div>
 
-                  <div className="flex flex-col gap-8 lg:border-l lg:border-line lg:pl-10">
+                  <div className="flex flex-col gap-8 lg:border-s lg:border-line lg:ps-10">
                     <div className="flex flex-col gap-4">
                       <h3 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                        What you get
+                        {s.whatYouGet}
                       </h3>
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {service.deliverables.map((item) => (
@@ -94,7 +125,7 @@ export default function ServicesPage() {
 
                     <div className="flex flex-col gap-4">
                       <h3 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                        Typical stack
+                        {s.typicalStack}
                       </h3>
                       <ul className="flex flex-wrap gap-2">
                         {service.stack.map((tech) => (

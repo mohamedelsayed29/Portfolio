@@ -4,21 +4,25 @@ import { motion } from 'motion/react'
 import { SITE } from '@constants/site'
 import { EASE_APPLE } from '@lib/animations'
 import { usePrefersReducedMotion } from '@hooks'
+import { useLanguage, useLocalized, useStrings } from '@/i18n'
 import './team.css'
 
 const TEAM = [
   {
-    role: 'Tech Lead Software Engineer',
-    name: 'Mohamed Ali',
-    bio: 'Builds reliable products from interface details to backend logic.',
+    role: { en: 'Tech Lead Software Engineer', ar: 'قائد تقني ومهندس برمجيات' },
+    name: { en: 'Mohamed Ali', ar: 'محمد علي' },
+    bio: {
+      en: 'Builds reliable products from interface details to backend logic.',
+      ar: 'يبني منتجات موثوقة، من تفاصيل الواجهة حتى منطق الأنظمة الخلفية.',
+    },
     tags: [
-      'Backend',
-      'Frontend',
-      'System Design',
-      'Mobile App',
-      'Database',
-      'Product Manager',
-      'System Analysis',
+      { en: 'Backend', ar: 'أنظمة خلفية' },
+      { en: 'Frontend', ar: 'واجهات أمامية' },
+      { en: 'System Design', ar: 'تصميم الأنظمة' },
+      { en: 'Mobile App', ar: 'تطبيقات الموبايل' },
+      { en: 'Database', ar: 'قواعد البيانات' },
+      { en: 'Product Manager', ar: 'إدارة المنتج' },
+      { en: 'System Analysis', ar: 'تحليل الأنظمة' },
     ],
     image: '/team/mohamed-ali-halftone.png',
     portraitHeight: '88%',
@@ -26,26 +30,68 @@ const TEAM = [
     linkedin: 'https://www.linkedin.com/in/mohamed-ali-031060367/',
   },
   {
-    role: 'AI / Software Engineer',
-    name: 'Mohamed Nehad',
-    bio: 'Connects data, automation and AI features into production workflows.',
-    tags: ['Frontend', 'Backend', 'Databases', 'Performance', 'RAG', 'LLM'],
+    role: { en: 'AI / Software Engineer', ar: 'مهندس ذكاء اصطناعي وبرمجيات' },
+    name: { en: 'Mohamed Nehad', ar: 'محمد نهاد' },
+    bio: {
+      en: 'Connects data, automation and AI features into production workflows.',
+      ar: 'يدمج البيانات والأتمتة وقدرات الذكاء الاصطناعي في أنظمة تعمل فعليًا في الإنتاج.',
+    },
+    tags: [
+      { en: 'Frontend', ar: 'واجهات أمامية' },
+      { en: 'Backend', ar: 'أنظمة خلفية' },
+      { en: 'Databases', ar: 'قواعد البيانات' },
+      { en: 'Performance', ar: 'الأداء' },
+      'RAG',
+      'LLM',
+    ],
     image: '/team/mohamed-nehad-halftone.png',
     portraitHeight: '88%',
     portraitScale: 1.02,
     linkedin: 'https://www.linkedin.com/in/mohammed-nehad-moghrabi-9ba988248/',
   },
   {
-    role: 'Software Engineer',
-    name: 'Mohamed Elsayed',
-    bio: 'Turns complex requirements into clean, maintainable systems.',
-    tags: ['Backend', 'Frontend', 'Database', 'Mobile Application', 'System Design'],
+    role: { en: 'Software Engineer', ar: 'مهندس برمجيات' },
+    name: { en: 'Mohamed Elsayed', ar: 'محمد السيد' },
+    bio: {
+      en: 'Turns complex requirements into clean, maintainable systems.',
+      ar: 'يحوّل المتطلبات المعقّدة إلى أنظمة نظيفة يسهل صيانتها.',
+    },
+    tags: [
+      { en: 'Backend', ar: 'أنظمة خلفية' },
+      { en: 'Frontend', ar: 'واجهات أمامية' },
+      { en: 'Database', ar: 'قواعد البيانات' },
+      { en: 'Mobile Application', ar: 'تطبيقات الموبايل' },
+      { en: 'System Design', ar: 'تصميم الأنظمة' },
+    ],
     image: '/team/mohamed-elsayed-halftone.png',
     portraitHeight: '86%',
     portraitScale: 1,
     linkedin: 'https://www.linkedin.com/in/mohamed-elsayed-backend',
   },
 ]
+
+const STRINGS = {
+  en: {
+    title: 'TEAM',
+    focusLine1: 'Software',
+    focusLine2: '& AI',
+    baseLine1: 'Based',
+    baseLine2: 'worldwide',
+    email: 'Email us',
+    activeMember: (n) => `Active team member ${n}`,
+    openLinkedin: (name) => `Open ${name} on LinkedIn`,
+  },
+  ar: {
+    title: 'الفريق',
+    focusLine1: 'برمجيات',
+    focusLine2: 'وذكاء اصطناعي',
+    baseLine1: 'نعمل',
+    baseLine2: 'حول العالم',
+    email: 'راسلنا',
+    activeMember: (n) => `عضو الفريق النشط ${n}`,
+    openLinkedin: (name) => `افتح ملف ${name} على LinkedIn`,
+  },
+}
 
 const sectionMotion = {
   hidden: { opacity: 0, y: 24 },
@@ -65,7 +111,10 @@ export function TeamSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isInteracting, setIsInteracting] = useState(false)
   const reduced = usePrefersReducedMotion()
-  const activeMember = TEAM[activeIndex]
+  const { isRTL } = useLanguage()
+  const s = useStrings(STRINGS)
+  const team = useLocalized(TEAM)
+  const activeMember = team[activeIndex]
 
   useEffect(() => {
     if (reduced || isInteracting) return undefined
@@ -88,21 +137,21 @@ export function TeamSection() {
     >
       <div className="team-showcase__meta">
         <motion.h2 variants={childMotion} className="team-showcase__title">
-          TEAM
+          {s.title}
         </motion.h2>
 
         <motion.p variants={childMotion}>
-          Software
+          {s.focusLine1}
           <br />
-          & AI
+          {s.focusLine2}
         </motion.p>
         <motion.p variants={childMotion}>
-          Based
+          {s.baseLine1}
           <br />
-          worldwide
+          {s.baseLine2}
         </motion.p>
         <motion.a variants={childMotion} href={`mailto:${SITE.email}`} className="team-showcase__email">
-          Email us
+          {s.email}
         </motion.a>
       </div>
 
@@ -112,15 +161,15 @@ export function TeamSection() {
         <span>+</span>
       </div>
 
-      <motion.div variants={childMotion} className="team-showcase__count" aria-label={`Active team member ${activeIndex + 1}`}>
+      <motion.div variants={childMotion} className="team-showcase__count" aria-label={s.activeMember(activeIndex + 1)}>
         {String(activeIndex + 1).padStart(2, '0')}
       </motion.div>
 
       <div className="team-showcase__stage">
         <motion.div
-          key={activeMember.name}
+          key={activeMember.image}
           className="team-showcase__portrait"
-          initial={reduced ? false : { opacity: 0, x: -18, filter: 'blur(8px)' }}
+          initial={reduced ? false : { opacity: 0, x: isRTL ? 18 : -18, filter: 'blur(8px)' }}
           animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.55, ease: EASE_APPLE }}
           style={{
@@ -133,12 +182,12 @@ export function TeamSection() {
         </motion.div>
 
         <motion.div variants={childMotion} className="team-showcase__panel">
-          {TEAM.map((member, index) => {
+          {team.map((member, index) => {
             const isActive = index === activeIndex
 
             return (
               <div
-                key={member.name}
+                key={member.linkedin}
                 role="button"
                 tabIndex={0}
                 className="team-showcase__row"
@@ -169,10 +218,10 @@ export function TeamSection() {
                   href={member.linkedin}
                   target="_blank"
                   rel="noreferrer noopener"
-                  aria-label={`Open ${member.name} on LinkedIn`}
+                  aria-label={s.openLinkedin(member.name)}
                   onClick={(event) => event.stopPropagation()}
                 >
-                  <ArrowUpRight size={18} />
+                  <ArrowUpRight size={18} className="rtl-flip" />
                 </a>
 
                 <span className="team-showcase__member">

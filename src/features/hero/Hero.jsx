@@ -4,6 +4,7 @@ import { Button } from '@components/ui'
 import { EASE_APPLE } from '@lib/animations'
 import { usePrefersReducedMotion } from '@hooks'
 import { useBooking } from '@app/providers'
+import { useStrings } from '@/i18n'
 import { SITE } from '@constants/site'
 import { HeroMarquee } from './components/HeroMarquee'
 
@@ -17,12 +18,32 @@ const InteractiveHeroBackground = lazy(() => import('./components/InteractiveHer
  * Its custom WebGL artwork is isolated behind the content and clipped by the
  * panel itself. The CSS fallback is always present beneath the canvas.
  */
-/** Honest meta, in place of the reference's download counters. */
-const META = [
-  { label: 'Availability', value: 'Booking for Q4' },
-  { label: 'Based', value: 'Remote · GMT+2' },
-  { label: 'Contact', value: SITE.email, href: `mailto:${SITE.email}` },
-]
+const STRINGS = {
+  en: {
+    headline: 'We build software. We also fix it.',
+    subheadline:
+      'Web, mobile, backend and AI systems. Built from scratch, or rescued from someone else’s.',
+    bookProject: 'Book a project',
+    seeWork: 'See the work',
+    metaAvailabilityLabel: 'Availability',
+    metaAvailabilityValue: 'Booking for Q4',
+    metaBasedLabel: 'Based',
+    metaBasedValue: 'Remote · GMT+2',
+    metaContactLabel: 'Contact',
+  },
+  ar: {
+    headline: 'نبني البرمجيات. ونصلحها أيضًا.',
+    subheadline:
+      'ويب، موبايل، أنظمة خلفية، وذكاء اصطناعي. نبنيها من الصفر، أو ننقذ ما بناه غيرنا.',
+    bookProject: 'احجز مشروعًا',
+    seeWork: 'شاهد أعمالنا',
+    metaAvailabilityLabel: 'التوفر',
+    metaAvailabilityValue: 'الحجز مفتوح للربع الرابع',
+    metaBasedLabel: 'المقر',
+    metaBasedValue: 'عن بُعد · GMT+2',
+    metaContactLabel: 'تواصل معنا',
+  },
+}
 
 const line = {
   hidden: { opacity: 0, y: 14 },
@@ -32,8 +53,16 @@ const line = {
 export function Hero() {
   const reduced = usePrefersReducedMotion()
   const { openBooking } = useBooking()
+  const s = useStrings(STRINGS)
 
   const panelRef = useRef(null)
+
+  /** Honest meta, in place of the reference's download counters. */
+  const meta = [
+    { label: s.metaAvailabilityLabel, value: s.metaAvailabilityValue },
+    { label: s.metaBasedLabel, value: s.metaBasedValue },
+    { label: s.metaContactLabel, value: SITE.email, href: `mailto:${SITE.email}` },
+  ]
 
   const stagger = reduced
     ? {}
@@ -67,15 +96,14 @@ export function Hero() {
               variants={item}
               className="max-w-[16ch] text-[clamp(2.75rem,8.4vw,6.75rem)] leading-[0.98] font-medium tracking-[-0.03em] text-white"
             >
-              We build software. We also fix it.
+              {s.headline}
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-8 max-w-[64ch] font-mono text-[13px] leading-relaxed text-white/60 sm:text-[15px]"
             >
-              Web, mobile, backend and AI systems. Built from scratch, or rescued from someone
-              else&rsquo;s.
+              {s.subheadline}
             </motion.p>
           </motion.div>
 
@@ -96,7 +124,7 @@ export function Hero() {
                 onClick={() => openBooking({ type: 'project' })}
                 className="w-full sm:w-auto"
               >
-                Book a project
+                {s.bookProject}
               </Button>
               <Button
                 size="lg"
@@ -104,7 +132,7 @@ export function Hero() {
                 to="/work"
                 className="w-full sm:w-auto"
               >
-                See the work
+                {s.seeWork}
               </Button>
             </motion.div>
 
@@ -112,7 +140,7 @@ export function Hero() {
               variants={item}
               className="flex flex-col gap-2 font-mono text-[12px] sm:text-[13px] lg:items-end"
             >
-              {META.map((entry) => (
+              {meta.map((entry) => (
                 <div key={entry.label} className="flex items-baseline gap-4">
                   <dt className="text-white/40">{entry.label}</dt>
                   <dd className="text-white/85">

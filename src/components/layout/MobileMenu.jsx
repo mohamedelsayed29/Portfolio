@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { NAV_LINKS } from '@constants/navigation'
 import { SITE } from '@constants/site'
+import { useLocalized, useStrings } from '@/i18n'
 import { EASE_APPLE } from '@lib/animations'
 import { Button } from '@components/ui'
 import { useLockBodyScroll } from '@hooks'
+
+const STRINGS = {
+  en: { bookCta: 'Book a project or meeting' },
+  ar: { bookCta: 'احجز مشروعًا أو مكالمة' },
+}
 
 const panel = {
   hidden: { opacity: 0 },
@@ -21,6 +27,8 @@ const item = {
 
 export function MobileMenu({ open, onClose }) {
   useLockBodyScroll(open)
+  const navLinks = useLocalized(NAV_LINKS)
+  const s = useStrings(STRINGS)
 
   return (
     <AnimatePresence>
@@ -33,7 +41,7 @@ export function MobileMenu({ open, onClose }) {
           className="glass-panel fixed inset-0 top-[var(--nav-h)] z-40 flex flex-col justify-between overflow-y-auto border-t px-6 pt-10 pb-12 lg:hidden"
         >
           <nav className="flex flex-col">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <motion.div key={link.to} variants={item}>
                 <Link
                   to={link.to}
@@ -44,7 +52,7 @@ export function MobileMenu({ open, onClose }) {
                   <ArrowUpRight
                     size={22}
                     aria-hidden="true"
-                    className="text-text-subtle transition-transform duration-300 ease-[var(--ease-apple)] group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="text-text-subtle transition-transform duration-300 ease-[var(--ease-apple)] group-hover:translate-x-1 group-hover:-translate-y-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1"
                   />
                 </Link>
               </motion.div>
@@ -53,7 +61,7 @@ export function MobileMenu({ open, onClose }) {
 
           <motion.div variants={item} className="mt-10 flex flex-col gap-5">
             <Button to="/book" size="lg" onClick={onClose} className="w-full">
-              Book a project or meeting
+              {s.bookCta}
             </Button>
             <a
               href={`mailto:${SITE.email}`}

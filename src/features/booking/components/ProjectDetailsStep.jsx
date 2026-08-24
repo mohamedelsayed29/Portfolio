@@ -1,51 +1,90 @@
 import { Field, Input, Select, Textarea } from '@components/ui'
+import { useLocalized, useStrings } from '@/i18n'
 import { SERVICE_OPTIONS } from '@data/services'
 import { BUDGET_RANGES, TIMELINES } from '@data/booking'
 
+const STRINGS = {
+  en: {
+    serviceLabel: 'What do you need?',
+    servicePlaceholder: 'Choose a service',
+    budgetLabel: 'Budget range',
+    budgetPlaceholder: 'Select a range',
+    timelineLabel: 'Ideal start',
+    timelinePlaceholder: 'Select a timeline',
+    messageLabel: 'Tell us about the project',
+    messageHint: 'What are you building, what is broken, and what does done look like?',
+    messagePlaceholder:
+      'We have a React dashboard that slows to a crawl above 5k rows, and a mobile app to ship by March…',
+    repoLabel: 'Repository or product link',
+    repoHint: 'Optional — but it gets you a sharper answer.',
+    repoPlaceholder: 'https://github.com/acme/dashboard',
+  },
+  ar: {
+    serviceLabel: 'ما الذي تحتاجه؟',
+    servicePlaceholder: 'اختر خدمة',
+    budgetLabel: 'نطاق الميزانية',
+    budgetPlaceholder: 'اختر نطاقًا',
+    timelineLabel: 'موعد البدء المفضّل',
+    timelinePlaceholder: 'اختر إطارًا زمنيًا',
+    messageLabel: 'حدّثنا عن المشروع',
+    messageHint: 'ما الذي تبنيه؟ ما المشكلة القائمة؟ وكيف يبدو الإنجاز المطلوب في نظرك؟',
+    messagePlaceholder:
+      'لدينا لوحة تحكم React تتباطأ بشدة عند تجاوز 5 آلاف صف، وتطبيق موبايل يجب إطلاقه قبل مارس…',
+    repoLabel: 'رابط المستودع أو المنتج',
+    repoHint: 'اختياري — لكنه يساعدنا على إعطائك إجابة أدق.',
+    repoPlaceholder: 'https://github.com/acme/dashboard',
+  },
+}
+
 export function ProjectDetailsStep({ values, errors, setField }) {
+  const s = useStrings(STRINGS)
+  const serviceOptions = useLocalized(SERVICE_OPTIONS)
+  const budgetOptions = useLocalized(BUDGET_RANGES)
+  const timelineOptions = useLocalized(TIMELINES)
+
   return (
     <div className="flex flex-col gap-6">
-      <Field id="booking-service" label="What do you need?" required error={errors.service}>
+      <Field id="booking-service" label={s.serviceLabel} required error={errors.service}>
         <Select
           id="booking-service"
           value={values.service}
           invalid={Boolean(errors.service)}
           onChange={(event) => setField('service', event.target.value)}
-          placeholder="Choose a service"
-          options={SERVICE_OPTIONS}
+          placeholder={s.servicePlaceholder}
+          options={serviceOptions}
         />
       </Field>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field id="booking-budget" label="Budget range" required error={errors.budget}>
+        <Field id="booking-budget" label={s.budgetLabel} required error={errors.budget}>
           <Select
             id="booking-budget"
             value={values.budget}
             invalid={Boolean(errors.budget)}
             onChange={(event) => setField('budget', event.target.value)}
-            placeholder="Select a range"
-            options={BUDGET_RANGES.map(({ value, label }) => ({ value, label }))}
+            placeholder={s.budgetPlaceholder}
+            options={budgetOptions.map(({ value, label }) => ({ value, label }))}
           />
         </Field>
 
-        <Field id="booking-timeline" label="Ideal start" required error={errors.timeline}>
+        <Field id="booking-timeline" label={s.timelineLabel} required error={errors.timeline}>
           <Select
             id="booking-timeline"
             value={values.timeline}
             invalid={Boolean(errors.timeline)}
             onChange={(event) => setField('timeline', event.target.value)}
-            placeholder="Select a timeline"
-            options={TIMELINES}
+            placeholder={s.timelinePlaceholder}
+            options={timelineOptions}
           />
         </Field>
       </div>
 
       <Field
         id="booking-message"
-        label="Tell us about the project"
+        label={s.messageLabel}
         required
         error={errors.message}
-        hint="What are you building, what is broken, and what does done look like?"
+        hint={s.messageHint}
       >
         <Textarea
           id="booking-message"
@@ -53,21 +92,21 @@ export function ProjectDetailsStep({ values, errors, setField }) {
           value={values.message}
           invalid={Boolean(errors.message)}
           onChange={(event) => setField('message', event.target.value)}
-          placeholder="We have a React dashboard that slows to a crawl above 5k rows, and a mobile app to ship by March…"
+          placeholder={s.messagePlaceholder}
         />
       </Field>
 
-      <Field
-        id="booking-repo"
-        label="Repository or product link"
-        hint="Optional — but it gets you a sharper answer."
-      >
+      <Field id="booking-repo" label={s.repoLabel} hint={s.repoHint}>
+        {/* URLs are Latin text: keep the field LTR so the value does not
+            jumble when the page is RTL. */}
         <Input
           id="booking-repo"
           type="url"
+          dir="ltr"
+          className="text-left"
           value={values.projectSlug}
           onChange={(event) => setField('projectSlug', event.target.value)}
-          placeholder="https://github.com/acme/dashboard"
+          placeholder={s.repoPlaceholder}
         />
       </Field>
     </div>

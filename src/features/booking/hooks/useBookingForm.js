@@ -1,13 +1,19 @@
 import { useCallback, useMemo, useRef, useState } from 'react'
+import { localize, useLanguage } from '@/i18n'
 import { createBooking } from '../api/bookingApi'
 import { INITIAL_VALUES, toBookingPayload, validateStep } from '../validation'
 
 export const STEPS = ['type', 'details', 'contact']
 
 const STEP_LABELS = {
-  type: 'Engagement',
-  details: 'Details',
-  contact: 'Contact',
+  type: { en: 'Engagement', ar: 'نوع الحجز' },
+  details: { en: 'Details', ar: 'التفاصيل' },
+  contact: { en: 'Contact', ar: 'بيانات التواصل' },
+}
+
+const GENERIC_SUBMIT_ERROR = {
+  en: 'We could not send your request. Please try again.',
+  ar: 'تعذّر إرسال طلبك. من فضلك حاول مرة أخرى.',
 }
 
 /**
@@ -16,10 +22,13 @@ const STEP_LABELS = {
  * an attempt to advance, so the form never scolds someone mid-typing.
  */
 export function useBookingForm(overrides = {}) {
+  const { language } = useLanguage()
   const [values, setValues] = useState({ ...INITIAL_VALUES, ...overrides })
   const [touched, setTouched] = useState({})
   const [stepIndex, setStepIndex] = useState(overrides.type ? 1 : 0)
   const [status, setStatus] = useState('idle')
+  // Stored as an { en, ar } locale object; collapsed on the way out so language
+  // switches re-render an already-visible error in the new language.
   const [submitError, setSubmitError] = useState(null)
   const [result, setResult] = useState(null)
   const submittingRef = useRef(false)
@@ -28,10 +37,13 @@ export function useBookingForm(overrides = {}) {
   const stepErrors = useMemo(() => validateStep(step, values), [step, values])
 
   const visibleErrors = useMemo(() => {
-    return Object.fromEntries(
-      Object.entries(stepErrors).filter(([field]) => touched[field] || touched.__step),
+    return localize(
+      Object.fromEntries(
+        Object.entries(stepErrors).filter(([field]) => touched[field] || touched.__step),
+      ),
+      language,
     )
-  }, [stepErrors, touched])
+  }, [stepErrors, touched, language])
 
   const setField = useCallback((field, value) => {
     setValues((current) => ({ ...current, [field]: value }))
@@ -89,7 +101,7 @@ export function useBookingForm(overrides = {}) {
       setResult(response)
       setStatus('success')
     } catch (error) {
-      setSubmitError(error.message ?? 'We could not send your request. Please try again.')
+      setSubmitError(error.userMessage ?? GENERIC_SUBMIT_ERROR)
       setStatus('error')
     } finally {
       submittingRef.current = false
@@ -117,7 +129,7 @@ export function useBookingForm(overrides = {}) {
     setType,
     step,
     stepIndex,
-    stepLabel: STEP_LABELS[step],
+    stepLabel: localize(STEP_LABELS[step], language),
     steps: STEPS,
     isFirstStep: stepIndex === 0,
     isLastStep: stepIndex === STEPS.length - 1,
@@ -127,7 +139,7 @@ export function useBookingForm(overrides = {}) {
     submit,
     reset,
     status,
-    submitError,
+    submitError: localize(submitError, language),
     result,
   }
 }

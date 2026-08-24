@@ -1,13 +1,26 @@
+/**
+ * User-facing text fields follow the site-wide i18n convention: `{ en, ar }`
+ * objects, collapsed by `useLocalized()` / `localize()` from `@/i18n`.
+ * Node-side consumers (scripts/prerender-seo.mjs) read the `.en` value.
+ */
 export const SITE = {
   name: 'HammerLoad',
   shortName: 'HammerLoad',
   url: 'https://hammerload.com',
-  tagline: 'Software development & AI solutions',
-  description:
-    'We design, build and rescue software — web, mobile, backend and AI/LLM systems — for teams that care about the details.',
+  tagline: {
+    en: 'Software development & AI solutions',
+    ar: 'تطوير البرمجيات وحلول الذكاء الاصطناعي',
+  },
+  description: {
+    en: 'We design, build and rescue software — web, mobile, backend and AI/LLM systems — for teams that care about the details.',
+    ar: 'نصمّم البرمجيات ونبنيها وننقذها — أنظمة ويب وموبايل وأنظمة خلفية وذكاء اصطناعي — لفرقٍ تهتم بأدق التفاصيل.',
+  },
   email: 'contact@hammerload.com',
   phone: '+1 (555) 010-4477',
-  location: 'Cairo, Egypt',
+  location: {
+    en: 'Cairo, Egypt',
+    ar: 'القاهرة، مصر',
+  },
   bookingWindowDays: 14,
   socials: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/hammerload/' },
@@ -21,8 +34,8 @@ export const SITE = {
 }
 
 export const STATS = [
-  { value: '60+', label: 'Products shipped' },
-  { value: '9', label: 'Years building' },
-  { value: '24h', label: 'Median first response' },
-  { value: '98%', label: 'Clients who return' },
+  { value: '60+', label: { en: 'Products shipped', ar: 'منتجًا أطلقناه' } },
+  { value: '9', label: { en: 'Years building', ar: 'سنوات من الخبرة' } },
+  { value: '24h', label: { en: 'Median first response', ar: 'متوسط زمن أول رد' } },
+  { value: '98%', label: { en: 'Clients who return', ar: 'من العملاء يعودون إلينا' } },
 ]

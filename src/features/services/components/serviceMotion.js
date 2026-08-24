@@ -48,7 +48,7 @@ function personalityAt(index) {
   return CARD_PERSONALITIES[index % CARD_PERSONALITIES.length]
 }
 
-export function getDesktopCardState(index, activeIndex, count, isLargeDesktop = false) {
+export function getDesktopCardState(index, activeIndex, count, isLargeDesktop = false, dirSign = 1) {
   const personality = personalityAt(index)
   const centre = (count - 1) / 2
   const stackStep = isLargeDesktop ? 52 : 48
@@ -56,7 +56,7 @@ export function getDesktopCardState(index, activeIndex, count, isLargeDesktop = 
 
   if (activeIndex === null) {
     return {
-      x: `${baseX}%`,
+      x: `${dirSign * baseX}%`,
       y: personality.y,
       rotate: personality.rotate,
       scale: personality.scale,
@@ -70,7 +70,7 @@ export function getDesktopCardState(index, activeIndex, count, isLargeDesktop = 
 
   if (distance === 0) {
     return {
-      x: `${baseX}%`,
+      x: `${dirSign * baseX}%`,
       y: personality.y - ACTIVE_LIFT,
       rotate: 0,
       scale: ACTIVE_SCALE,
@@ -83,7 +83,7 @@ export function getDesktopCardState(index, activeIndex, count, isLargeDesktop = 
   const pressure = NEIGHBOR_PRESSURE / Math.pow(distance, 0.82)
 
   return {
-    x: `${baseX + direction * pressure}%`,
+    x: `${dirSign * (baseX + direction * pressure)}%`,
     y: personality.y + Math.max(1, 5 - distance),
     rotate: personality.rotate + (direction * 0.65) / distance,
     scale: personality.scale - Math.max(0, 0.012 - distance * 0.002),

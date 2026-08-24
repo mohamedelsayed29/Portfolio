@@ -2,13 +2,20 @@ import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { X } from 'lucide-react'
+import { useStrings } from '@/i18n'
 import { cn } from '@lib/cn'
 import { modalBackdrop, modalPanel } from '@lib/animations'
 import { useEscapeKey, useLockBodyScroll } from '@hooks'
 
+const STRINGS = {
+  en: { close: 'Close dialog' },
+  ar: { close: 'إغلاق النافذة' },
+}
+
 export function Modal({ open, onClose, title, description, className, children }) {
   const panelRef = useRef(null)
   const restoreFocusRef = useRef(null)
+  const s = useStrings(STRINGS)
 
   useLockBodyScroll(open)
   useEscapeKey(onClose, open)
@@ -58,14 +65,14 @@ export function Modal({ open, onClose, title, description, className, children }
             <button
               type="button"
               onClick={onClose}
-              aria-label="Close dialog"
-              className="absolute top-5 right-5 z-10 grid size-8 place-items-center rounded-full bg-surface-muted text-text-muted transition-colors hover:bg-surface-sunken hover:text-text"
+              aria-label={s.close}
+              className="absolute end-5 top-5 z-10 grid size-8 place-items-center rounded-full bg-surface-muted text-text-muted transition-colors hover:bg-surface-sunken hover:text-text"
             >
               <X size={16} aria-hidden="true" />
             </button>
 
             {(title || description) && (
-              <header className="shrink-0 px-7 pt-7 pr-16 pb-2">
+              <header className="shrink-0 px-7 pt-7 pe-16 pb-2">
                 {title && (
                   <h2 className="text-[24px] font-semibold tracking-[-0.02em]">{title}</h2>
                 )}

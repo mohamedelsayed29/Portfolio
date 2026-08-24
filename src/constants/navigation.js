@@ -1,28 +1,31 @@
 export const NAV_LINKS = [
-  { label: 'Work', to: '/work' },
-  { label: 'Services', to: '/services' },
-  { label: 'Process', to: '/#process' },
-  { label: 'About', to: '/about' },
+  { label: { en: 'Work', ar: 'الأعمال' }, to: '/work' },
+  { label: { en: 'Services', ar: 'الخدمات' }, to: '/services' },
+  { label: { en: 'Process', ar: 'منهجية العمل' }, to: '/#process' },
+  { label: { en: 'About', ar: 'من نحن' }, to: '/about' },
 ]
 
 export const FOOTER_SECTIONS = [
   {
-    title: 'Capabilities',
+    title: { en: 'Capabilities', ar: 'قدراتنا' },
     links: [
-      { label: 'Frontend engineering', to: '/services#frontend' },
-      { label: 'Backend & APIs', to: '/services#backend' },
-      { label: 'Mobile apps', to: '/services#mobile' },
-      { label: 'AI, LLM & models', to: '/services#ai' },
-      { label: 'Bug fixing & rescue', to: '/services#bugfix' },
+      {
+        label: { en: 'Frontend engineering', ar: 'هندسة الواجهات الأمامية' },
+        to: '/services#frontend',
+      },
+      { label: { en: 'Backend & APIs', ar: 'الأنظمة الخلفية وواجهات API' }, to: '/services#backend' },
+      { label: { en: 'Mobile apps', ar: 'تطبيقات الموبايل' }, to: '/services#mobile' },
+      { label: { en: 'AI, LLM & models', ar: 'الذكاء الاصطناعي والنماذج اللغوية' }, to: '/services#ai' },
+      { label: { en: 'Bug fixing & rescue', ar: 'إصلاح الأخطاء وإنقاذ المشاريع' }, to: '/services#bugfix' },
     ],
   },
   {
-    title: 'Company',
+    title: { en: 'Company', ar: 'الشركة' },
     links: [
-      { label: 'Selected work', to: '/work' },
-      { label: 'About us', to: '/about' },
-      { label: 'Process', to: '/#process' },
-      { label: 'Contact', to: '/book' },
+      { label: { en: 'Selected work', ar: 'أعمال مختارة' }, to: '/work' },
+      { label: { en: 'About us', ar: 'من نحن' }, to: '/about' },
+      { label: { en: 'Process', ar: 'منهجية العمل' }, to: '/#process' },
+      { label: { en: 'Contact', ar: 'تواصل معنا' }, to: '/book' },
     ],
   },
 ]

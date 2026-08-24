@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowLeft, ArrowRight, CircleAlert, Send } from 'lucide-react'
 import { Button } from '@components/ui'
+import { useLanguage, useStrings } from '@/i18n'
 import { EASE_APPLE } from '@lib/animations'
 import { useBookingForm } from '../hooks/useBookingForm'
 import { BookingTypeToggle } from './BookingTypeToggle'
@@ -10,14 +11,28 @@ import { ProjectDetailsStep } from './ProjectDetailsStep'
 import { ContactStep } from './ContactStep'
 import { BookingSuccess } from './BookingSuccess'
 
-const stepMotion = {
-  initial: { opacity: 0, x: 24 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -24 },
-  transition: { duration: 0.35, ease: EASE_APPLE },
+const STRINGS = {
+  en: {
+    takesAMinute: 'Takes about a minute.',
+    back: 'Back',
+    continue: 'Continue',
+    sendRequest: 'Send request',
+  },
+  ar: {
+    takesAMinute: 'لن يستغرق الأمر أكثر من دقيقة.',
+    back: 'رجوع',
+    continue: 'متابعة',
+    sendRequest: 'أرسل الطلب',
+  },
 }
 
+/* Button renders its icon internally, so the paper plane mirrors via a wrapped
+   component instead of a className on the call site. */
+const SendIcon = (props) => <Send className="rtl:-scale-x-100" {...props} />
+
 export function BookingForm({ initialValues = {}, onDone }) {
+  const s = useStrings(STRINGS)
+  const { isRTL } = useLanguage()
   const form = useBookingForm(initialValues)
   const {
     values,
@@ -51,6 +66,20 @@ export function BookingForm({ initialValues = {}, onDone }) {
       goNext()
     }
   }
+
+  // Steps advance with the reading direction: new content slides in from the
+  // "next" side, which is the left in RTL.
+  const stepMotion = {
+    initial: { opacity: 0, x: isRTL ? -24 : 24 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: isRTL ? 24 : -24 },
+    transition: { duration: 0.35, ease: EASE_APPLE },
+  }
+
+  // The arrows must point "back" and "forward" in reading order, so the two
+  // glyphs swap roles in RTL.
+  const BackIcon = isRTL ? ArrowRight : ArrowLeft
+  const ForwardIcon = isRTL ? ArrowLeft : ArrowRight
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex min-w-0 flex-col gap-8">
@@ -90,10 +119,10 @@ export function BookingForm({ initialValues = {}, onDone }) {
 
       <div className="flex items-center justify-between gap-3">
         {isFirstStep ? (
-          <span className="text-[13px] text-text-subtle">Takes about a minute.</span>
+          <span className="text-[13px] text-text-subtle">{s.takesAMinute}</span>
         ) : (
-          <Button type="button" variant="ghost" onClick={goBack} icon={ArrowLeft} iconPosition="left">
-            Back
+          <Button type="button" variant="ghost" onClick={goBack} icon={BackIcon} iconPosition="left">
+            {s.back}
           </Button>
         )}
 
@@ -101,9 +130,9 @@ export function BookingForm({ initialValues = {}, onDone }) {
           type="submit"
           size="md"
           loading={status === 'submitting'}
-          icon={isLastStep ? Send : ArrowRight}
+          icon={isLastStep ? SendIcon : ForwardIcon}
         >
-          {isLastStep ? 'Send request' : 'Continue'}
+          {isLastStep ? s.sendRequest : s.continue}
         </Button>
       </div>
     </form>

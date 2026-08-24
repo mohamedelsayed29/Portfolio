@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import { animate, motion, useMotionValue, useTransform } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@lib/cn'
+import { useLanguage, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
+import { CARD_STRINGS } from './cardStrings'
 import { ServiceArtwork } from './ServiceCard'
 import {
   CAROUSEL_SPRING,
@@ -18,11 +20,24 @@ const initialWidth = () => {
   return Math.max(272, window.innerWidth)
 }
 
+const CAROUSEL_STRINGS = {
+  en: {
+    regionLabel: 'Services',
+    roleDescription: 'carousel',
+    status: (current, total, title) => `Service ${current} of ${total}: ${title}`,
+  },
+  ar: {
+    regionLabel: 'الخدمات',
+    roleDescription: 'عرض دوّار',
+    status: (current, total, title) => `الخدمة ${current} من ${total}: ${title}`,
+  },
+}
+
 function MobileServiceCard({
   service,
   index,
   cardWidth,
-  stride,
+  signedStride,
   trackX,
   isActive,
   reduced,
@@ -30,7 +45,8 @@ function MobileServiceCard({
   onBook,
 }) {
   const Icon = SERVICE_ICONS[service.icon]
-  const distanceFromCentre = useTransform(trackX, (value) => (value + index * stride) / stride)
+  const s = useStrings(CARD_STRINGS)
+  const distanceFromCentre = useTransform(trackX, (value) => index - value / signedStride)
   const scale = useTransform(distanceFromCentre, (distance) =>
     reduced ? 1 : Math.max(0.945, 1 - Math.abs(distance) * 0.045),
   )
@@ -80,7 +96,7 @@ function MobileServiceCard({
         to={`/services#${service.id}`}
         draggable="false"
         className="absolute inset-0 z-10 rounded-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-primary)] focus-visible:ring-inset"
-        aria-label={`${service.title}, details`}
+        aria-label={s.detailsAria(service.title)}
       />
 
       <span className="service-card__icon-chip relative z-[2] grid size-12 place-items-center rounded-[15px] border">
@@ -118,10 +134,10 @@ function MobileServiceCard({
             onClick={() => onBook?.(service)}
             className="service-card__book relative z-20 underline-offset-4 hover:underline"
           >
-            Book this
+            {s.book}
           </button>
           <span className="service-card__details flex items-center gap-1">
-            Details <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            {s.details} <ArrowUpRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
           </span>
         </motion.div>
       </div>
@@ -130,6 +146,8 @@ function MobileServiceCard({
 }
 
 export function MobileServiceCarousel({ services, onBook, reduced }) {
+  const { isRTL } = useLanguage()
+  const s = useStrings(CAROUSEL_STRINGS)
   const viewportRef = useRef(null)
   const trackRef = useRef(null)
   const activeIndexRef = useRef(0)
@@ -140,7 +158,11 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [metrics, setMetrics] = useState(() => getCarouselMetrics(initialWidth()))
   const stride = metrics.cardWidth + metrics.gap
-  const endX = -(services.length - 1) * stride
+  /* In RTL the flex track lays cards out right-to-left, so advancing to the
+     next card moves the track in +x instead of -x. One signed stride keeps
+     every position, projection and constraint direction-correct. */
+  const signedStride = isRTL ? stride : -stride
+  const endX = (services.length - 1) * signedStride
 
   const promoteMovingLayers = useCallback(() => {
     if (demoteTimerRef.current !== null) clearTimeout(demoteTimerRef.current)
@@ -166,13 +188,13 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
       setActiveIndex(index)
       animationRef.current?.stop()
       promoteMovingLayers()
-      animationRef.current = animate(trackX, -index * stride, {
+      animationRef.current = animate(trackX, index * signedStride, {
         ...(reduced ? REDUCED_TRANSITION : CAROUSEL_SPRING),
         velocity: reduced ? 0 : velocity,
       })
       demoteMovingLayers()
     },
-    [demoteMovingLayers, promoteMovingLayers, reduced, services.length, stride, trackX],
+    [demoteMovingLayers, promoteMovingLayers, reduced, services.length, signedStride, trackX],
   )
 
   useEffect(() => {
@@ -215,8 +237,8 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
 
   useEffect(() => {
     animationRef.current?.stop()
-    trackX.set(-activeIndexRef.current * stride)
-  }, [stride, trackX])
+    trackX.set(activeIndexRef.current * signedStride)
+  }, [signedStride, trackX])
 
   useEffect(
     () => () => {
@@ -229,7 +251,7 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
 
   const handleDragEnd = (_, info) => {
     const projectedX = trackX.get() + info.velocity.x * 0.16
-    const targetIndex = Math.round(-projectedX / stride)
+    const targetIndex = Math.round(projectedX / signedStride)
     suppressClickUntilRef.current = performance.now() + 140
     settleTo(targetIndex, info.velocity.x)
   }
@@ -245,16 +267,17 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
     <div
       ref={viewportRef}
       role="region"
-      aria-roledescription="carousel"
-      aria-label="Services"
+      aria-roledescription={s.roleDescription}
+      aria-label={s.regionLabel}
       className="-mx-6 overflow-hidden px-0 sm:-mx-8"
       style={{ touchAction: 'pan-y' }}
       onClickCapture={handleClickCapture}
     >
       <motion.div
+        key={isRTL ? 'rtl' : 'ltr'}
         ref={trackRef}
         drag="x"
-        dragConstraints={{ left: endX, right: 0 }}
+        dragConstraints={isRTL ? { left: 0, right: endX } : { left: endX, right: 0 }}
         dragElastic={0.075}
         dragMomentum={false}
         style={{
@@ -275,7 +298,7 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
             service={service}
             index={index}
             cardWidth={metrics.cardWidth}
-            stride={stride}
+            signedStride={signedStride}
             trackX={trackX}
             isActive={activeIndex === index}
             reduced={reduced}
@@ -285,7 +308,7 @@ export function MobileServiceCarousel({ services, onBook, reduced }) {
         ))}
       </motion.div>
       <p aria-live="polite" className="sr-only">
-        Service {activeIndex + 1} of {services.length}: {services[activeIndex]?.title}
+        {s.status(activeIndex + 1, services.length, services[activeIndex]?.title)}
       </p>
     </div>
   )

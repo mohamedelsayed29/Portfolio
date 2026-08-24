@@ -14,7 +14,7 @@ export const Select = forwardRef(function Select(
         id={id}
         aria-invalid={invalid || undefined}
         aria-describedby={invalid ? `${id}-error` : undefined}
-        className={cn(controlClasses(invalid), 'h-12 cursor-pointer appearance-none pr-11', className)}
+        className={cn(controlClasses(invalid), 'h-12 cursor-pointer appearance-none pe-11', className)}
         {...props}
       >
         {placeholder && (
@@ -31,7 +31,7 @@ export const Select = forwardRef(function Select(
       <ChevronDown
         size={16}
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-text-subtle"
+        className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-text-subtle"
       />
     </div>
   )

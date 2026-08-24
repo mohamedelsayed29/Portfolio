@@ -1,12 +1,20 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { EASE_APPLE } from '@lib/animations'
+import { useStrings } from '@/i18n'
 import { ProjectCard } from './ProjectCard'
 
-export function ProjectGrid({ projects, emptyMessage = 'No projects match that filter yet.' }) {
+const STRINGS = {
+  en: { empty: 'No projects match that filter yet.' },
+  ar: { empty: 'لا توجد مشاريع تطابق هذه التصفية بعد.' },
+}
+
+export function ProjectGrid({ projects, emptyMessage }) {
+  const s = useStrings(STRINGS)
+
   if (projects.length === 0) {
     return (
       <div className="grid place-items-center rounded-[var(--radius-apple-lg)] border border-dashed border-line py-24 text-center">
-        <p className="text-[15px] text-text-muted">{emptyMessage}</p>
+        <p className="text-[15px] text-text-muted">{emptyMessage ?? s.empty}</p>
       </div>
     )
   }

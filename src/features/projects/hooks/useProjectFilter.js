@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react'
 import { PROJECTS } from '@data/projects'
+import { isLocaleObject } from '@/i18n'
+
+/** Flattens `{ en, ar }` fields so free-text search matches either language. */
+const searchText = (field) => (isLocaleObject(field) ? Object.values(field).join(' ') : field)
 
 /**
  * Category + free-text filtering for the work index. Kept as a hook so the
@@ -18,6 +22,7 @@ export function useProjectFilter(projects = PROJECTS) {
       if (!needle) return true
 
       const haystack = [project.title, project.subtitle, project.summary, ...project.stack]
+        .map(searchText)
         .join(' ')
         .toLowerCase()
 

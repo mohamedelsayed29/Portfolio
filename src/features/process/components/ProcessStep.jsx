@@ -2,8 +2,8 @@ import { Reveal } from '@components/common'
 
 export function ProcessStep({ step, index }) {
   return (
-    <Reveal as="li" delay={index * 0.08} className="relative pl-16 sm:pl-24">
-      <span className="absolute top-0 left-0 grid size-11 place-items-center rounded-full border border-line bg-bg font-mono text-[13px] font-medium text-text-muted sm:size-14 sm:text-[15px]">
+    <Reveal as="li" delay={index * 0.08} className="relative ps-16 sm:ps-24">
+      <span className="absolute top-0 start-0 grid size-11 place-items-center rounded-full border border-line bg-bg font-mono text-[13px] font-medium text-text-muted sm:size-14 sm:text-[15px]">
         {step.step}
       </span>
 

@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+import { LanguageProvider } from '@/i18n'
 import { ThemeProvider } from './ThemeProvider'
 import { BookingProvider } from './BookingProvider'
 
@@ -6,9 +7,11 @@ import { BookingProvider } from './BookingProvider'
 export function AppProviders({ children }) {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <BookingProvider>{children}</BookingProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <BookingProvider>{children}</BookingProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </BrowserRouter>
   )
 }

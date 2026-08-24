@@ -231,3 +231,36 @@
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Arabic & RTL — driven by <html lang dir>, set by LanguageProvider.
+   Deliberately outside @layer so these beat utility classes.
+--------------------------------------------------------------------------- */
+
+/* Cairo carries both Arabic and Latin glyphs, replacing body and brand faces.
+   The mono face is included too: no Arabic monospace exists, and the SF Mono
+   fallback renders Arabic as disconnected letters. */
+html[lang='ar'] body,
+html[lang='ar'] .font-sans,
+html[lang='ar'] .font-brand,
+html[lang='ar'] .font-mono {
+  font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+/* Arabic is a connected script: any letter-spacing — including the negative
+   headline tracking and wide uppercase label tracking — breaks its ligatures. */
+html[lang='ar'] * {
+  letter-spacing: 0 !important;
+}
+
+/* Mirror purely-directional glyphs (arrows, chevrons) in RTL. Prefer this on
+   icons without their own transform utilities; otherwise use rtl:-scale-x-100. */
+[dir='rtl'] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* The hero marquee scrolls with the reading direction. */
+[dir='rtl'] .animate-marquee {
+  animation-direction: reverse;
+}

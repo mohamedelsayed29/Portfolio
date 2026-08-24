@@ -11,57 +11,96 @@ import {
 import { Section } from '@components/layout'
 import { Reveal, SectionHeading } from '@components/common'
 import { Card } from '@components/ui'
+import { useLocalized, useStrings } from '@/i18n'
 
 const AUDIENCES = [
   {
     icon: Sparkles,
-    title: 'Have a SaaS idea?',
-    body: 'We turn it into a live product: clear scope, a testable MVP, then staged growth from real market feedback.',
+    title: { en: 'Have a SaaS idea?', ar: 'لديك فكرة SaaS؟' },
+    body: {
+      en: 'We turn it into a live product: clear scope, a testable MVP, then staged growth from real market feedback.',
+      ar: 'نحوّلها إلى منتج حي: نطاق واضح، ونسخة MVP قابلة للاختبار، ثم نمو تدريجي مبني على ملاحظات حقيقية من السوق.',
+    },
   },
   {
     icon: Rocket,
-    title: 'Startups that need an MVP',
-    body: 'Launch the first useful version quickly without burning time on features users do not need yet.',
+    title: { en: 'Startups that need an MVP', ar: 'شركات ناشئة تحتاج إلى MVP' },
+    body: {
+      en: 'Launch the first useful version quickly without burning time on features users do not need yet.',
+      ar: 'نطلق أول نسخة مفيدة بسرعة، دون إهدار الوقت على مزايا لا يحتاجها المستخدمون بعد.',
+    },
   },
   {
     icon: RefreshCw,
-    title: 'Companies with legacy systems',
-    body: 'We enter existing codebases, find the root cause, and fix or refactor without reckless rewrites.',
+    title: { en: 'Companies with legacy systems', ar: 'شركات لديها أنظمة قديمة' },
+    body: {
+      en: 'We enter existing codebases, find the root cause, and fix or refactor without reckless rewrites.',
+      ar: 'نتعامل مع الكود القائم، ونصل إلى جذر المشكلة، ثم نصلح أو نعيد الهيكلة من دون إعادة كتابة متهورة.',
+    },
   },
   {
     icon: HeartPulse,
-    title: 'Clinics and medical centers',
-    body: 'Bookings, patient files, payments, reminders, and operating dashboards that help teams serve patients better.',
+    title: { en: 'Clinics and medical centers', ar: 'العيادات والمراكز الطبية' },
+    body: {
+      en: 'Bookings, patient files, payments, reminders, and operating dashboards that help teams serve patients better.',
+      ar: 'حجوزات، وملفات مرضى، ومدفوعات، وتذكيرات، ولوحات تشغيل تساعد الفرق على خدمة المرضى بشكل أفضل.',
+    },
   },
   {
     icon: Dumbbell,
-    title: 'Gyms and fitness centers',
-    body: 'Memberships, QR access, trainer bookings, branch occupancy, and mobile apps for members.',
+    title: { en: 'Gyms and fitness centers', ar: 'الصالات الرياضية ومراكز اللياقة' },
+    body: {
+      en: 'Memberships, QR access, trainer bookings, branch occupancy, and mobile apps for members.',
+      ar: 'اشتراكات، ودخول برمز QR، وحجز مدربين، ومتابعة إشغال الفروع، وتطبيقات موبايل للأعضاء.',
+    },
   },
   {
     icon: ShoppingBag,
-    title: 'E-commerce teams',
-    body: 'Arabic/English storefronts, catalogues, payments, offers, and admin tools for local and Gulf markets.',
+    title: { en: 'E-commerce teams', ar: 'فرق التجارة الإلكترونية' },
+    body: {
+      en: 'Arabic/English storefronts, catalogues, payments, offers, and admin tools for local and Gulf markets.',
+      ar: 'متاجر بالعربية والإنجليزية، وكتالوجات، ومدفوعات، وعروض، وأدوات إدارة للأسواق المحلية والخليجية.',
+    },
   },
   {
     icon: Store,
-    title: 'Teams that need AI automation',
-    body: 'We connect AI to your data and real workflows: RAG, summarization, agents, and repeatable automation.',
+    title: { en: 'Teams that need AI automation', ar: 'فرق تحتاج إلى أتمتة بالذكاء الاصطناعي' },
+    body: {
+      en: 'We connect AI to your data and real workflows: RAG, summarization, agents, and repeatable automation.',
+      ar: 'نربط الذكاء الاصطناعي ببياناتك وسير عملك الفعلي: RAG، والتلخيص الآلي، والوكلاء الأذكياء، والأتمتة القابلة للتكرار.',
+    },
   },
   {
     icon: Building2,
-    title: 'Gulf companies needing a technical partner',
-    body: 'We work as an external technical team with clear communication, weekly delivery, and full ownership handover.',
+    title: {
+      en: 'Gulf companies needing a technical partner',
+      ar: 'شركات خليجية تبحث عن شريك تقني',
+    },
+    body: {
+      en: 'We work as an external technical team with clear communication, weekly delivery, and full ownership handover.',
+      ar: 'نعمل كفريق تقني خارجي بتواصل واضح، وتسليم أسبوعي، ونقل كامل للملكية في النهاية.',
+    },
   },
 ]
 
-export function AudienceSection() {
-  const copy = {
+const STRINGS = {
+  en: {
     eyebrow: 'Who it is for',
     title: 'We build for teams that need a real product, not just a polished screen.',
     description:
       'Whether you have a SaaS idea, an old system slowing the team down, or a workflow that needs AI automation, we help turn it into a product that can grow.',
-  }
+  },
+  ar: {
+    eyebrow: 'لمن نعمل',
+    title: 'نبني لفرقٍ تحتاج إلى منتج حقيقي، لا مجرد شاشات أنيقة.',
+    description:
+      'سواء كانت لديك فكرة SaaS، أو نظام قديم يبطئ فريقك، أو عمليات تحتاج إلى أتمتة بالذكاء الاصطناعي — نساعدك على تحويلها إلى منتج قادر على النمو.',
+  },
+}
+
+export function AudienceSection() {
+  const copy = useStrings(STRINGS)
+  const audiences = useLocalized(AUDIENCES)
 
   return (
     <Section id="fit" width="wide" className="bg-bg-elevated">
@@ -75,7 +114,7 @@ export function AudienceSection() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {AUDIENCES.map((item, index) => {
+        {audiences.map((item, index) => {
           const Icon = item.icon
 
           return (

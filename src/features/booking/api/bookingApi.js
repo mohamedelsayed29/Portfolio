@@ -49,6 +49,26 @@ const label = (value = '') =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ')
 
+/**
+ * User-visible failure copy as `{ en, ar }`, attached to thrown errors as
+ * `error.userMessage` so the form hook can show it in the active language.
+ * The payload itself stays English — the studio reads it on the other end.
+ */
+const SEND_FAILED = {
+  en: 'We could not send your request. Please try again.',
+  ar: 'تعذّر إرسال طلبك. من فضلك حاول مرة أخرى.',
+}
+
+const withUserMessage = (error, serverMessage) => {
+  // A specific server message is English-only, so surface it in English mode
+  // and fall back to the generic Arabic line rather than mixing languages.
+  error.userMessage = {
+    en: serverMessage || SEND_FAILED.en,
+    ar: SEND_FAILED.ar,
+  }
+  return error
+}
+
 export async function createBooking(payload) {
   const requestType = payload.type === 'meeting' ? 'Meeting' : label(payload.service || payload.type)
   const response = await fetch('/api/send-booking', {
@@ -80,17 +100,23 @@ export async function createBooking(payload) {
   })
 
   if (!response.ok) {
-    throw new ApiError(body?.message ?? `Request failed with ${response.status}`, {
-      status: response.status,
-      details: body?.details,
-    })
+    throw withUserMessage(
+      new ApiError(body?.message ?? `Request failed with ${response.status}`, {
+        status: response.status,
+        details: body?.details,
+      }),
+      body?.message,
+    )
   }
 
   if (body?.success === false) {
-    throw new ApiError(body?.message ?? 'We could not send your request.', {
-      status: response.status,
-      details: body?.details,
-    })
+    throw withUserMessage(
+      new ApiError(body?.message ?? 'We could not send your request.', {
+        status: response.status,
+        details: body?.details,
+      }),
+      body?.message,
+    )
   }
 
   return body ?? { success: true, type: payload.type, email: payload.email }

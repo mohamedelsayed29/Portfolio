@@ -1,18 +1,25 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '@app/providers'
+import { useStrings } from '@/i18n'
 import { EASE_APPLE } from '@lib/animations'
 import { cn } from '@lib/cn'
+
+const STRINGS = {
+  en: { toLight: 'Switch to light appearance', toDark: 'Switch to dark appearance' },
+  ar: { toLight: 'التبديل إلى المظهر الفاتح', toDark: 'التبديل إلى المظهر الداكن' },
+}
 
 export function ThemeToggle({ className, onDark = false }) {
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
+  const s = useStrings(STRINGS)
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} appearance`}
+      aria-label={isDark ? s.toLight : s.toDark}
       className={cn(
         'relative grid size-10 place-items-center overflow-hidden rounded-full',
         'transition-colors duration-300',

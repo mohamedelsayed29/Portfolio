@@ -278,7 +278,7 @@
 
 .service-card__index {
   position: absolute;
-  right: 1.55rem;
+  inset-inline-end: 1.55rem;
   bottom: 1.35rem;
   color: rgb(var(--service-primary-rgb) / 0.42);
   font-family: var(--font-mono);
@@ -480,7 +480,7 @@
   }
 
   .service-card__index {
-    right: 1.35rem;
+    inset-inline-end: 1.35rem;
     bottom: 1.15rem;
   }
 }

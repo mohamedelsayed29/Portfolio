@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
 import { SITE } from '@constants/site'
+import { useStrings } from '@/i18n'
 import { HammerLoadLogo } from '@components/brand'
 import { cn } from '@lib/cn'
 
+const STRINGS = {
+  en: { homeLabel: `${SITE.name} home` },
+  ar: { homeLabel: `${SITE.name} — الصفحة الرئيسية` },
+}
+
 export function Logo({ className, onClick, onDark = false }) {
+  const s = useStrings(STRINGS)
+
   const handleClick = (event) => {
     onClick?.(event)
 
@@ -17,7 +25,7 @@ export function Logo({ className, onClick, onDark = false }) {
     <Link
       to="/"
       onClick={handleClick}
-      aria-label={`${SITE.name} home`}
+      aria-label={s.homeLabel}
       className={cn(
         'group inline-flex min-w-[120px] items-center rounded-[8px] py-0.5',
         'transition-opacity duration-300 ease-[var(--ease-apple)] hover:opacity-[0.82]',

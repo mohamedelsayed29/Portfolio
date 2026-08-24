@@ -16,7 +16,7 @@ export function FaqItem({ faq }) {
           onClick={() => setOpen((current) => !current)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="flex w-full items-center justify-between gap-6 py-6 text-left"
+          className="flex w-full items-center justify-between gap-6 py-6 text-start"
         >
           <span className="text-[17px] font-medium tracking-[-0.01em] sm:text-[19px]">
             {faq.question}

@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@lib/cn'
+import { useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
+import { CARD_STRINGS } from './cardStrings'
 import { CARD_SPRING, REDUCED_TRANSITION, getServiceArtStyle } from './serviceMotion'
 
 export function ServiceArtwork({ Icon }) {
@@ -36,6 +38,7 @@ export function ServiceCard({
   onBook,
 }) {
   const Icon = SERVICE_ICONS[service.icon]
+  const s = useStrings(CARD_STRINGS)
 
   const handlePointerEnter = (event) => {
     onActivate()
@@ -91,7 +94,7 @@ export function ServiceCard({
         <Link
           to={`/services#${service.id}`}
           className="absolute inset-0 z-10 rounded-[28px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--service-primary)] focus-visible:ring-inset lg:rounded-[32px]"
-          aria-label={`${service.title}, details`}
+          aria-label={s.detailsAria(service.title)}
         />
 
         <div className="relative z-[2] flex items-center justify-between">
@@ -99,7 +102,7 @@ export function ServiceCard({
             {Icon && <Icon className="size-5 lg:size-[22px]" strokeWidth={1.6} aria-hidden="true" />}
           </span>
           <span className="service-card__label text-[9px] font-medium tracking-[0.18em] uppercase">
-            Studio service
+            {s.label}
           </span>
         </div>
 
@@ -140,10 +143,10 @@ export function ServiceCard({
               onClick={() => onBook?.(service)}
               className="service-card__book relative z-20 underline-offset-4 hover:underline"
             >
-              Book this
+              {s.book}
             </button>
             <span className="service-card__details flex items-center gap-1">
-              Details <ArrowUpRight className="size-3.5" aria-hidden="true" />
+              {s.details} <ArrowUpRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
             </span>
           </motion.div>
         </div>

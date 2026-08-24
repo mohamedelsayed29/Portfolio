@@ -86,7 +86,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: min(51%, 52rem);
-  margin: clamp(1.2rem, 3.2vw, 3.7rem) 12% 0 auto;
+  margin-block: clamp(1.2rem, 3.2vw, 3.7rem) 0;
+  margin-inline: auto 12%;
   color: #9b9b9b;
   font-size: clamp(1.5rem, 2.3vw, 2.1rem);
   line-height: 1;
@@ -97,7 +98,7 @@
   position: absolute;
   z-index: 2;
   top: clamp(9.2rem, 17vw, 18rem);
-  right: clamp(1.5rem, 3vw, 3.8rem);
+  inset-inline-end: clamp(1.5rem, 3vw, 3.8rem);
   font-size: clamp(4rem, 8vw, 7.2rem);
   line-height: 0.9;
   font-weight: 500;
@@ -185,7 +186,7 @@
   background: transparent;
   color: #6f6f6f;
   font: inherit;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   transition:
     min-height 420ms var(--ease-apple),
@@ -240,6 +241,12 @@
   background: #050505;
   color: #fff;
   transform: rotate(45deg);
+}
+
+/* The arrow glyph is mirrored via .rtl-flip, so the active twist mirrors too:
+   up-left resting, pointing outward (left) when open. */
+[dir='rtl'] .team-showcase__row[data-active] .team-showcase__row-icon {
+  transform: rotate(-45deg);
 }
 
 .team-showcase__member {
