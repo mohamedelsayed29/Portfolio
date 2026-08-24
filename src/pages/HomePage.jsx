@@ -1,6 +1,7 @@
 import { Seo } from '@components/common'
 import { Hero } from '@features/hero'
 import { ServicesSection } from '@features/services'
+import { AudienceSection } from '@features/audience'
 import { ProjectsSection } from '@features/projects'
 import { TeamSection } from '@features/team'
 import { ProcessSection } from '@features/process'
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Seo />
       <Hero />
       <ServicesSection />
+      <AudienceSection />
       <ProjectsSection />
       <ProcessSection />
       <TestimonialsSection />
