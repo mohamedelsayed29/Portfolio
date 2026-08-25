@@ -12,6 +12,9 @@ const ProjectDetailPage = lazy(() => import('@/pages/ProjectDetailPage'))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
 const BookingPage = lazy(() => import('@/pages/BookingPage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const PrivacyPage = lazy(() => import('@/pages/PrivacyPage'))
+const TermsPage = lazy(() => import('@/pages/TermsPage'))
+const DataDeletionPage = lazy(() => import('@/pages/DataDeletionPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 function pageRoutes() {
@@ -55,6 +58,30 @@ function pageRoutes() {
         element={
           <Suspense fallback={<RouteFallback />}>
             <AboutPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="privacy"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <PrivacyPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="terms"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <TermsPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="data-deletion"
+        element={
+          <Suspense fallback={<RouteFallback />}>
+            <DataDeletionPage />
           </Suspense>
         }
       />

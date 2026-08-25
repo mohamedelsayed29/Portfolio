@@ -74,6 +74,45 @@ const baseRoutes = [
     priority: '0.6',
     changefreq: 'monthly',
   },
+  {
+    path: '/privacy',
+    title: {
+      en: 'Privacy Policy',
+      ar: 'سياسة الخصوصية',
+    },
+    description: {
+      en: 'How Hammerload collects, uses, protects, retains and deletes information when providing software and authorized social media management services.',
+      ar: 'توضّح هذه السياسة كيف تجمع Hammerload المعلومات وتستخدمها وتحميها وتحتفظ بها وتحذفها عند تقديم البرمجيات وخدمات إدارة وسائل التواصل الاجتماعي المصرّح بها.',
+    },
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
+  {
+    path: '/terms',
+    title: {
+      en: 'Terms of Service',
+      ar: 'شروط الخدمة',
+    },
+    description: {
+      en: 'Terms governing access to Hammerload software, digital services and authorized social media management features.',
+      ar: 'الشروط التي تنظّم الوصول إلى برمجيات Hammerload وخدماتها الرقمية وميزات إدارة وسائل التواصل الاجتماعي المصرّح بها.',
+    },
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
+  {
+    path: '/data-deletion',
+    title: {
+      en: 'Data Deletion Instructions',
+      ar: 'تعليمات حذف البيانات',
+    },
+    description: {
+      en: 'Public instructions for requesting deletion of Hammerload account, integration, uploaded content and related application data.',
+      ar: 'تعليمات عامة لطلب حذف بيانات حساب Hammerload وبيانات عمليات الربط والمحتوى المرفوع وبيانات التطبيق ذات الصلة.',
+    },
+    priority: '0.3',
+    changefreq: 'yearly',
+  },
 ]
 
 const projectRoutes = PROJECTS.map((project) => ({

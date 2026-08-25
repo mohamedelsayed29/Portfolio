@@ -1,3 +1,5 @@
+import { LEGAL } from './legal'
+
 export const NAV_LINKS = [
   { label: { en: 'Work', ar: 'الأعمال' }, to: '/work' },
   { label: { en: 'Services', ar: 'الخدمات' }, to: '/services' },
@@ -28,4 +30,10 @@ export const FOOTER_SECTIONS = [
       { label: { en: 'Contact', ar: 'تواصل معنا' }, to: '/book' },
     ],
   },
+]
+
+export const LEGAL_LINKS = [
+  { label: { en: 'Privacy', ar: 'الخصوصية' }, to: LEGAL.privacyUrl },
+  { label: { en: 'Terms', ar: 'الشروط' }, to: LEGAL.termsUrl },
+  { label: { en: 'Data Deletion', ar: 'حذف البيانات' }, to: LEGAL.dataDeletionUrl },
 ]

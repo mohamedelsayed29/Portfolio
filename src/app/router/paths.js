@@ -6,5 +6,8 @@ export const PATHS = {
   services: '/services',
   about: '/about',
   book: '/book',
+  privacy: '/privacy',
+  terms: '/terms',
+  dataDeletion: '/data-deletion',
   notFound: '*',
 }

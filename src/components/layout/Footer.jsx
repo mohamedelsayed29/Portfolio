@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import { FOOTER_SECTIONS } from '@constants/navigation'
+import { FOOTER_SECTIONS, LEGAL_LINKS } from '@constants/navigation'
 import { SITE } from '@constants/site'
 import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { Container } from './Container'
@@ -15,12 +15,14 @@ const STRINGS = {
       'We design, build and rescue serious software across web, mobile, backend and AI systems.',
     rightsReserved: 'All rights reserved.',
     opensInNewTab: '(opens in a new tab)',
+    legalNav: 'Legal',
   },
   ar: {
     description:
       'نصمّم برمجيات يُعتمد عليها ونبنيها وننقذها — عبر الويب والموبايل والأنظمة الخلفية والذكاء الاصطناعي.',
     rightsReserved: 'جميع الحقوق محفوظة.',
     opensInNewTab: '(يفتح في نافذة جديدة)',
+    legalNav: 'روابط قانونية',
   },
 }
 
@@ -28,6 +30,7 @@ export function Footer() {
   const year = new Date().getFullYear()
   const { language } = useLanguage()
   const sections = useLocalized(FOOTER_SECTIONS)
+  const legalLinks = useLocalized(LEGAL_LINKS)
   const site = useLocalized(SITE)
   const s = useStrings(STRINGS)
 
@@ -66,10 +69,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-line py-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2 text-[12px] text-text-subtle sm:flex-row sm:items-center sm:gap-5">
-            <p>© {year} {site.name}. {s.rightsReserved}</p>
+        <div className="flex flex-col gap-4 border-t border-line py-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3 text-[12px] text-text-subtle sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2">
+            <p>
+              © {year} {site.name}. {s.rightsReserved}
+            </p>
             <address className="not-italic">{site.location}</address>
+            <nav aria-label={s.legalNav}>
+              <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                {legalLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={localizedPath(link.to, language)}
+                      className="rounded-[5px] transition-colors duration-200 hover:text-text"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
