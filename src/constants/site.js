@@ -35,7 +35,7 @@ export const SITE = {
 
 export const STATS = [
   { value: '60+', label: { en: 'Products shipped', ar: 'منتجًا أطلقناه' } },
-  { value: '9', label: { en: 'Years building', ar: 'سنوات من الخبرة' } },
+  { value: '1+', label: { en: 'Years building', ar: 'سنوات من الخبرة' } },
   { value: '24h', label: { en: 'Median first response', ar: 'متوسط زمن أول رد' } },
   { value: '98%', label: { en: 'Clients who return', ar: 'من العملاء يعودون إلينا' } },
 ]

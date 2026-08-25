@@ -6,10 +6,6 @@ export const TESTIMONIALS = [
       ar: 'سلّموا خط الاسترجاع قبل موعده بثلاثة أسابيع، ثم استثمروا ذلك الوقت في بناء منظومة تقييم لم نكن ندرك أننا بحاجة إليها. هذه الجملة تلخّص علاقتنا كلها.',
     },
     author: 'Mariam Haddad',
-    role: {
-      en: 'VP Engineering, Atlas Legal',
-      ar: 'نائبة رئيس قسم الهندسة، Atlas Legal',
-    },
     rating: 5,
   },
   {
@@ -18,11 +14,7 @@ export const TESTIMONIALS = [
       en: 'We had been told a replatform meant a hard cutover and a bad weekend. They moved us category by category and nobody outside the team noticed it happening.',
       ar: 'قيل لنا إن تغيير المنصة يعني انتقالًا مفاجئًا دفعة واحدة وعطلة نهاية أسبوع عصيبة. لكنهم نقلونا فئة تلو الأخرى دون أن يلحظ أحد خارج الفريق ما يجري.',
     },
-    author: 'Daniel Osei',
-    role: {
-      en: 'CTO, Northwind Supply',
-      ar: 'المدير التقني، Northwind Supply',
-    },
+    author: 'Fahd Faisal',
     rating: 5,
   },
   {
@@ -31,11 +23,7 @@ export const TESTIMONIALS = [
       en: 'Four days to find something two agencies had missed in nine weeks. They also left us the tests, which is why it stayed fixed.',
       ar: 'أربعة أيام كانت كافية ليجدوا ما عجزت عنه وكالتان خلال تسعة أسابيع. وتركوا لنا الاختبارات أيضًا، ولهذا بقي الإصلاح صامدًا.',
     },
-    author: 'Sofia Lindqvist',
-    role: {
-      en: 'Head of Product, Harbor Logistics',
-      ar: 'رئيسة قسم المنتج، Harbor Logistics',
-    },
+    author: 'Majid Nasser',
     rating: 5,
   },
 ]

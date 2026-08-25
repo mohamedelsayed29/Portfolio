@@ -62,7 +62,7 @@ const STRINGS = {
     eyebrow: 'About the studio',
     title: 'Engineers who stayed engineers',
     description:
-      "We started in 2017 doing rescue work for teams whose agency had walked away. Nine years later that is still the bar: build something the client's own engineers are glad to inherit.",
+      "We started in 2025 doing rescue work for teams whose agency had walked away. Today, that is still the bar: build something the client's own engineers are glad to inherit.",
   },
   ar: {
     seoTitle: 'من نحن',
@@ -71,7 +71,7 @@ const STRINGS = {
     eyebrow: 'عن الاستوديو',
     title: 'مهندسون ظلّوا مهندسين',
     description:
-      'بدأنا عام 2017 بأعمال إنقاذ لفرقٍ تخلّت عنها شركات التطوير. وبعد تسع سنوات، ما زال المعيار كما هو: أن نبني برمجيات يتسلّمها مهندسو العميل أنفسهم عن طيب خاطر.',
+      'بدأنا عام 2025 بأعمال إنقاذ لفرقٍ تخلّت عنها شركات التطوير. واليوم، ما زال المعيار كما هو: أن نبني برمجيات يتسلّمها مهندسو العميل أنفسهم عن طيب خاطر.',
   },
 }
 

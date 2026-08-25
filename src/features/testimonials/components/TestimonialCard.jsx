@@ -23,7 +23,9 @@ export function TestimonialCard({ testimonial, index = 0 }) {
         <div className="flex items-center justify-between gap-4 border-t border-line pt-5">
           <div className="flex flex-col">
             <cite className="text-[15px] font-medium not-italic">{testimonial.author}</cite>
-            <span className="text-[13px] text-text-subtle">{testimonial.role}</span>
+            {testimonial.role && (
+              <span className="text-[13px] text-text-subtle">{testimonial.role}</span>
+            )}
           </div>
           <div
             className="flex gap-0.5"

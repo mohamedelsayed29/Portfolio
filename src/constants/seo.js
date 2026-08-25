@@ -55,8 +55,8 @@ const baseRoutes = [
       ar: 'من نحن',
     },
     description: {
-      en: 'Meet HammerLoad, a senior software studio in Cairo building reliable web, mobile, backend and AI products since 2017.',
-      ar: 'تعرّف على HammerLoad، استوديو برمجيات بخبرات رفيعة في القاهرة يبني منتجات ويب وموبايل وأنظمة خلفية وذكاء اصطناعي موثوقة منذ 2017.',
+      en: 'Meet HammerLoad, a senior software studio in Cairo building reliable web, mobile, backend and AI products since 2025.',
+      ar: 'تعرّف على HammerLoad، استوديو برمجيات بخبرات رفيعة في القاهرة يبني منتجات ويب وموبايل وأنظمة خلفية وذكاء اصطناعي موثوقة منذ 2025.',
     },
     priority: '0.7',
     changefreq: 'monthly',

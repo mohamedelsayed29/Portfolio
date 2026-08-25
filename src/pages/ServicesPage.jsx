@@ -6,8 +6,7 @@ import { SERVICES } from '@data/services'
 import { SERVICE_ICONS } from '@features/services'
 import { CtaSection, FaqSection } from '@features/contact'
 import { useBooking } from '@app/providers'
-import { useLanguage, useLocalized, useStrings } from '@/i18n'
-import { formatCurrency } from '@lib/format'
+import { useLocalized, useStrings } from '@/i18n'
 
 const STRINGS = {
   en: {
@@ -18,10 +17,8 @@ const STRINGS = {
     title: 'What you can hand us',
     description:
       'Six practices, one team. Most engagements combine two or three of them — pick the closest fit and we will shape the rest in the scoping call.',
-    from: (price) => `From ${price}`,
     book: (title) => `Book ${title.toLowerCase()}`,
     whatYouGet: 'What you get',
-    typicalStack: 'Typical stack',
   },
   ar: {
     seoTitle: 'الخدمات',
@@ -31,16 +28,13 @@ const STRINGS = {
     title: 'ما يمكنك إسناده إلينا',
     description:
       'ست ممارسات وفريق واحد. معظم المشاريع تجمع بين اثنتين أو ثلاث منها — اختر الأقرب إلى احتياجك، ونتولى رسم الباقي معك في مكالمة تحديد النطاق.',
-    from: (price) => `تبدأ من ${price}`,
     book: (title) => `احجز خدمة ${title}`,
     whatYouGet: 'ما الذي ستحصل عليه',
-    typicalStack: 'التقنيات المعتادة',
   },
 }
 
 export default function ServicesPage() {
   const { openBooking } = useBooking()
-  const { language } = useLanguage()
   const s = useStrings(STRINGS)
   const services = useLocalized(SERVICES)
 
@@ -88,9 +82,6 @@ export default function ServicesPage() {
 
                     <div className="mt-2 flex flex-wrap items-center gap-3">
                       <Badge tone="outline">{service.timeline}</Badge>
-                      <Badge tone="accent">
-                        {s.from(formatCurrency(service.startingAt, 'USD', language))}
-                      </Badge>
                     </div>
 
                     <Button
@@ -118,22 +109,6 @@ export default function ServicesPage() {
                               aria-hidden="true"
                             />
                             {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-col gap-4">
-                      <h3 className="text-[13px] font-semibold tracking-[0.06em] text-text-subtle uppercase">
-                        {s.typicalStack}
-                      </h3>
-                      <ul className="flex flex-wrap gap-2">
-                        {service.stack.map((tech) => (
-                          <li
-                            key={tech}
-                            className="rounded-full bg-surface-muted px-3 py-1.5 text-[13px] text-text-muted"
-                          >
-                            {tech}
                           </li>
                         ))}
                       </ul>

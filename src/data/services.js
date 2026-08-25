@@ -5,7 +5,7 @@
  *
  * User-facing text fields are `{ en, ar }` locale objects — collapse them with
  * `useLocalized` before rendering. Structural fields (id, icon, stack names,
- * prices, colours) stay plain.
+ * colours) stay plain.
  */
 export const SERVICES = [
   {
@@ -27,7 +27,6 @@ export const SERVICES = [
       { en: 'Core Web Vitals optimisation', ar: 'تحسين مؤشرات Core Web Vitals' },
     ],
     stack: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Motion'],
-    startingAt: 6000,
     timeline: { en: '3–8 weeks', ar: '3–8 أسابيع' },
     accent: '#55d6ff',
     art: {
@@ -56,7 +55,6 @@ export const SERVICES = [
       { en: 'CI/CD, monitoring & alerting', ar: 'CI/CD والمراقبة والتنبيهات' },
     ],
     stack: ['Node.js', 'Python', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
-    startingAt: 7500,
     timeline: { en: '4–10 weeks', ar: '4–10 أسابيع' },
     accent: '#8090ff',
     art: {
@@ -85,7 +83,6 @@ export const SERVICES = [
       { en: 'App Store / Play submission', ar: 'النشر على App Store وGoogle Play' },
     ],
     stack: ['React Native', 'Expo', 'Swift', 'Kotlin', 'Firebase'],
-    startingAt: 9000,
     timeline: { en: '6–14 weeks', ar: '6–14 أسبوعًا' },
     accent: '#c383ff',
     art: {
@@ -114,7 +111,6 @@ export const SERVICES = [
       { en: 'Eval suites, guardrails & cost control', ar: 'حزم تقييم وضوابط أمان وتحكم في التكلفة' },
     ],
     stack: ['Claude', 'OpenAI', 'LangChain', 'PyTorch', 'pgvector', 'vLLM'],
-    startingAt: 12000,
     timeline: { en: '4–12 weeks', ar: '4–12 أسبوعًا' },
     accent: '#5be9ff',
     art: {
@@ -148,7 +144,6 @@ export const SERVICES = [
       'Playwright',
       'Sentry',
     ],
-    startingAt: 1500,
     timeline: { en: '2 days – 3 weeks', ar: 'من يومين إلى 3 أسابيع' },
     accent: '#ff806f',
     art: {
@@ -182,7 +177,6 @@ export const SERVICES = [
       { en: 'Roadmaps', ar: 'خرائط طريق' },
       { en: 'Prototypes', ar: 'نماذج أولية' },
     ],
-    startingAt: 2500,
     timeline: { en: '1–3 weeks', ar: '1–3 أسابيع' },
     accent: '#5ce2bd',
     art: {
