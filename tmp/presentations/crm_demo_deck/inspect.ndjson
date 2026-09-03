@@ -1,0 +1,150 @@
+{"kind":"slide","id":"sl/lfh5c5","slide":1,"title":"مرحبًا","textShapes":5}
+{"kind":"shape","id":"sh/5ona987u","slide":1,"bbox":[0,0,12,720]}
+{"kind":"shape","id":"sh/ilwret8j","slide":1,"bbox":[12,118,10,110]}
+{"kind":"textbox","id":"sh/sry9k3ql","slide":1,"textChars":6,"textLines":1}
+{"kind":"textbox","id":"sh/ts7ad876","slide":1,"textChars":32,"textLines":1}
+{"kind":"textbox","id":"sh/6pgrit8f","slide":1,"textChars":19,"textLines":1}
+{"kind":"shape","id":"sh/rqpsbyp0","slide":1,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/8vu98jqh","slide":1,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/9w3q1o72","slide":1,"textChars":2,"textLines":1}
+{"kind":"image","id":"im/qxof25sj","slide":1,"name":"","alt":"HammerLoad logo","bbox":[520,112,240,240]}
+{"kind":"notes","id":"nt/lfh5c5","slide":1,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/tyfqfb","slide":2,"title":"نظام ذكي لإدارة العملاء","textShapes":7}
+{"kind":"shape","id":"sh/c7adcb69","slide":2,"bbox":[0,0,12,720]}
+{"kind":"shape","id":"sh/b61c36po","slide":2,"bbox":[12,478,10,122]}
+{"kind":"textbox","id":"sh/lwju9gnq","slide":2,"textChars":51,"textLines":2}
+{"kind":"textbox","id":"sh/0vadgb65","slide":2,"textChars":108,"textLines":1}
+{"kind":"textbox","id":"sh/za1c765k","slide":2,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/y9sve1oz","slide":2,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/h0zuxw7m","slide":2,"textChars":12,"textLines":1}
+{"kind":"shape","id":"sh/gzqt4r61","slide":2,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ul43ahcb","slide":2,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/fmx43mtw","slide":2,"textChars":2,"textLines":1}
+{"kind":"image","id":"im/36xone5o","slide":2,"name":"","alt":"HammerLoad logo","bbox":[92,78,140,140]}
+{"kind":"notes","id":"nt/tyfqfb","slide":2,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/aeamig","slide":3,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":11}
+{"kind":"textbox","id":"sh/l4vqd8ny","slide":3,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/k32p436t","slide":3,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/76d8fi54","slide":3,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/m5476doj","slide":3,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/9svqhsna","slide":3,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/87mp8n6p","slide":3,"textChars":67,"textLines":1}
+{"kind":"shape","id":"sh/3a9o3e50","slide":3,"bbox":[812,334,326,164]}
+{"kind":"shape","id":"sh/2907u9of","slide":3,"bbox":[1131,334,7,164]}
+{"kind":"textbox","id":"sh/ony1cvy1","slide":3,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/po7il0zm","slide":3,"textChars":53,"textLines":1}
+{"kind":"shape","id":"sh/2lwjalgb","slide":3,"bbox":[476,334,326,164]}
+{"kind":"shape","id":"sh/nmp0jqhw","slide":3,"bbox":[795,334,7,164]}
+{"kind":"textbox","id":"sh/cby1gvyd","slide":3,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/xc72p0zy","slide":3,"textChars":64,"textLines":1}
+{"kind":"shape","id":"sh/apgje5g7","slide":3,"bbox":[140,334,326,164]}
+{"kind":"shape","id":"sh/bqp0nqhs","slide":3,"bbox":[459,334,7,164]}
+{"kind":"textbox","id":"sh/sfe14by9","slide":3,"textChars":8,"textLines":1}
+{"kind":"textbox","id":"sh/dgnidgze","slide":3,"textChars":51,"textLines":1}
+{"kind":"image","id":"im/7a9kvut0","slide":3,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/aeamig","slide":3,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/usyd2t","slide":4,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/0jmdsjqd","slide":4,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/1kvulo7i","slide":4,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ml4vuto3","slide":4,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/nmdcnypo","slide":4,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/onmdw369","slide":4,"textChars":38,"textLines":1}
+{"kind":"textbox","id":"sh/98vup87u","slide":4,"textChars":84,"textLines":1}
+{"kind":"textbox","id":"sh/2p0bip8z","slide":4,"textChars":39,"textLines":1}
+{"kind":"shape","id":"sh/3q9cbupk","slide":4,"bbox":[1120,343,10,10]}
+{"kind":"textbox","id":"sh/rm14vqtc","slide":4,"textChars":47,"textLines":1}
+{"kind":"shape","id":"sh/ql83mlc7","slide":4,"bbox":[1120,395,10,10]}
+{"kind":"textbox","id":"sh/dojmx0bi","slide":4,"textChars":52,"textLines":1}
+{"kind":"shape","id":"sh/cnalovux","slide":4,"bbox":[1120,447,10,10]}
+{"kind":"textbox","id":"sh/3ih4rqtg","slide":4,"textChars":40,"textLines":1}
+{"kind":"shape","id":"sh/2h83ilcv","slide":4,"bbox":[1120,499,10,10]}
+{"kind":"textbox","id":"sh/pkzmtgbm","slide":4,"textChars":52,"textLines":1}
+{"kind":"shape","id":"sh/4jqlkvu1","slide":4,"bbox":[1120,551,10,10]}
+{"kind":"shape","id":"sh/vex4n6t4","slide":4,"bbox":[132,316,260,210]}
+{"kind":"textbox","id":"sh/uto3e1cz","slide":4,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/yponq1wr","slide":4,"textChars":57,"textLines":3}
+{"kind":"image","id":"im/i9gvihcr","slide":4,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/usyd2t","slide":4,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/cnvdkn","slide":5,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":19}
+{"kind":"textbox","id":"sh/by5w3mx0","slide":5,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/axwfahwv","slide":5,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/lo7e9gfi","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/knexgbex","slide":5,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/zm5w76xc","slide":5,"textChars":41,"textLines":1}
+{"kind":"textbox","id":"sh/y1wfe1wr","slide":5,"textChars":76,"textLines":1}
+{"kind":"shape","id":"sh/9s7edgfe","slide":5,"bbox":[940,334,180,166]}
+{"kind":"shape","id":"sh/8ryxkbet","slide":5,"bbox":[1113,334,7,166]}
+{"kind":"textbox","id":"sh/2d0juhsr","slide":5,"textChars":11,"textLines":1}
+{"kind":"textbox","id":"sh/3e903mtc","slide":5,"textChars":32,"textLines":1}
+{"kind":"textbox","id":"sh/4f21wrax","slide":5,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/pgb25cbi","slide":5,"bbox":[728,334,180,166]}
+{"kind":"shape","id":"sh/qhkjyhs3","slide":5,"bbox":[901,334,7,166]}
+{"kind":"textbox","id":"sh/ritk7mto","slide":5,"textChars":12,"textLines":1}
+{"kind":"textbox","id":"sh/cj210rat","slide":5,"textChars":30,"textLines":1}
+{"kind":"textbox","id":"sh/dkb29wbe","slide":5,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/6lgjmxsj","slide":5,"bbox":[516,334,180,166]}
+{"kind":"shape","id":"sh/7mp0v2t4","slide":5,"bbox":[689,334,7,166]}
+{"kind":"textbox","id":"sh/belo7u5k","slide":5,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/adc7ep4f","slide":5,"textChars":29,"textLines":1}
+{"kind":"textbox","id":"sh/xg3q94nq","slide":5,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/wfupgzm5","slide":5,"bbox":[304,334,180,166]}
+{"kind":"shape","id":"sh/nq1o3u5o","slide":5,"bbox":[477,334,7,166]}
+{"kind":"textbox","id":"sh/mps7ap43","slide":5,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/9c365knu","slide":5,"textChars":24,"textLines":1}
+{"kind":"textbox","id":"sh/orupczm9","slide":5,"textChars":1,"textLines":1}
+{"kind":"shape","id":"sh/7m58fe5s","slide":5,"bbox":[92,334,180,166]}
+{"kind":"shape","id":"sh/6lw7m947","slide":5,"bbox":[265,334,7,166]}
+{"kind":"textbox","id":"sh/4r6lgb2p","slide":5,"textChars":13,"textLines":1}
+{"kind":"textbox","id":"sh/5szm9g3a","slide":5,"textChars":22,"textLines":1}
+{"kind":"image","id":"im/p4jyl0nu","slide":5,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/cnvdkn","slide":5,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/zy5r58","slide":6,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":14}
+{"kind":"textbox","id":"sh/or294re1","slide":6,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/psbqxwfm","slide":6,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ul0ryhgz","slide":6,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/fm98r2x4","slide":6,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/gni907yp","slide":6,"textChars":43,"textLines":1}
+{"kind":"textbox","id":"sh/horqtcfa","slide":6,"textChars":85,"textLines":1}
+{"kind":"shape","id":"sh/6xgruxgn","slide":6,"bbox":[138,322,1000,68]}
+{"kind":"textbox","id":"sh/7yp8n2x8","slide":6,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/f6p03e94","slide":6,"textChars":38,"textLines":1}
+{"kind":"textbox","id":"sh/u5gza9sj","slide":6,"textChars":25,"textLines":1}
+{"kind":"shape","id":"sh/h87i5ora","slide":6,"bbox":[138,414,1000,68]}
+{"kind":"textbox","id":"sh/g7yhcjqp","slide":6,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/3ap07y90","slide":6,"textChars":39,"textLines":1}
+{"kind":"textbox","id":"sh/29gzet8f","slide":6,"textChars":26,"textLines":1}
+{"kind":"shape","id":"sh/pwri9or6","slide":6,"bbox":[138,506,1000,68]}
+{"kind":"textbox","id":"sh/4byhg3ql","slide":6,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/je5gvu9w","slide":6,"textChars":30,"textLines":1}
+{"kind":"textbox","id":"sh/idwz2psb","slide":6,"textChars":27,"textLines":1}
+{"kind":"image","id":"im/epovylkf","slide":6,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/zy5r58","slide":6,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/j78a0k","slide":7,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/exs36x4r","slide":7,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/fyl4f2lc","slide":7,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/sval4nml","slide":7,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/twjmds36","slide":7,"textChars":2,"textLines":1}
+{"kind":"textbox","id":"sh/6ts32x4f","slide":7,"textChars":48,"textLines":1}
+{"kind":"textbox","id":"sh/ru14b2l0","slide":7,"textChars":76,"textLines":1}
+{"kind":"textbox","id":"sh/cre5gr25","slide":7,"textChars":6,"textLines":1}
+{"kind":"shape","id":"sh/xsnmpw3a","slide":7,"bbox":[382,320,360,22]}
+{"kind":"textbox","id":"sh/94r6xcna","slide":7,"textChars":14,"textLines":1}
+{"kind":"shape","id":"sh/83y5o76p","slide":7,"bbox":[382,374,300,22]}
+{"kind":"textbox","id":"sh/n2pov25k","slide":7,"textChars":17,"textLines":1}
+{"kind":"shape","id":"sh/m1gnmxoz","slide":7,"bbox":[382,428,240,22]}
+{"kind":"textbox","id":"sh/l076tsne","slide":7,"textChars":8,"textLines":1}
+{"kind":"shape","id":"sh/0zy5k76t","slide":7,"bbox":[382,482,190,22]}
+{"kind":"textbox","id":"sh/zepor258","slide":7,"textChars":11,"textLines":1}
+{"kind":"shape","id":"sh/ydgnixon","slide":7,"bbox":[382,536,145,22]}
+{"kind":"shape","id":"sh/5wb65wni","slide":7,"bbox":[110,332,220,162]}
+{"kind":"shape","id":"sh/kvipwr6x","slide":7,"bbox":[323,332,7,162]}
+{"kind":"textbox","id":"sh/4fq9svu9","slide":7,"textChars":9,"textLines":1}
+{"kind":"textbox","id":"sh/pgjq10vu","slide":7,"textChars":78,"textLines":1}
+{"kind":"image","id":"im/sb69gri1","slide":7,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/j78a0k","slide":7,"text":"[Sources] | - User-provided brief in this Codex task, dated 2026-09-03. | - U..."}
+{"kind":"slide","id":"sl/f7wt1r","slide":8,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":11}
+{"kind":"textbox","id":"sh/wfmd4bml","slide":8,"textChars":28,"textLines":1}
+{"kind":"shape","id":"sh/xgvexg36","slide":8,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/yh4v6l4r","slide":8,"textChars":10,"textLines":1}
+{"kind":"textbox","id":"sh/jidwzqlc","slide":8,"textChars":2,"textLines":1}
+{"kind":"notice","message":"Truncated: omitted 144 lines. Increase maxChars or narrow target."}

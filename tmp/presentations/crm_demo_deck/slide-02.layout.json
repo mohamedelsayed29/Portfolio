@@ -1,0 +1,638 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/tyfqfb",
+    "id": "tyfqfb",
+    "slide": 2,
+    "layoutId": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/c7adcb69",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        12,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b61c36po",
+      "id": "2",
+      "bbox": [
+        12,
+        478,
+        10,
+        122
+      ],
+      "geometry": "rect",
+      "fillColor": "#D98A05",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/36xone5o",
+      "id": "3",
+      "bbox": [
+        92,
+        78,
+        140,
+        140
+      ],
+      "alt": "HammerLoad logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "52265c43-ebce-4c86-9460-00d0308e9016",
+        "contentType": "image/png",
+        "byteLength": 4869
+      }
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwju9gnq",
+      "id": "4",
+      "bbox": [
+        536,
+        186,
+        592,
+        150
+      ],
+      "geometry": "rect",
+      "text": "نظام ذكي لإدارة العملاء\nوزيادة إغلاق الصفقات للفروع",
+      "textPreview": "نظام ذكي لإدارة العملاء | وزيادة إغلاق الصفقات للفروع",
+      "resolvedFontSize": 46,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 46,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "نظام ذكي لإدارة العملاء"
+          },
+          {
+            "index": 2,
+            "text": "وزيادة إغلاق الصفقات للفروع"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "نظام ذكي لإدارة العملاء",
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "نظام ذكي لإدارة العملاء",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "وزيادة إغلاق الصفقات للفروع",
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "وزيادة إغلاق الصفقات للفروع",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0vadgb65",
+      "id": "5",
+      "bbox": [
+        514,
+        362,
+        614,
+        92
+      ],
+      "geometry": "rect",
+      "text": "منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل",
+      "textPreview": "منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات"
+          },
+          {
+            "index": 2,
+            "text": "الفرع الأنسب عبر واتساب أو الإيميل"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/za1c765k",
+      "id": "6",
+      "bbox": [
+        798,
+        506,
+        150,
+        38
+      ],
+      "geometry": "roundRect",
+      "text": "توجيه العملاء",
+      "textPreview": "توجيه العملاء",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#D98A05",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 0,
+          "right": 8,
+          "bottom": 0,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "توجيه العملاء"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "توجيه العملاء",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#D98A05",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "توجيه العملاء",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#D98A05",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#F8F3E8",
+      "lineColor": "#F8F3E8",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y9sve1oz",
+      "id": "7",
+      "bbox": [
+        628,
+        506,
+        150,
+        38
+      ],
+      "geometry": "roundRect",
+      "text": "تصنيف ذكي",
+      "textPreview": "تصنيف ذكي",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#006C35",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 0,
+          "right": 8,
+          "bottom": 0,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "تصنيف ذكي"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "تصنيف ذكي",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#006C35",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "تصنيف ذكي",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#006C35",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#EAF6EF",
+      "lineColor": "#EAF6EF",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0zuxw7m",
+      "id": "8",
+      "bbox": [
+        458,
+        506,
+        150,
+        38
+      ],
+      "geometry": "roundRect",
+      "text": "إدارة الفروع",
+      "textPreview": "إدارة الفروع",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "insets": {
+          "top": 0,
+          "right": 8,
+          "bottom": 0,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "إدارة الفروع"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "إدارة الفروع",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "إدارة الفروع",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#EEF2F7",
+      "lineColor": "#EEF2F7",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gzqt4r61",
+      "id": "9",
+      "bbox": [
+        72,
+        666,
+        1136,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#DDE3EA",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ul43ahcb",
+      "id": "10",
+      "bbox": [
+        72,
+        678,
+        180,
+        24
+      ],
+      "geometry": "rect",
+      "text": "HammerLoad",
+      "textPreview": "HammerLoad",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HammerLoad"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HammerLoad",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "HammerLoad",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmx43mtw",
+      "id": "11",
+      "bbox": [
+        1116,
+        676,
+        92,
+        28
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

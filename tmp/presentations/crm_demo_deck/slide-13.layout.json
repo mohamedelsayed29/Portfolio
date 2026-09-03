@@ -1,0 +1,992 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ttxjnr",
+    "id": "ttxjnr",
+    "slide": 13,
+    "layoutId": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/xsju10j2",
+      "id": "1",
+      "bbox": [
+        76,
+        42,
+        82,
+        82
+      ],
+      "alt": "HammerLoad logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "d7fc724b-b175-4e84-9151-0343f3ed47f9",
+        "contentType": "image/png",
+        "byteLength": 4869
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rm1wral8",
+      "id": "2",
+      "bbox": [
+        860,
+        48,
+        348,
+        28
+      ],
+      "geometry": "rect",
+      "text": "نظام علاقات عملاء ذكي للفروع",
+      "textPreview": "نظام علاقات عملاء ذكي للفروع",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "نظام علاقات عملاء ذكي للفروع"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "نظام علاقات عملاء ذكي للفروع",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "نظام علاقات عملاء ذكي للفروع",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6lsfy5kn",
+      "id": "3",
+      "bbox": [
+        72,
+        666,
+        1136,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#DDE3EA",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1s3yxk3a",
+      "id": "4",
+      "bbox": [
+        72,
+        678,
+        180,
+        24
+      ],
+      "geometry": "rect",
+      "text": "HammerLoad",
+      "textPreview": "HammerLoad",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HammerLoad"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HammerLoad",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "HammerLoad",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/grux4f2p",
+      "id": "5",
+      "bbox": [
+        1116,
+        676,
+        92,
+        28
+      ],
+      "geometry": "rect",
+      "text": "13",
+      "textPreview": "13",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "13"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "13",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "13",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fq1gval4",
+      "id": "6",
+      "bbox": [
+        546,
+        112,
+        662,
+        92
+      ],
+      "geometry": "rect",
+      "text": "النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح",
+      "textPreview": "النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 40,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح",
+              "fontSize": 40,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/epsf25kj",
+      "id": "7",
+      "bbox": [
+        590,
+        210,
+        618,
+        72
+      ],
+      "geometry": "rect",
+      "text": "نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس",
+      "textPreview": "نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pg3y1k3m",
+      "id": "8",
+      "bbox": [
+        526,
+        316,
+        568,
+        48
+      ],
+      "geometry": "rect",
+      "text": "استجابة أسرع للعملاء المحتملين",
+      "textPreview": "استجابة أسرع للعملاء المحتملين",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#142033",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "استجابة أسرع للعملاء المحتملين"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "استجابة أسرع للعملاء المحتملين",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#142033",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "استجابة أسرع للعملاء المحتملين",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#142033",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ofux8f21",
+      "id": "9",
+      "bbox": [
+        1110,
+        327,
+        10,
+        10
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a9wnypsf",
+      "id": "10",
+      "bbox": [
+        526,
+        370,
+        568,
+        48
+      ],
+      "geometry": "rect",
+      "text": "تقليل ضياع الفرص بين الفروع والقنوات",
+      "textPreview": "تقليل ضياع الفرص بين الفروع والقنوات",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#142033",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "تقليل ضياع الفرص بين الفروع والقنوات"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "تقليل ضياع الفرص بين الفروع والقنوات",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#142033",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "تقليل ضياع الفرص بين الفروع والقنوات",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#142033",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vap47u90",
+      "id": "11",
+      "bbox": [
+        1110,
+        381,
+        10,
+        10
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wby50zal",
+      "id": "12",
+      "bbox": [
+        526,
+        424,
+        568,
+        48
+      ],
+      "geometry": "rect",
+      "text": "رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق",
+      "textPreview": "رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#142033",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#142033",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#142033",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xc7m9kr6",
+      "id": "13",
+      "bbox": [
+        1110,
+        435,
+        10,
+        10
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idgn2psr",
+      "id": "14",
+      "bbox": [
+        526,
+        478,
+        568,
+        48
+      ],
+      "geometry": "rect",
+      "text": "توحيد طريقة عمل فريق المبيعات",
+      "textPreview": "توحيد طريقة عمل فريق المبيعات",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#142033",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "توحيد طريقة عمل فريق المبيعات"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "توحيد طريقة عمل فريق المبيعات",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#142033",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "توحيد طريقة عمل فريق المبيعات",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#142033",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jepobu9w",
+      "id": "15",
+      "bbox": [
+        1110,
+        489,
+        10,
+        10
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzy54zah",
+      "id": "16",
+      "bbox": [
+        526,
+        532,
+        568,
+        48
+      ],
+      "geometry": "rect",
+      "text": "قابلية تطوير النظام لاحقًا حسب نمو الشركة",
+      "textPreview": "قابلية تطوير النظام لاحقًا حسب نمو الشركة",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#142033",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "قابلية تطوير النظام لاحقًا حسب نمو الشركة"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "قابلية تطوير النظام لاحقًا حسب نمو الشركة",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#142033",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "قابلية تطوير النظام لاحقًا حسب نمو الشركة",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#142033",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5076d4r2",
+      "id": "17",
+      "bbox": [
+        1110,
+        543,
+        10,
+        10
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yhcnq5s7",
+      "id": "18",
+      "bbox": [
+        126,
+        348,
+        318,
+        142
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0F1D33",
+      "lineColor": "#0F1D33",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zil4za9s",
+      "id": "19",
+      "bbox": [
+        160,
+        378,
+        250,
+        38
+      ],
+      "geometry": "rect",
+      "text": "الخطوة التالية",
+      "textPreview": "الخطوة التالية",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "الخطوة التالية"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "الخطوة التالية",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Arial",
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "الخطوة التالية",
+              "fontSize": 24,
+              "typeface": "Arial",
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m1k76pk",
+      "id": "20",
+      "bbox": [
+        154,
+        430,
+        262,
+        64
+      ],
+      "geometry": "rect",
+      "text": "جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية",
+      "textPreview": "جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#FFFFFF",
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "جلسة قصيرة لتثبيت الفروع ومصادر العملاء"
+          },
+          {
+            "index": 2,
+            "text": "ومراحل البيع قبل عرض التكلفة النهائية"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#FFFFFF",
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#FFFFFF",
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

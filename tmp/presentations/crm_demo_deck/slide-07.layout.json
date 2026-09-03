@@ -1,0 +1,1031 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/j78a0k",
+    "id": "j78a0k",
+    "slide": 7,
+    "layoutId": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "57a6f5fa-a9fe-4d65-a349-5ce3720a1478",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "e1d808cf-52a1-4b2d-9d08-2cb58f090e11",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/sb69gri1",
+      "id": "1",
+      "bbox": [
+        76,
+        42,
+        82,
+        82
+      ],
+      "alt": "HammerLoad logo",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "b36317b8-e0a0-480e-8b7d-eda4e85b23ca",
+        "contentType": "image/png",
+        "byteLength": 4869
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/exs36x4r",
+      "id": "2",
+      "bbox": [
+        860,
+        48,
+        348,
+        28
+      ],
+      "geometry": "rect",
+      "text": "نظام علاقات عملاء ذكي للفروع",
+      "textPreview": "نظام علاقات عملاء ذكي للفروع",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "نظام علاقات عملاء ذكي للفروع"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "نظام علاقات عملاء ذكي للفروع",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "نظام علاقات عملاء ذكي للفروع",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyl4f2lc",
+      "id": "3",
+      "bbox": [
+        72,
+        666,
+        1136,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#DDE3EA",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sval4nml",
+      "id": "4",
+      "bbox": [
+        72,
+        678,
+        180,
+        24
+      ],
+      "geometry": "rect",
+      "text": "HammerLoad",
+      "textPreview": "HammerLoad",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "HammerLoad"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "HammerLoad",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "HammerLoad",
+              "fontSize": 13,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twjmds36",
+      "id": "5",
+      "bbox": [
+        1116,
+        676,
+        92,
+        28
+      ],
+      "geometry": "rect",
+      "text": "07",
+      "textPreview": "07",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "07"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "07",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "07",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6ts32x4f",
+      "id": "6",
+      "bbox": [
+        546,
+        112,
+        662,
+        92
+      ],
+      "geometry": "rect",
+      "text": "مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات",
+      "textPreview": "مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 40,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "مصادر العملاء تصبح قابلة للقياس لا مجرد"
+          },
+          {
+            "index": 2,
+            "text": "انطباعات"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات",
+              "fontSize": 40,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ru14b2l0",
+      "id": "7",
+      "bbox": [
+        590,
+        210,
+        618,
+        72
+      ],
+      "geometry": "rect",
+      "text": "الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية",
+      "textPreview": "الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cre5gr25",
+      "id": "8",
+      "bbox": [
+        910,
+        316,
+        210,
+        30
+      ],
+      "geometry": "rect",
+      "text": "واتساب",
+      "textPreview": "واتساب",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#142033",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "واتساب"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "واتساب",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#142033",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "واتساب",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#142033",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xsnmpw3a",
+      "id": "9",
+      "bbox": [
+        382,
+        320,
+        360,
+        22
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94r6xcna",
+      "id": "10",
+      "bbox": [
+        910,
+        370,
+        210,
+        30
+      ],
+      "geometry": "rect",
+      "text": "إعلانات مدفوعة",
+      "textPreview": "إعلانات مدفوعة",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#142033",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "إعلانات مدفوعة"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "إعلانات مدفوعة",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#142033",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "إعلانات مدفوعة",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#142033",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83y5o76p",
+      "id": "11",
+      "bbox": [
+        382,
+        374,
+        300,
+        22
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#D98A05",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n2pov25k",
+      "id": "12",
+      "bbox": [
+        910,
+        424,
+        210,
+        30
+      ],
+      "geometry": "rect",
+      "text": "الموقع الإلكتروني",
+      "textPreview": "الموقع الإلكتروني",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#142033",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "الموقع الإلكتروني"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "الموقع الإلكتروني",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#142033",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "الموقع الإلكتروني",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#142033",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1gnmxoz",
+      "id": "13",
+      "bbox": [
+        382,
+        428,
+        240,
+        22
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0F1D33",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l076tsne",
+      "id": "14",
+      "bbox": [
+        910,
+        478,
+        210,
+        30
+      ],
+      "geometry": "rect",
+      "text": "إنستغرام",
+      "textPreview": "إنستغرام",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#142033",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "إنستغرام"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "إنستغرام",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#142033",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "إنستغرام",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#142033",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0zy5k76t",
+      "id": "15",
+      "bbox": [
+        382,
+        482,
+        190,
+        22
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#0B8F52",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zepor258",
+      "id": "16",
+      "bbox": [
+        910,
+        532,
+        210,
+        30
+      ],
+      "geometry": "rect",
+      "text": "اتصال مباشر",
+      "textPreview": "اتصال مباشر",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#142033",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "اتصال مباشر"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "اتصال مباشر",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#142033",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "اتصال مباشر",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#142033",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ydgnixon",
+      "id": "17",
+      "bbox": [
+        382,
+        536,
+        145,
+        22
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#7A8595",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wb65wni",
+      "id": "18",
+      "bbox": [
+        110,
+        332,
+        220,
+        162
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#DDE3EA",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kvipwr6x",
+      "id": "19",
+      "bbox": [
+        323,
+        332,
+        7,
+        162
+      ],
+      "geometry": "rect",
+      "fillColor": "#006C35",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4fq9svu9",
+      "id": "20",
+      "bbox": [
+        128,
+        350,
+        182,
+        36
+      ],
+      "geometry": "rect",
+      "text": "قرار أوضح",
+      "textPreview": "قرار أوضح",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#0F1D33",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "قرار أوضح"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "قرار أوضح",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#0F1D33",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "قرار أوضح",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#0F1D33",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pgjq10vu",
+      "id": "21",
+      "bbox": [
+        128,
+        394,
+        182,
+        88
+      ],
+      "geometry": "rect",
+      "text": "ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا",
+      "textPreview": "ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 17,
+        "typeface": "Arial",
+        "color": "#5B6678",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ربط المصدر بعدد الصفقات"
+          },
+          {
+            "index": 2,
+            "text": "وقيمتها يساعد في توجيه الميزانية"
+          },
+          {
+            "index": 3,
+            "text": "للقنوات الأعلى عائدًا"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Arial",
+            "color": "#5B6678",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا",
+              "fontSize": 17,
+              "typeface": "Arial",
+              "color": "#5B6678",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,296 @@
+{"kind":"deck","id":"pr/us9l9a","name":"Deck"}
+{"kind":"layout","layoutId":"e1d808cf-52a1-4b2d-9d08-2cb58f090e11","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"57a6f5fa-a9fe-4d65-a349-5ce3720a1478","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/lfh5c5","slide":1,"title":"مرحبًا","textShapes":5}
+{"kind":"shape","id":"sh/5ona987u","slide":1,"bbox":[0,0,12,720]}
+{"kind":"shape","id":"sh/ilwret8j","slide":1,"bbox":[12,118,10,110]}
+{"kind":"textbox","id":"sh/sry9k3ql","slide":1,"text":"مرحبًا","textPreview":"مرحبًا","textChars":6,"textLines":1,"bbox":[290,374,700,70]}
+{"kind":"textbox","id":"sh/ts7ad876","slide":1,"text":"عرض نظام علاقات عملاء ذكي للفروع","textPreview":"عرض نظام علاقات عملاء ذكي للفروع","textChars":32,"textLines":1,"bbox":[310,456,660,44]}
+{"kind":"textbox","id":"sh/6pgrit8f","slide":1,"text":"مقدم بواسطة هامرلود","textPreview":"مقدم بواسطة هامرلود","textChars":19,"textLines":1,"bbox":[390,516,500,34]}
+{"kind":"shape","id":"sh/rqpsbyp0","slide":1,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/8vu98jqh","slide":1,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/9w3q1o72","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"image","id":"im/qxof25sj","slide":1,"name":"","alt":"HammerLoad logo","bbox":[520,112,240,240]}
+{"kind":"notes","id":"nt/lfh5c5","slide":1,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/tyfqfb","slide":2,"title":"نظام ذكي لإدارة العملاء","textShapes":7}
+{"kind":"shape","id":"sh/c7adcb69","slide":2,"bbox":[0,0,12,720]}
+{"kind":"shape","id":"sh/b61c36po","slide":2,"bbox":[12,478,10,122]}
+{"kind":"textbox","id":"sh/lwju9gnq","slide":2,"text":"نظام ذكي لإدارة العملاء\nوزيادة إغلاق الصفقات للفروع","textPreview":"نظام ذكي لإدارة العملاء | وزيادة إغلاق الصفقات للفروع","textChars":51,"textLines":2,"bbox":[536,186,592,150]}
+{"kind":"textbox","id":"sh/0vadgb65","slide":2,"text":"منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل","textPreview":"منصة واحدة تجمع العملاء، مصادرهم، تصنيفهم، وتوجيههم تلقائيًا لمدير مبيعات الفرع الأنسب عبر واتساب أو الإيميل","textChars":108,"textLines":1,"bbox":[514,362,614,92]}
+{"kind":"textbox","id":"sh/za1c765k","slide":2,"text":"توجيه العملاء","textPreview":"توجيه العملاء","textChars":13,"textLines":1,"bbox":[798,506,150,38]}
+{"kind":"textbox","id":"sh/y9sve1oz","slide":2,"text":"تصنيف ذكي","textPreview":"تصنيف ذكي","textChars":9,"textLines":1,"bbox":[628,506,150,38]}
+{"kind":"textbox","id":"sh/h0zuxw7m","slide":2,"text":"إدارة الفروع","textPreview":"إدارة الفروع","textChars":12,"textLines":1,"bbox":[458,506,150,38]}
+{"kind":"shape","id":"sh/gzqt4r61","slide":2,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ul43ahcb","slide":2,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/fmx43mtw","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"image","id":"im/36xone5o","slide":2,"name":"","alt":"HammerLoad logo","bbox":[92,78,140,140]}
+{"kind":"notes","id":"nt/tyfqfb","slide":2,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/aeamig","slide":3,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":11}
+{"kind":"textbox","id":"sh/l4vqd8ny","slide":3,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/k32p436t","slide":3,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/76d8fi54","slide":3,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/m5476doj","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/9svqhsna","slide":3,"text":"التحدي ليس في جلب العملاء فقط","textPreview":"التحدي ليس في جلب العملاء فقط","textChars":29,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/87mp8n6p","slide":3,"text":"التحدي الحقيقي أن يصل العميل المناسب للشخص المناسب في الوقت المناسب","textPreview":"التحدي الحقيقي أن يصل العميل المناسب للشخص المناسب في الوقت المناسب","textChars":67,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/3a9o3e50","slide":3,"bbox":[812,334,326,164]}
+{"kind":"shape","id":"sh/2907u9of","slide":3,"bbox":[1131,334,7,164]}
+{"kind":"textbox","id":"sh/ony1cvy1","slide":3,"text":"فروع متعددة","textPreview":"فروع متعددة","textChars":11,"textLines":1,"bbox":[830,352,288,36]}
+{"kind":"textbox","id":"sh/po7il0zm","slide":3,"text":"كل فرع يحتاج رؤية واضحة للعملاء والفرص وحالة المتابعة","textPreview":"كل فرع يحتاج رؤية واضحة للعملاء والفرص وحالة المتابعة","textChars":53,"textLines":1,"bbox":[830,396,288,90]}
+{"kind":"shape","id":"sh/2lwjalgb","slide":3,"bbox":[476,334,326,164]}
+{"kind":"shape","id":"sh/nmp0jqhw","slide":3,"bbox":[795,334,7,164]}
+{"kind":"textbox","id":"sh/cby1gvyd","slide":3,"text":"مصادر متفرقة","textPreview":"مصادر متفرقة","textChars":12,"textLines":1,"bbox":[494,352,288,36]}
+{"kind":"textbox","id":"sh/xc72p0zy","slide":3,"text":"واتساب، إعلانات، موقع، اتصالات، إنستغرام، ومعارض بدون توحيد كامل","textPreview":"واتساب، إعلانات، موقع، اتصالات، إنستغرام، ومعارض بدون توحيد كامل","textChars":64,"textLines":1,"bbox":[494,396,288,90]}
+{"kind":"shape","id":"sh/apgje5g7","slide":3,"bbox":[140,334,326,164]}
+{"kind":"shape","id":"sh/bqp0nqhs","slide":3,"bbox":[459,334,7,164]}
+{"kind":"textbox","id":"sh/sfe14by9","slide":3,"text":"فرص تضيع","textPreview":"فرص تضيع","textChars":8,"textLines":1,"bbox":[158,352,288,36]}
+{"kind":"textbox","id":"sh/dgnidgze","slide":3,"text":"تأخر الرد أو سوء التوزيع يقلل احتمالية إغلاق الصفقة","textPreview":"تأخر الرد أو سوء التوزيع يقلل احتمالية إغلاق الصفقة","textChars":51,"textLines":1,"bbox":[158,396,288,90]}
+{"kind":"image","id":"im/7a9kvut0","slide":3,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/aeamig","slide":3,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/usyd2t","slide":4,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/0jmdsjqd","slide":4,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/1kvulo7i","slide":4,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ml4vuto3","slide":4,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/nmdcnypo","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/onmdw369","slide":4,"text":"الحل المقترح: غرفة قيادة ذكية للمبيعات","textPreview":"الحل المقترح: غرفة قيادة ذكية للمبيعات","textChars":38,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/98vup87u","slide":4,"text":"النظام لا يحفظ بيانات العملاء فقط، بل يساعد الفريق على ترتيب الأولويات والتحرك بسرعة","textPreview":"النظام لا يحفظ بيانات العملاء فقط، بل يساعد الفريق على ترتيب الأولويات والتحرك بسرعة","textChars":84,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"textbox","id":"sh/2p0bip8z","slide":4,"text":"تجميع كل العملاء المحتملين في مكان واحد","textPreview":"تجميع كل العملاء المحتملين في مكان واحد","textChars":39,"textLines":1,"bbox":[464,332,640,46]}
+{"kind":"shape","id":"sh/3q9cbupk","slide":4,"bbox":[1120,343,10,10]}
+{"kind":"textbox","id":"sh/rm14vqtc","slide":4,"text":"تصنيف العميل تلقائيًا حسب الجدية والفرع والمصدر","textPreview":"تصنيف العميل تلقائيًا حسب الجدية والفرع والمصدر","textChars":47,"textLines":1,"bbox":[464,384,640,46]}
+{"kind":"shape","id":"sh/ql83mlc7","slide":4,"bbox":[1120,395,10,10]}
+{"kind":"textbox","id":"sh/dojmx0bi","slide":4,"text":"إرسال بيانات العميل فورًا لمدير مبيعات الفرع المناسب","textPreview":"إرسال بيانات العميل فورًا لمدير مبيعات الفرع المناسب","textChars":52,"textLines":1,"bbox":[464,436,640,46]}
+{"kind":"shape","id":"sh/cnalovux","slide":4,"bbox":[1120,447,10,10]}
+{"kind":"textbox","id":"sh/3ih4rqtg","slide":4,"text":"متابعة مراحل الصفقة حتى الإغلاق أو الفقد","textPreview":"متابعة مراحل الصفقة حتى الإغلاق أو الفقد","textChars":40,"textLines":1,"bbox":[464,488,640,46]}
+{"kind":"shape","id":"sh/2h83ilcv","slide":4,"bbox":[1120,499,10,10]}
+{"kind":"textbox","id":"sh/pkzmtgbm","slide":4,"text":"تقارير واضحة للإدارة عن الأداء والمصادر الأكثر ربحية","textPreview":"تقارير واضحة للإدارة عن الأداء والمصادر الأكثر ربحية","textChars":52,"textLines":1,"bbox":[464,540,640,46]}
+{"kind":"shape","id":"sh/4jqlkvu1","slide":4,"bbox":[1120,551,10,10]}
+{"kind":"shape","id":"sh/vex4n6t4","slide":4,"bbox":[132,316,260,210]}
+{"kind":"textbox","id":"sh/uto3e1cz","slide":4,"text":"هدف النظام","textPreview":"هدف النظام","textChars":10,"textLines":1,"bbox":[164,350,198,38]}
+{"kind":"textbox","id":"sh/yponq1wr","slide":4,"text":"تقليل وقت الاستجابة\nوزيادة نسبة الإغلاق\nورفع وضوح الإدارة","textPreview":"تقليل وقت الاستجابة | وزيادة نسبة الإغلاق | ورفع وضوح الإدارة","textChars":57,"textLines":3,"bbox":[156,408,214,104]}
+{"kind":"image","id":"im/i9gvihcr","slide":4,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/usyd2t","slide":4,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/cnvdkn","slide":5,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":19}
+{"kind":"textbox","id":"sh/by5w3mx0","slide":5,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/axwfahwv","slide":5,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/lo7e9gfi","slide":5,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/knexgbex","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/zm5w76xc","slide":5,"text":"رحلة العميل داخل النظام تبدأ من أول رسالة","textPreview":"رحلة العميل داخل النظام تبدأ من أول رسالة","textChars":41,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/y1wfe1wr","slide":5,"text":"أي عميل جديد يدخل من قناة مبيعات يتم تسجيله وتصنيفه وتوجيهه بدون انتظار يدوي","textPreview":"أي عميل جديد يدخل من قناة مبيعات يتم تسجيله وتصنيفه وتوجيهه بدون انتظار يدوي","textChars":76,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/9s7edgfe","slide":5,"bbox":[940,334,180,166]}
+{"kind":"shape","id":"sh/8ryxkbet","slide":5,"bbox":[1113,334,7,166]}
+{"kind":"textbox","id":"sh/2d0juhsr","slide":5,"text":"مصدر العميل","textPreview":"مصدر العميل","textChars":11,"textLines":1,"bbox":[958,352,142,36]}
+{"kind":"textbox","id":"sh/3e903mtc","slide":5,"text":"إعلان، واتساب، موقع، اتصال، معرض","textPreview":"إعلان، واتساب، موقع، اتصال، معرض","textChars":32,"textLines":1,"bbox":[958,396,142,92]}
+{"kind":"textbox","id":"sh/4f21wrax","slide":5,"text":"←","textPreview":"←","textChars":1,"textLines":1,"bbox":[906,390,28,44]}
+{"kind":"shape","id":"sh/pgb25cbi","slide":5,"bbox":[728,334,180,166]}
+{"kind":"shape","id":"sh/qhkjyhs3","slide":5,"bbox":[901,334,7,166]}
+{"kind":"textbox","id":"sh/ritk7mto","slide":5,"text":"تسجيل تلقائي","textPreview":"تسجيل تلقائي","textChars":12,"textLines":1,"bbox":[746,352,142,36]}
+{"kind":"textbox","id":"sh/cj210rat","slide":5,"text":"بيانات العميل والفرع والاهتمام","textPreview":"بيانات العميل والفرع والاهتمام","textChars":30,"textLines":1,"bbox":[746,396,142,92]}
+{"kind":"textbox","id":"sh/dkb29wbe","slide":5,"text":"←","textPreview":"←","textChars":1,"textLines":1,"bbox":[694,390,28,44]}
+{"kind":"shape","id":"sh/6lgjmxsj","slide":5,"bbox":[516,334,180,166]}
+{"kind":"shape","id":"sh/7mp0v2t4","slide":5,"bbox":[689,334,7,166]}
+{"kind":"textbox","id":"sh/belo7u5k","slide":5,"text":"تصنيف ذكي","textPreview":"تصنيف ذكي","textChars":9,"textLines":1,"bbox":[534,352,142,36]}
+{"kind":"textbox","id":"sh/adc7ep4f","slide":5,"text":"درجة الجدية واحتمالية الإغلاق","textPreview":"درجة الجدية واحتمالية الإغلاق","textChars":29,"textLines":1,"bbox":[534,396,142,92]}
+{"kind":"textbox","id":"sh/xg3q94nq","slide":5,"text":"←","textPreview":"←","textChars":1,"textLines":1,"bbox":[482,390,28,44]}
+{"kind":"shape","id":"sh/wfupgzm5","slide":5,"bbox":[304,334,180,166]}
+{"kind":"shape","id":"sh/nq1o3u5o","slide":5,"bbox":[477,334,7,166]}
+{"kind":"textbox","id":"sh/mps7ap43","slide":5,"text":"توجيه سريع","textPreview":"توجيه سريع","textChars":10,"textLines":1,"bbox":[322,352,142,36]}
+{"kind":"textbox","id":"sh/9c365knu","slide":5,"text":"إرسال لمدير مبيعات الفرع","textPreview":"إرسال لمدير مبيعات الفرع","textChars":24,"textLines":1,"bbox":[322,396,142,92]}
+{"kind":"textbox","id":"sh/orupczm9","slide":5,"text":"←","textPreview":"←","textChars":1,"textLines":1,"bbox":[270,390,28,44]}
+{"kind":"shape","id":"sh/7m58fe5s","slide":5,"bbox":[92,334,180,166]}
+{"kind":"shape","id":"sh/6lw7m947","slide":5,"bbox":[265,334,7,166]}
+{"kind":"textbox","id":"sh/4r6lgb2p","slide":5,"text":"متابعة وإغلاق","textPreview":"متابعة وإغلاق","textChars":13,"textLines":1,"bbox":[110,352,142,36]}
+{"kind":"textbox","id":"sh/5szm9g3a","slide":5,"text":"مهام، تنبيهات، وتقارير","textPreview":"مهام، تنبيهات، وتقارير","textChars":22,"textLines":1,"bbox":[110,396,142,92]}
+{"kind":"image","id":"im/p4jyl0nu","slide":5,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/cnvdkn","slide":5,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/zy5r58","slide":6,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":14}
+{"kind":"textbox","id":"sh/or294re1","slide":6,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/psbqxwfm","slide":6,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/ul0ryhgz","slide":6,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/fm98r2x4","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/gni907yp","slide":6,"text":"تصنيف العملاء يحول الزحمة إلى أولويات واضحة","textPreview":"تصنيف العملاء يحول الزحمة إلى أولويات واضحة","textChars":43,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/horqtcfa","slide":6,"text":"كل عميل يحصل على درجة تساعد فريق المبيعات يقرر من يبدأ به الآن ومن يحتاج متابعة لاحقة","textPreview":"كل عميل يحصل على درجة تساعد فريق المبيعات يقرر من يبدأ به الآن ومن يحتاج متابعة لاحقة","textChars":85,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/6xgruxgn","slide":6,"bbox":[138,322,1000,68]}
+{"kind":"textbox","id":"sh/7yp8n2x8","slide":6,"text":"عميل ساخن","textPreview":"عميل ساخن","textChars":9,"textLines":1,"bbox":[928,337,176,36]}
+{"kind":"textbox","id":"sh/f6p03e94","slide":6,"text":"طلب سعر أو تواصل متكرر أو جاهز للزيارة","textPreview":"طلب سعر أو تواصل متكرر أو جاهز للزيارة","textChars":38,"textLines":1,"bbox":[510,340,372,32]}
+{"kind":"textbox","id":"sh/u5gza9sj","slide":6,"text":"اتصال فوري + إرسال للمدير","textPreview":"اتصال فوري + إرسال للمدير","textChars":25,"textLines":1,"bbox":[172,340,292,32]}
+{"kind":"shape","id":"sh/h87i5ora","slide":6,"bbox":[138,414,1000,68]}
+{"kind":"textbox","id":"sh/g7yhcjqp","slide":6,"text":"عميل دافئ","textPreview":"عميل دافئ","textChars":9,"textLines":1,"bbox":[928,429,176,36]}
+{"kind":"textbox","id":"sh/3ap07y90","slide":6,"text":"مهتم لكن يحتاج مقارنة أو معلومات إضافية","textPreview":"مهتم لكن يحتاج مقارنة أو معلومات إضافية","textChars":39,"textLines":1,"bbox":[510,432,372,32]}
+{"kind":"textbox","id":"sh/29gzet8f","slide":6,"text":"متابعة مجدولة خلال 24 ساعة","textPreview":"متابعة مجدولة خلال 24 ساعة","textChars":26,"textLines":1,"bbox":[172,432,292,32]}
+{"kind":"shape","id":"sh/pwri9or6","slide":6,"bbox":[138,506,1000,68]}
+{"kind":"textbox","id":"sh/4byhg3ql","slide":6,"text":"عميل بارد","textPreview":"عميل بارد","textChars":9,"textLines":1,"bbox":[928,521,176,36]}
+{"kind":"textbox","id":"sh/je5gvu9w","slide":6,"text":"استفسار عام أو اهتمام غير واضح","textPreview":"استفسار عام أو اهتمام غير واضح","textChars":30,"textLines":1,"bbox":[510,524,372,32]}
+{"kind":"textbox","id":"sh/idwz2psb","slide":6,"text":"رعاية تسويقية ومتابعة لاحقة","textPreview":"رعاية تسويقية ومتابعة لاحقة","textChars":27,"textLines":1,"bbox":[172,524,292,32]}
+{"kind":"image","id":"im/epovylkf","slide":6,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/zy5r58","slide":6,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/j78a0k","slide":7,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/exs36x4r","slide":7,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/fyl4f2lc","slide":7,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/sval4nml","slide":7,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/twjmds36","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/6ts32x4f","slide":7,"text":"مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات","textPreview":"مصادر العملاء تصبح قابلة للقياس لا مجرد انطباعات","textChars":48,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/ru14b2l0","slide":7,"text":"الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية","textPreview":"الإدارة تعرف أي قناة تجيب عملاء جادين، وأي قناة تحتاج تحسين أو تقليل ميزانية","textChars":76,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"textbox","id":"sh/cre5gr25","slide":7,"text":"واتساب","textPreview":"واتساب","textChars":6,"textLines":1,"bbox":[910,316,210,30]}
+{"kind":"shape","id":"sh/xsnmpw3a","slide":7,"bbox":[382,320,360,22]}
+{"kind":"textbox","id":"sh/94r6xcna","slide":7,"text":"إعلانات مدفوعة","textPreview":"إعلانات مدفوعة","textChars":14,"textLines":1,"bbox":[910,370,210,30]}
+{"kind":"shape","id":"sh/83y5o76p","slide":7,"bbox":[382,374,300,22]}
+{"kind":"textbox","id":"sh/n2pov25k","slide":7,"text":"الموقع الإلكتروني","textPreview":"الموقع الإلكتروني","textChars":17,"textLines":1,"bbox":[910,424,210,30]}
+{"kind":"shape","id":"sh/m1gnmxoz","slide":7,"bbox":[382,428,240,22]}
+{"kind":"textbox","id":"sh/l076tsne","slide":7,"text":"إنستغرام","textPreview":"إنستغرام","textChars":8,"textLines":1,"bbox":[910,478,210,30]}
+{"kind":"shape","id":"sh/0zy5k76t","slide":7,"bbox":[382,482,190,22]}
+{"kind":"textbox","id":"sh/zepor258","slide":7,"text":"اتصال مباشر","textPreview":"اتصال مباشر","textChars":11,"textLines":1,"bbox":[910,532,210,30]}
+{"kind":"shape","id":"sh/ydgnixon","slide":7,"bbox":[382,536,145,22]}
+{"kind":"shape","id":"sh/5wb65wni","slide":7,"bbox":[110,332,220,162]}
+{"kind":"shape","id":"sh/kvipwr6x","slide":7,"bbox":[323,332,7,162]}
+{"kind":"textbox","id":"sh/4fq9svu9","slide":7,"text":"قرار أوضح","textPreview":"قرار أوضح","textChars":9,"textLines":1,"bbox":[128,350,182,36]}
+{"kind":"textbox","id":"sh/pgjq10vu","slide":7,"text":"ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا","textPreview":"ربط المصدر بعدد الصفقات وقيمتها يساعد في توجيه الميزانية للقنوات الأعلى عائدًا","textChars":78,"textLines":1,"bbox":[128,394,182,88]}
+{"kind":"image","id":"im/sb69gri1","slide":7,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/j78a0k","slide":7,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/f7wt1r","slide":8,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":11}
+{"kind":"textbox","id":"sh/wfmd4bml","slide":8,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/xgvexg36","slide":8,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/yh4v6l4r","slide":8,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/jidwzqlc","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/kjmd8vmh","slide":8,"text":"التوزيع الذكي يرسل العميل للفرع الصحيح مباشرة","textPreview":"التوزيع الذكي يرسل العميل للفرع الصحيح مباشرة","textChars":45,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/lkve1032","slide":8,"text":"بدل التحويل اليدوي، النظام يحدد الفرع أو المدير الأنسب ويرسل بيانات العميل خلال ثواني","textPreview":"بدل التحويل اليدوي، النظام يحدد الفرع أو المدير الأنسب ويرسل بيانات العميل خلال ثواني","textChars":85,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/el0vuh47","slide":8,"bbox":[824,324,300,176]}
+{"kind":"shape","id":"sh/zm9cnm5s","slide":8,"bbox":[1117,324,7,176]}
+{"kind":"textbox","id":"sh/rq1wnalg","slide":8,"text":"قواعد التوجيه","textPreview":"قواعد التوجيه","textChars":13,"textLines":1,"bbox":[842,342,262,36]}
+{"kind":"textbox","id":"sh/qpsve54v","slide":8,"text":"حسب المدينة والفرع ونوع الخدمة ووقت الدوام وضغط العمل على الفريق","textPreview":"حسب المدينة والفرع ونوع الخدمة ووقت الدوام وضغط العمل على الفريق","textChars":64,"textLines":1,"bbox":[842,386,262,102]}
+{"kind":"shape","id":"sh/dc3epk3m","slide":8,"bbox":[490,324,300,176]}
+{"kind":"shape","id":"sh/cradgfm1","slide":8,"bbox":[783,324,7,176]}
+{"kind":"textbox","id":"sh/3m1wjqlk","slide":8,"text":"إشعار فوري","textPreview":"إشعار فوري","textChars":10,"textLines":1,"bbox":[508,342,262,36]}
+{"kind":"textbox","id":"sh/2lsva54z","slide":8,"text":"رسالة واتساب أو إيميل تحتوي بيانات العميل واهتمامه ومصدره","textPreview":"رسالة واتساب أو إيميل تحتوي بيانات العميل واهتمامه ومصدره","textChars":57,"textLines":1,"bbox":[508,386,262,102]}
+{"kind":"shape","id":"sh/pojel03q","slide":8,"bbox":[156,324,300,176]}
+{"kind":"shape","id":"sh/4nadcvm5","slide":8,"bbox":[449,324,7,176]}
+{"kind":"textbox","id":"sh/fihwfql8","slide":8,"text":"متابعة تلقائية","textPreview":"متابعة تلقائية","textChars":14,"textLines":1,"bbox":[174,342,262,36]}
+{"kind":"textbox","id":"sh/uh8v6l43","slide":8,"text":"إن لم يتم الرد خلال مدة محددة، يتم التصعيد أو إعادة توزيع الفرصة","textPreview":"إن لم يتم الرد خلال مدة محددة، يتم التصعيد أو إعادة توزيع الفرصة","textChars":64,"textLines":1,"bbox":[174,386,262,102]}
+{"kind":"image","id":"im/utczu9c7","slide":8,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/f7wt1r","slide":8,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/8sgo3y","slide":9,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/cjqtkz2h","slide":9,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/dkzad43m","slide":9,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/yl8bm9k7","slide":9,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/zmhsfels","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/0nqtoz2d","slide":9,"text":"الذكاء الاصطناعي يرفع جودة قرار فريق المبيعات","textPreview":"الذكاء الاصطناعي يرفع جودة قرار فريق المبيعات","textChars":45,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/l8zah43y","slide":9,"text":"ليس المطلوب أن يستبدل الفريق، بل أن يعطيهم إشارات تساعدهم يقفلون بشكل أسرع","textPreview":"ليس المطلوب أن يستبدل الفريق، بل أن يعطيهم إشارات تساعدهم يقفلون بشكل أسرع","textChars":74,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"textbox","id":"sh/m9sbq9kj","slide":9,"text":"اقتراح درجة احتمالية الإغلاق لكل عميل","textPreview":"اقتراح درجة احتمالية الإغلاق لكل عميل","textChars":37,"textLines":1,"bbox":[468,316,632,46]}
+{"kind":"shape","id":"sh/na1sjel4","slide":9,"bbox":[1116,327,10,10]}
+{"kind":"textbox","id":"sh/zupsj2pc","slide":9,"text":"تلخيص محادثات العميل ونقاط اهتمامه قبل التواصل","textPreview":"تلخيص محادثات العميل ونقاط اهتمامه قبل التواصل","textChars":46,"textLines":1,"bbox":[468,368,632,46]}
+{"kind":"shape","id":"sh/ytgbqxor","slide":9,"bbox":[1116,379,10,10]}
+{"kind":"textbox","id":"sh/lwruls72","slide":9,"text":"اقتراح الرد المناسب حسب حالة العميل والمنتج المطلوب","textPreview":"اقتراح الرد المناسب حسب حالة العميل والمنتج المطلوب","textChars":51,"textLines":1,"bbox":[468,420,632,46]}
+{"kind":"shape","id":"sh/0vytsn6h","slide":9,"bbox":[1116,431,10,10]}
+{"kind":"textbox","id":"sh/b6psfip0","slide":9,"text":"تنبيه الإدارة عند وجود عميل مهم لم تتم متابعته","textPreview":"تنبيه الإدارة عند وجود عميل مهم لم تتم متابعته","textChars":46,"textLines":1,"bbox":[468,472,632,46]}
+{"kind":"shape","id":"sh/q5gbmdof","slide":9,"bbox":[1116,483,10,10]}
+{"kind":"textbox","id":"sh/d87ahs76","slide":9,"text":"اكتشاف القنوات أو الفروع التي تحتاج تحسين","textPreview":"اكتشاف القنوات أو الفروع التي تحتاج تحسين","textChars":41,"textLines":1,"bbox":[468,524,632,46]}
+{"kind":"shape","id":"sh/c7yton6l","slide":9,"bbox":[1116,535,10,10]}
+{"kind":"shape","id":"sh/v29crmp4","slide":9,"bbox":[126,330,276,188]}
+{"kind":"textbox","id":"sh/a10byhoz","slide":9,"text":"AI","textPreview":"AI","textChars":2,"textLines":1,"bbox":[162,356,204,70]}
+{"kind":"textbox","id":"sh/q9on65c3","slide":9,"text":"توصيات عملية\nوليست تعقيد تقني","textPreview":"توصيات عملية | وليست تعقيد تقني","textChars":29,"textLines":2,"bbox":[154,436,220,60]}
+{"kind":"image","id":"im/258vadk7","slide":9,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/8sgo3y","slide":9,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/wom0qr","slide":10,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/xgjatwn6","slide":10,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/wfa90bml","slide":10,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/nqhsnm54","slide":10,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/mp8ruh4j","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/9cjapwna","slide":10,"text":"لوحة الإدارة تعطي صورة مباشرة عن كل الفروع","textPreview":"لوحة الإدارة تعطي صورة مباشرة عن كل الفروع","textChars":42,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/orq9wrmp","slide":10,"text":"المالك أو الإدارة العليا يشوفون أين تأتي الفرص، أين تتعطل، ومن الفريق الأعلى أداء","textPreview":"المالك أو الإدارة العليا يشوفون أين تأتي الفرص، أين تتعطل، ومن الفريق الأعلى أداء","textChars":81,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/zmh8jm58","slide":10,"bbox":[838,320,286,142]}
+{"kind":"shape","id":"sh/el8rqh4n","slide":10,"bbox":[1117,320,7,142]}
+{"kind":"textbox","id":"sh/wjqtszqh","slide":10,"text":"مراحل الصفقات","textPreview":"مراحل الصفقات","textChars":13,"textLines":1,"bbox":[856,338,248,36]}
+{"kind":"textbox","id":"sh/xkzul4r2","slide":10,"text":"جديد، تواصل، عرض سعر، تفاوض، مغلق","textPreview":"جديد، تواصل، عرض سعر، تفاوض، مغلق","textChars":33,"textLines":1,"bbox":[856,382,248,68]}
+{"kind":"shape","id":"sh/ahobqp8r","slide":10,"bbox":[496,320,286,142]}
+{"kind":"shape","id":"sh/bixcju9w","slide":10,"bbox":[775,320,7,142]}
+{"kind":"textbox","id":"sh/of6tofql","slide":10,"text":"أداء الفروع","textPreview":"أداء الفروع","textChars":11,"textLines":1,"bbox":[514,338,248,36]}
+{"kind":"textbox","id":"sh/9gfuhkr6","slide":10,"text":"عدد العملاء وسرعة الرد والصفقات المغلقة والعملاء المفقودين","textPreview":"عدد العملاء وسرعة الرد والصفقات المغلقة والعملاء المفقودين","textChars":58,"textLines":1,"bbox":[514,382,248,68]}
+{"kind":"shape","id":"sh/mdobmp8f","slide":10,"bbox":[154,320,286,142]}
+{"kind":"shape","id":"sh/nexcfu90","slide":10,"bbox":[433,320,7,142]}
+{"kind":"textbox","id":"sh/8bad0jqp","slide":10,"text":"تقارير المصادر","textPreview":"تقارير المصادر","textChars":14,"textLines":1,"bbox":[172,338,248,36]}
+{"kind":"textbox","id":"sh/tcjutora","slide":10,"text":"أي مصدر يجيب عملاء أكثر وأي مصدر يحقق إغلاق أعلى","textPreview":"أي مصدر يجيب عملاء أكثر وأي مصدر يحقق إغلاق أعلى","textChars":48,"textLines":1,"bbox":[172,382,248,68]}
+{"kind":"textbox","id":"sh/hsfudoje","slide":10,"text":"كل تقرير مصمم عشان يجاوب سؤال إداري واضح، مو مجرد أرقام كثيرة","textPreview":"كل تقرير مصمم عشان يجاوب سؤال إداري واضح، مو مجرد أرقام كثيرة","textChars":61,"textLines":1,"bbox":[202,514,878,50]}
+{"kind":"image","id":"im/fapk32pg","slide":10,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/wom0qr","slide":10,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/x7t4h1","slide":11,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":15}
+{"kind":"textbox","id":"sh/7q5ov6pg","slide":11,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/6pw7m18v","slide":11,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/5o36tw7a","slide":11,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/knupkrqp","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/jmlor6p4","slide":11,"text":"النظام قابل للتوسع مع نمو الفروع والفريق","textPreview":"النظام قابل للتوسع مع نمو الفروع والفريق","textChars":40,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/ilc7i18z","slide":11,"text":"نبدأ بالاحتياج الأساسي، ثم نضيف الخصائص حسب الأولوية التجارية","textPreview":"نبدأ بالاحتياج الأساسي، ثم نضيف الخصائص حسب الأولوية التجارية","textChars":61,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/xk36pw7e","slide":11,"bbox":[682,296,438,102]}
+{"kind":"shape","id":"sh/wjupgrqt","slide":11,"bbox":[1113,296,7,102]}
+{"kind":"textbox","id":"sh/i1sry9gf","slide":11,"text":"إدارة العملاء والصفقات","textPreview":"إدارة العملاء والصفقات","textChars":22,"textLines":1,"bbox":[700,314,400,36]}
+{"kind":"textbox","id":"sh/j2187eh0","slide":11,"text":"سجل موحد لكل عميل وفرصة ومتابعة","textPreview":"سجل موحد لكل عميل وفرصة ومتابعة","textChars":31,"textLines":1,"bbox":[700,358,400,28]}
+{"kind":"shape","id":"sh/k3a90zy5","slide":11,"bbox":[160,296,438,102]}
+{"kind":"shape","id":"sh/54ja94zq","slide":11,"bbox":[591,296,7,102]}
+{"kind":"textbox","id":"sh/ax8rupg3","slide":11,"text":"صلاحيات حسب الفرع","textPreview":"صلاحيات حسب الفرع","textChars":17,"textLines":1,"bbox":[178,314,400,36]}
+{"kind":"textbox","id":"sh/vyh83uho","slide":11,"text":"كل مدير يشوف فريقه، والإدارة تشوف الصورة الكاملة","textPreview":"كل مدير يشوف فريقه، والإدارة تشوف الصورة الكاملة","textChars":48,"textLines":1,"bbox":[178,358,400,28]}
+{"kind":"shape","id":"sh/wzq9wzy9","slide":11,"bbox":[682,408,438,102]}
+{"kind":"shape","id":"sh/x0zq54zu","slide":11,"bbox":[1113,408,7,102]}
+{"kind":"textbox","id":"sh/mt8rqpg7","slide":11,"text":"تكاملات متعددة","textPreview":"تكاملات متعددة","textChars":14,"textLines":1,"bbox":[700,426,400,36]}
+{"kind":"textbox","id":"sh/nuh8zuhs","slide":11,"text":"واتساب وإيميل ونماذج الموقع والإعلانات وربط API","textPreview":"واتساب وإيميل ونماذج الموقع والإعلانات وربط API","textChars":47,"textLines":1,"bbox":[700,470,400,28]}
+{"kind":"shape","id":"sh/redo7qxk","slide":11,"bbox":[160,408,438,102]}
+{"kind":"shape","id":"sh/qd4nylwz","slide":11,"bbox":[591,408,7,102]}
+{"kind":"textbox","id":"sh/d0v69gfa","slide":11,"text":"أتمتة المهام","textPreview":"أتمتة المهام","textChars":12,"textLines":1,"bbox":[178,426,400,36]}
+{"kind":"textbox","id":"sh/czm50be5","slide":11,"text":"تذكيرات، تصعيد، توزيع، وسيناريوهات متابعة","textPreview":"تذكيرات، تصعيد، توزيع، وسيناريوهات متابعة","textChars":41,"textLines":1,"bbox":[178,470,400,28]}
+{"kind":"shape","id":"sh/z2xobqxg","slide":11,"bbox":[682,520,438,102]}
+{"kind":"shape","id":"sh/y1472lwv","slide":11,"bbox":[1113,520,7,102]}
+{"kind":"textbox","id":"sh/l4f6d0fm","slide":11,"text":"تحليلات ذكية","textPreview":"تحليلات ذكية","textChars":12,"textLines":1,"bbox":[700,538,400,36]}
+{"kind":"textbox","id":"sh/036p4ve1","slide":11,"text":"درجات العملاء وتوقعات وتنبيهات للإدارة","textPreview":"درجات العملاء وتوقعات وتنبيهات للإدارة","textChars":38,"textLines":1,"bbox":[700,582,400,28]}
+{"kind":"image","id":"im/5gfqdg3m","slide":11,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/x7t4h1","slide":11,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/gpp2ne","slide":12,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":20}
+{"kind":"textbox","id":"sh/tw7up0fy","slide":12,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/svedwved","slide":12,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/jq5cjqxw","slide":12,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/ipwvqlwb","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/5snul0fm","slide":12,"text":"خطة تنفيذ عملية تقلل المخاطر وتسرع أول قيمة","textPreview":"خطة تنفيذ عملية تقلل المخاطر وتسرع أول قيمة","textChars":43,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/kredsveh","slide":12,"text":"نقترح تنفيذ النظام على مراحل حتى يرى العميل نتيجة مبكرة قبل التوسع الكامل","textPreview":"نقترح تنفيذ النظام على مراحل حتى يرى العميل نتيجة مبكرة قبل التوسع الكامل","textChars":73,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"shape","id":"sh/vmlcf6xk","slide":12,"bbox":[978,318,54,54]}
+{"kind":"textbox","id":"sh/a1cvmlwz","slide":12,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[978,329,54,36]}
+{"kind":"textbox","id":"sh/0n2pszq5","slide":12,"text":"تحليل وتجربة المستخدم","textPreview":"تحليل وتجربة المستخدم","textChars":21,"textLines":1,"bbox":[912,392,186,42]}
+{"kind":"textbox","id":"sh/1obqlk7q","slide":12,"text":"تثبيت الفروع والمصادر ومراحل البيع","textPreview":"تثبيت الفروع والمصادر ومراحل البيع","textChars":34,"textLines":1,"bbox":[910,440,190,68]}
+{"kind":"shape","id":"sh/el07qp8z","slide":12,"bbox":[838,345,80,0]}
+{"kind":"shape","id":"sh/fm9ojupk","slide":12,"bbox":[780,318,54,54]}
+{"kind":"textbox","id":"sh/sjipofq9","slide":12,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[780,329,54,36]}
+{"kind":"textbox","id":"sh/dkr6hk7u","slide":12,"text":"النواة الأساسية","textPreview":"النواة الأساسية","textChars":15,"textLines":1,"bbox":[714,392,186,42]}
+{"kind":"textbox","id":"sh/qh07m583","slide":12,"text":"العملاء والصفقات والصلاحيات","textPreview":"العملاء والصفقات والصلاحيات","textChars":27,"textLines":1,"bbox":[712,440,190,68]}
+{"kind":"shape","id":"sh/ri9ofapo","slide":12,"bbox":[640,345,80,0]}
+{"kind":"shape","id":"sh/cfmp0jqd","slide":12,"bbox":[582,318,54,54]}
+{"kind":"textbox","id":"sh/xgvqt47y","slide":12,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[582,329,54,36]}
+{"kind":"textbox","id":"sh/lcr6d4z2","slide":12,"text":"التوزيع والتنبيهات","textPreview":"التوزيع والتنبيهات","textChars":18,"textLines":1,"bbox":[516,392,186,42]}
+{"kind":"textbox","id":"sh/kbipkzih","slide":12,"text":"واتساب، إيميل، قواعد الفروع","textPreview":"واتساب، إيميل، قواعد الفروع","textChars":27,"textLines":1,"bbox":[514,440,190,68]}
+{"kind":"shape","id":"sh/ja9obehw","slide":12,"bbox":[442,345,80,0]}
+{"kind":"shape","id":"sh/y907i90b","slide":12,"bbox":[384,318,54,54]}
+{"kind":"textbox","id":"sh/x87694z6","slide":12,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[384,329,54,36]}
+{"kind":"textbox","id":"sh/w7ypgzil","slide":12,"text":"الذكاء والتقارير","textPreview":"الذكاء والتقارير","textChars":16,"textLines":1,"bbox":[318,392,186,42]}
+{"kind":"textbox","id":"sh/b6po7uh0","slide":12,"text":"تصنيف العملاء ولوحات الإدارة","textPreview":"تصنيف العملاء ولوحات الإدارة","textChars":28,"textLines":1,"bbox":[316,440,190,68]}
+{"kind":"shape","id":"sh/a5g7ep0f","slide":12,"bbox":[244,345,80,0]}
+{"kind":"shape","id":"sh/94765kzu","slide":12,"bbox":[186,318,54,54]}
+{"kind":"textbox","id":"sh/o3ypcfi9","slide":12,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[186,329,54,36]}
+{"kind":"textbox","id":"sh/e9c3mlg7","slide":12,"text":"الإطلاق والتدريب","textPreview":"الإطلاق والتدريب","textChars":16,"textLines":1,"bbox":[120,392,186,42]}
+{"kind":"textbox","id":"sh/za54fqxs","slide":12,"text":"تسليم، تدريب، دعم وتحسينات","textPreview":"تسليم، تدريب، دعم وتحسينات","textChars":26,"textLines":1,"bbox":[118,440,190,68]}
+{"kind":"image","id":"im/z2h87i5s","slide":12,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/gpp2ne","slide":12,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
+{"kind":"slide","id":"sl/ttxjnr","slide":13,"title":"نظام علاقات عملاء ذكي للفروع","textShapes":12}
+{"kind":"textbox","id":"sh/rm1wral8","slide":13,"text":"نظام علاقات عملاء ذكي للفروع","textPreview":"نظام علاقات عملاء ذكي للفروع","textChars":28,"textLines":1,"bbox":[860,48,348,28]}
+{"kind":"shape","id":"sh/6lsfy5kn","slide":13,"bbox":[72,666,1136,0]}
+{"kind":"textbox","id":"sh/1s3yxk3a","slide":13,"text":"HammerLoad","textPreview":"HammerLoad","textChars":10,"textLines":1,"bbox":[72,678,180,24]}
+{"kind":"textbox","id":"sh/grux4f2p","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1116,676,92,28]}
+{"kind":"textbox","id":"sh/fq1gval4","slide":13,"text":"النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح","textPreview":"النتيجة المتوقعة: مبيعات أسرع وإدارة أوضح","textChars":41,"textLines":1,"bbox":[546,112,662,92]}
+{"kind":"textbox","id":"sh/epsf25kj","slide":13,"text":"نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس","textPreview":"نظام علاقات عملاء ذكي يحول كل عميل جديد إلى فرصة منظمة ومتابعة قابلة للقياس","textChars":75,"textLines":1,"bbox":[590,210,618,72]}
+{"kind":"textbox","id":"sh/pg3y1k3m","slide":13,"text":"استجابة أسرع للعملاء المحتملين","textPreview":"استجابة أسرع للعملاء المحتملين","textChars":30,"textLines":1,"bbox":[526,316,568,48]}
+{"kind":"shape","id":"sh/ofux8f21","slide":13,"bbox":[1110,327,10,10]}
+{"kind":"textbox","id":"sh/a9wnypsf","slide":13,"text":"تقليل ضياع الفرص بين الفروع والقنوات","textPreview":"تقليل ضياع الفرص بين الفروع والقنوات","textChars":36,"textLines":1,"bbox":[526,370,568,48]}
+{"kind":"shape","id":"sh/vap47u90","slide":13,"bbox":[1110,381,10,10]}
+{"kind":"textbox","id":"sh/wby50zal","slide":13,"text":"رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق","textPreview":"رفع وضوح الإدارة على مصادر العملاء ونسبة الإغلاق","textChars":48,"textLines":1,"bbox":[526,424,568,48]}
+{"kind":"shape","id":"sh/xc7m9kr6","slide":13,"bbox":[1110,435,10,10]}
+{"kind":"textbox","id":"sh/idgn2psr","slide":13,"text":"توحيد طريقة عمل فريق المبيعات","textPreview":"توحيد طريقة عمل فريق المبيعات","textChars":29,"textLines":1,"bbox":[526,478,568,48]}
+{"kind":"shape","id":"sh/jepobu9w","slide":13,"bbox":[1110,489,10,10]}
+{"kind":"textbox","id":"sh/kzy54zah","slide":13,"text":"قابلية تطوير النظام لاحقًا حسب نمو الشركة","textPreview":"قابلية تطوير النظام لاحقًا حسب نمو الشركة","textChars":41,"textLines":1,"bbox":[526,532,568,48]}
+{"kind":"shape","id":"sh/5076d4r2","slide":13,"bbox":[1110,543,10,10]}
+{"kind":"shape","id":"sh/yhcnq5s7","slide":13,"bbox":[126,348,318,142]}
+{"kind":"textbox","id":"sh/zil4za9s","slide":13,"text":"الخطوة التالية","textPreview":"الخطوة التالية","textChars":14,"textLines":1,"bbox":[160,378,250,38]}
+{"kind":"textbox","id":"sh/3m1k76pk","slide":13,"text":"جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية","textPreview":"جلسة قصيرة لتثبيت الفروع ومصادر العملاء ومراحل البيع قبل عرض التكلفة النهائية","textChars":77,"textLines":1,"bbox":[154,430,262,64]}
+{"kind":"image","id":"im/xsju10j2","slide":13,"name":"","alt":"HammerLoad logo","bbox":[76,42,82,82]}
+{"kind":"notes","id":"nt/ttxjnr","slide":13,"text":"[Sources]\n- User-provided brief in this Codex task, dated 2026-09-03.\n- User-provided WhatsApp screenshot: /var/folders/_l/4gk4r9ys1g12gz_0p2149qtc0000gn/T/TemporaryItems/NSIRD_screencaptureui_c97L48/Screenshot 2026-09-03 at 4.11.38 PM.png.\n- User-provided HammerLoad logo image: /Users/test/Downloads/HammerLoad Logo-selection (1).png."}
