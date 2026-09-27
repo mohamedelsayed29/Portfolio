@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { LanguageProvider } from '@/i18n'
 import { ThemeProvider } from './ThemeProvider'
-// import { BookingProvider } from './BookingProvider'
+import { BookingProvider } from './BookingProvider'
 
 /** One place to compose cross-cutting context. Order matters: router outermost. */
 export function AppProviders({ children }) {
@@ -9,8 +9,7 @@ export function AppProviders({ children }) {
     <BrowserRouter>
       <LanguageProvider>
         <ThemeProvider>
-          {/* Booking temporarily disabled: <BookingProvider>{children}</BookingProvider> */}
-          {children}
+          <BookingProvider>{children}</BookingProvider>
         </ThemeProvider>
       </LanguageProvider>
     </BrowserRouter>

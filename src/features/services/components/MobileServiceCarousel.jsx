@@ -43,7 +43,7 @@ function MobileServiceCard({
   isActive,
   reduced,
   onFocus,
-//   onBook,
+  onBook,
 }) {
   const Icon = SERVICE_ICONS[service.icon]
   const s = useStrings(CARD_STRINGS)
@@ -129,7 +129,6 @@ function MobileServiceCard({
             isActive ? 'pointer-events-auto' : 'pointer-events-none',
           )}
         >
-          {/* Booking temporarily disabled.
           <button
             type="button"
             tabIndex={isActive ? 0 : -1}
@@ -138,7 +137,6 @@ function MobileServiceCard({
           >
             {s.book}
           </button>
-          */}
           <span className="service-card__details flex items-center gap-1">
             {s.details} <ArrowUpRight className="size-3.5 rtl:-scale-x-100" aria-hidden="true" />
           </span>

@@ -1,32 +1,32 @@
-import { defineConfig /* , loadEnv */ } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
-// import { createBookingRequestHandler } from './server/booking.js'
+import { createBookingRequestHandler } from './server/booking.js'
 
 const resolvePath = (path) => fileURLToPath(new URL(path, import.meta.url))
 
-// function bookingApiPlugin(env) {
-//   const handler = createBookingRequestHandler({ env })
-//   const install = (server) => {
-//     server.middlewares.use('/api/send-booking', handler)
-//     server.middlewares.use('/api/bookings', handler)
-//   }
-//
-//   return {
-//     name: 'hammerload-booking-api',
-//     configureServer: install,
-//     configurePreviewServer: install,
-//   }
-// }
+function bookingApiPlugin(env) {
+  const handler = createBookingRequestHandler({ env })
+  const install = (server) => {
+    server.middlewares.use((request, response, next) => {
+      const pathname = new URL(request.url || '/', 'http://localhost').pathname
+      if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
+        return handler(request, response)
+      }
+      next()
+    })
+  }
 
-export default defineConfig((/* { mode } */) => ({
-  plugins: [
-    // Booking temporarily disabled:
-    // bookingApiPlugin({ ...process.env, ...loadEnv(mode, process.cwd(), '') }),
-    react(),
-    tailwindcss(),
-  ],
+  return {
+    name: 'hammerload-booking-api',
+    configureServer: install,
+    configurePreviewServer: install,
+  }
+}
+
+export default defineConfig(({ mode }) => ({
+  plugins: [bookingApiPlugin({ ...process.env, ...loadEnv(mode, process.cwd(), '') }), react(), tailwindcss()],
   resolve: {
     // Order matters: alias entries are matched as prefixes in order, so the
     // bare '@' catch-all has to come last or it swallows '@app', '@lib', etc.

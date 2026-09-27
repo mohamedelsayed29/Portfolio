@@ -1,6 +1,6 @@
 import { Section } from '@components/layout'
 import { SERVICES } from '@data/services'
-// import { useBooking } from '@app/providers'
+import { useBooking } from '@app/providers'
 import { useLocalized, useStrings } from '@/i18n'
 import { ServiceDeck } from './components/ServiceDeck'
 import './services.css'
@@ -17,10 +17,10 @@ const STRINGS = {
 }
 
 export function ServicesSection({ services = SERVICES }) {
-//   const { openBooking } = useBooking()
+  const { openBooking } = useBooking()
   const s = useStrings(STRINGS)
   const localizedServices = useLocalized(services)
-//   const book = (service) => openBooking({ type: 'project', service: service.id })
+  const book = (service) => openBooking({ type: 'project', service: service.id })
 
   return (
     <Section
@@ -38,8 +38,7 @@ export function ServicesSection({ services = SERVICES }) {
         </h2>
       </div>
 
-      {/* <ServiceDeck services={localizedServices} onBook={book} /> */}
-      <ServiceDeck services={localizedServices} />
+      <ServiceDeck services={localizedServices} onBook={book} />
     </Section>
   )
 }

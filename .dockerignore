@@ -12,3 +12,5 @@ docker-compose.yml
 README-DEPLOY.md
 nginx-hammerload.conf
 deploy.sh
+security-state
+nginx

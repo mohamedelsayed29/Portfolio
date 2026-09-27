@@ -88,16 +88,8 @@ export async function createBooking(payload) {
   if (text) {
     try {
       body = JSON.parse(text)
-    } catch (error) {
-      console.error('Booking response JSON parse failed:', { text, error })
-    }
+    } catch { /* Non-JSON responses are treated as failures below. */ }
   }
-
-  console.log('Booking response:', {
-    status: response.status,
-    ok: response.ok,
-    body,
-  })
 
   if (!response.ok) {
     throw withUserMessage(
@@ -109,7 +101,7 @@ export async function createBooking(payload) {
     )
   }
 
-  if (body?.success === false) {
+  if (body?.success !== true || !body?.reference) {
     throw withUserMessage(
       new ApiError(body?.message ?? 'We could not send your request.', {
         status: response.status,
@@ -119,5 +111,5 @@ export async function createBooking(payload) {
     )
   }
 
-  return body ?? { success: true, type: payload.type, email: payload.email }
+  return body
 }

@@ -31,6 +31,7 @@ export function useBookingForm(overrides = {}) {
   // switches re-render an already-visible error in the new language.
   const [submitError, setSubmitError] = useState(null)
   const [result, setResult] = useState(null)
+  const [verificationRevision, setVerificationRevision] = useState(0)
   const submittingRef = useRef(false)
 
   const step = STEPS[stepIndex]
@@ -104,6 +105,9 @@ export function useBookingForm(overrides = {}) {
       setSubmitError(error.userMessage ?? GENERIC_SUBMIT_ERROR)
       setStatus('error')
     } finally {
+      // Tokens are single-use, including when delivery fails after validation.
+      setValues((current) => ({ ...current, turnstileToken: '' }))
+      setVerificationRevision((revision) => revision + 1)
       submittingRef.current = false
     }
   }, [values])
@@ -141,5 +145,6 @@ export function useBookingForm(overrides = {}) {
     status,
     submitError: localize(submitError, language),
     result,
+    verificationRevision,
   }
 }

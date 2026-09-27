@@ -27,7 +27,7 @@ export const FOOTER_SECTIONS = [
       { label: { en: 'Selected work', ar: 'أعمال مختارة' }, to: '/work' },
       { label: { en: 'About us', ar: 'من نحن' }, to: '/about' },
       { label: { en: 'Process', ar: 'منهجية العمل' }, to: '/#process' },
-//       { label: { en: 'Contact', ar: 'تواصل معنا' }, to: '/book' },
+      { label: { en: 'Contact', ar: 'تواصل معنا' }, to: '/book' },
     ],
   },
 ]

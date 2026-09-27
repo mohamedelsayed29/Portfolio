@@ -61,19 +61,19 @@ const baseRoutes = [
     priority: '0.7',
     changefreq: 'monthly',
   },
-//   {
-//     path: '/book',
-//     title: {
-//       en: 'Book a Software Development Call',
-//       ar: 'احجز مكالمة لمشروعك البرمجي أو فكرة SaaS',
-//     },
-//     description: {
-//       en: 'Book a call with HammerLoad to scope a web app, mobile app, backend system, AI solution or software rescue project.',
-//       ar: 'احجز مكالمة مع HammerLoad لمناقشة تطبيق ويب أو تطبيق موبايل أو منصة SaaS أو نظام داخلي أو حل ذكاء اصطناعي أو مشروع برمجي يحتاج إنقاذ.',
-//     },
-//     priority: '0.6',
-//     changefreq: 'monthly',
-//   },
+  {
+    path: '/book',
+    title: {
+      en: 'Book a Software Development Call',
+      ar: 'احجز مكالمة لمشروعك البرمجي أو فكرة SaaS',
+    },
+    description: {
+      en: 'Book a call with HammerLoad to scope a web app, mobile app, backend system, AI solution or software rescue project.',
+      ar: 'احجز مكالمة مع HammerLoad لمناقشة تطبيق ويب أو تطبيق موبايل أو منصة SaaS أو نظام داخلي أو حل ذكاء اصطناعي أو مشروع برمجي يحتاج إنقاذ.',
+    },
+    priority: '0.6',
+    changefreq: 'monthly',
+  },
   {
     path: '/privacy',
     title: {

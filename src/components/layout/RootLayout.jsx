@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { ScrollToTop } from '@components/common'
-// import { BookingDialog } from '@features/booking'
+import { BookingDialog } from '@features/booking'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
@@ -16,7 +16,7 @@ export function RootLayout() {
       </div>
 
       <Footer />
-      {/* Booking temporarily disabled: <BookingDialog /> */}
+      <BookingDialog />
     </div>
   )
 }

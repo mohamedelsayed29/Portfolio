@@ -5,7 +5,7 @@ import { NAV_LINKS } from '@constants/navigation'
 import { localizedPath, stripLanguagePrefix, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { useScrollPosition, useScrolledPastViewport } from '@hooks'
 import { cn } from '@lib/cn'
-// import { Button } from '@components/ui'
+import { Button } from '@components/ui'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 import { LanguageToggle } from './LanguageToggle'
@@ -101,7 +101,6 @@ export function Navbar() {
           <div className="flex items-center gap-1.5">
             <LanguageToggle onDark={onDark} />
             <ThemeToggle onDark={onDark} />
-            {/* Booking temporarily disabled.
             <Button
               to={localizedPath('/book', language)}
               size="sm"
@@ -110,7 +109,6 @@ export function Navbar() {
             >
               {s.bookCall}
             </Button>
-            */}
             <button
               type="button"
               onClick={() => setMenuOpen((open) => !open)}
