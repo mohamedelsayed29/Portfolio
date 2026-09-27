@@ -1,11 +1,11 @@
 import { Check } from 'lucide-react'
 import { Section } from '@components/layout'
 import { Seo, SectionHeading, Reveal, PageTransition } from '@components/common'
-import { Badge, Button, Card } from '@components/ui'
+import { Badge, /* Button, */ Card } from '@components/ui'
 import { SERVICES } from '@data/services'
 import { SERVICE_ICONS } from '@features/services'
 import { CtaSection, FaqSection } from '@features/contact'
-import { useBooking } from '@app/providers'
+// import { useBooking } from '@app/providers'
 import { useLocalized, useStrings } from '@/i18n'
 
 const STRINGS = {
@@ -34,7 +34,7 @@ const STRINGS = {
 }
 
 export default function ServicesPage() {
-  const { openBooking } = useBooking()
+//   const { openBooking } = useBooking()
   const s = useStrings(STRINGS)
   const services = useLocalized(SERVICES)
 
@@ -84,12 +84,14 @@ export default function ServicesPage() {
                       <Badge tone="outline">{service.timeline}</Badge>
                     </div>
 
+                    {/* Booking temporarily disabled.
                     <Button
                       className="mt-3 self-start"
                       onClick={() => openBooking({ type: 'project', service: service.id })}
                     >
                       {s.book(service.title)}
                     </Button>
+                    */}
                   </div>
 
                   <div className="flex flex-col gap-8 lg:border-s lg:border-line lg:ps-10">

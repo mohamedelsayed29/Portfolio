@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 import { Button } from '@components/ui'
 import { EASE_APPLE } from '@lib/animations'
 import { usePrefersReducedMotion } from '@hooks'
-import { useBooking } from '@app/providers'
+// import { useBooking } from '@app/providers'
 import { localizedPath, useLanguage, useStrings } from '@/i18n'
 import { SITE } from '@constants/site'
 import { HeroMarquee } from './components/HeroMarquee'
@@ -52,7 +52,7 @@ const line = {
 
 export function Hero() {
   const reduced = usePrefersReducedMotion()
-  const { openBooking } = useBooking()
+//   const { openBooking } = useBooking()
   const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
@@ -60,7 +60,7 @@ export function Hero() {
 
   /** Honest meta, in place of the reference's download counters. */
   const meta = [
-    { label: s.metaAvailabilityLabel, value: s.metaAvailabilityValue },
+//     { label: s.metaAvailabilityLabel, value: s.metaAvailabilityValue },
     { label: s.metaBasedLabel, value: s.metaBasedValue },
     { label: s.metaContactLabel, value: SITE.email, href: `mailto:${SITE.email}` },
   ]
@@ -119,6 +119,7 @@ export function Hero() {
               variants={item}
               className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
             >
+              {/* Booking temporarily disabled.
               <Button
                 size="lg"
                 variant="inverse"
@@ -127,6 +128,7 @@ export function Hero() {
               >
                 {s.bookProject}
               </Button>
+              */}
               <Button
                 size="lg"
                 variant="inverseGhost"

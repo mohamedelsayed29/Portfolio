@@ -10,7 +10,7 @@ import HomePage from '@/pages/HomePage'
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'))
 const ProjectDetailPage = lazy(() => import('@/pages/ProjectDetailPage'))
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
-const BookingPage = lazy(() => import('@/pages/BookingPage'))
+// const BookingPage = lazy(() => import('@/pages/BookingPage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const PrivacyPage = lazy(() => import('@/pages/PrivacyPage'))
 const TermsPage = lazy(() => import('@/pages/TermsPage'))
@@ -45,6 +45,7 @@ function pageRoutes() {
           </Suspense>
         }
       />
+      {/* Booking temporarily disabled.
       <Route
         path="book"
         element={
@@ -53,6 +54,7 @@ function pageRoutes() {
           </Suspense>
         }
       />
+      */}
       <Route
         path="about"
         element={

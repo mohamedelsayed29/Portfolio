@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { cn } from '@lib/cn'
+// import { cn } from '@lib/cn'
 import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 import { SERVICE_ICONS } from '../icons'
 
@@ -13,7 +13,7 @@ const STRINGS = {
  * bullets and "From $X" badges is the stock template layout; a plain two-column
  * list puts the reading order where it belongs and lets the type do the work.
  */
-export function ServiceRow({ service: rawService, onBook }) {
+export function ServiceRow({ service: rawService /* , onBook */ }) {
   const { language } = useLanguage()
   const service = useLocalized(rawService)
   const s = useStrings(STRINGS)
@@ -46,6 +46,7 @@ export function ServiceRow({ service: rawService, onBook }) {
           <p className="text-[13px] text-text-subtle">{service.stack.slice(0, 5).join(' · ')}</p>
 
           <div className="flex items-center gap-4">
+            {/* Booking temporarily disabled.
             <button
               type="button"
               onClick={() => onBook?.(service)}
@@ -56,6 +57,7 @@ export function ServiceRow({ service: rawService, onBook }) {
             >
               {s.book}
             </button>
+            */}
             <Link
               to={localizedPath(`/services#${service.id}`, language)}
               className="text-[13px] text-text-subtle underline-offset-4 transition-colors duration-200 hover:text-text hover:underline"

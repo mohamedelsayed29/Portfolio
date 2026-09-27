@@ -7,7 +7,7 @@ import { Badge, Button, Card } from '@components/ui'
 import { getProjectBySlug, getRelatedProjects } from '@data/projects'
 import { ProjectCard } from '@features/projects'
 import { CtaSection } from '@features/contact'
-import { useBooking } from '@app/providers'
+// import { useBooking } from '@app/providers'
 import { EASE_APPLE } from '@lib/animations'
 import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
 
@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
   const narrative = useLocalized(NARRATIVE)
   const { language } = useLanguage()
   const s = useStrings(STRINGS)
-  const { openBooking } = useBooking()
+//   const { openBooking } = useBooking()
 
   if (!project) return <Navigate to={localizedPath('/work', language)} replace />
 
@@ -208,6 +208,7 @@ export default function ProjectDetailPage() {
             </Reveal>
 
             <Reveal delay={0.14} className="flex flex-col gap-3">
+              {/* Booking temporarily disabled.
               <Button
                 onClick={() =>
                   openBooking({ type: 'project', service: project.services[0], projectSlug: slug })
@@ -215,6 +216,7 @@ export default function ProjectDetailPage() {
               >
                 {s.startProject}
               </Button>
+              */}
               {project.href && (
                 <a
                   href={project.href}

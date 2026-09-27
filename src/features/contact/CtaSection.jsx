@@ -1,8 +1,8 @@
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { /* ArrowRight, */ ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@components/common'
 import { Section } from '@components/layout'
-import { Button } from '@components/ui'
-import { localizedPath, useLanguage, useStrings } from '@/i18n'
+// import { Button } from '@components/ui'
+import { /* localizedPath, useLanguage, */ useStrings } from '@/i18n'
 import { SITE } from '@constants/site'
 
 const STRINGS = {
@@ -20,7 +20,7 @@ const STRINGS = {
 
 /** A distinct final conversion section that leads into the quiet footer. */
 export function CtaSection() {
-  const { language } = useLanguage()
+//   const { language } = useLanguage()
   const s = useStrings(STRINGS)
 
   return (
@@ -41,6 +41,7 @@ export function CtaSection() {
 
           <div className="flex w-full min-w-0 flex-col justify-center py-2 sm:py-3 md:min-h-[176px] md:border-s md:border-line md:py-0 md:ps-6 lg:min-h-[184px] lg:ps-10 xl:ps-12">
             <div className="flex w-full flex-col items-stretch gap-5 md:ms-auto md:max-w-[460px]">
+              {/* Booking temporarily disabled.
               <Button
                 to={localizedPath('/book?type=meeting', language)}
                 size="xl"
@@ -50,6 +51,7 @@ export function CtaSection() {
               >
                 {s.bookCall}
               </Button>
+              */}
 
               <a
                 href={`mailto:${SITE.email}`}

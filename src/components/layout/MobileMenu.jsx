@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { NAV_LINKS } from '@constants/navigation'
 import { SITE } from '@constants/site'
-import { localizedPath, useLanguage, useLocalized, useStrings } from '@/i18n'
+import { localizedPath, useLanguage, useLocalized /* , useStrings */ } from '@/i18n'
 import { EASE_APPLE } from '@lib/animations'
-import { Button } from '@components/ui'
+// import { Button } from '@components/ui'
 import { useLockBodyScroll } from '@hooks'
 
-const STRINGS = {
-  en: { bookCta: 'Book a project or meeting' },
-  ar: { bookCta: 'احجز مشروعًا أو مكالمة' },
-}
+// const STRINGS = {
+//   en: { bookCta: 'Book a project or meeting' },
+//   ar: { bookCta: 'احجز مشروعًا أو مكالمة' },
+// }
 
 const panel = {
   hidden: { opacity: 0 },
@@ -29,7 +29,7 @@ export function MobileMenu({ open, onClose }) {
   useLockBodyScroll(open)
   const { language } = useLanguage()
   const navLinks = useLocalized(NAV_LINKS)
-  const s = useStrings(STRINGS)
+//   const s = useStrings(STRINGS)
 
   return (
     <AnimatePresence>
@@ -61,9 +61,11 @@ export function MobileMenu({ open, onClose }) {
           </nav>
 
           <motion.div variants={item} className="mt-10 flex flex-col gap-5">
+            {/* Booking temporarily disabled.
             <Button to={localizedPath('/book', language)} size="lg" onClick={onClose} className="w-full">
               {s.bookCta}
             </Button>
+            */}
             <a
               href={`mailto:${SITE.email}`}
               className="text-center text-[15px] text-text-muted transition-colors hover:text-text"

@@ -3,7 +3,7 @@ import { stat } from 'node:fs/promises'
 import { createServer } from 'node:http'
 import { extname, join, normalize } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createBookingRequestHandler } from './booking.js'
+// import { createBookingRequestHandler } from './booking.js'
 
 const root = fileURLToPath(new URL('../dist', import.meta.url))
 const port = Number(process.env.PORT || 4000)
@@ -30,7 +30,7 @@ function loadEnvFile(path) {
 loadEnvFile('.env')
 loadEnvFile('.env.local')
 
-const bookingHandler = createBookingRequestHandler()
+// const bookingHandler = createBookingRequestHandler()
 
 const CONTENT_TYPES = {
   '.css': 'text/css; charset=utf-8',
@@ -60,10 +60,10 @@ function serveFile(response, path) {
 const server = createServer(async (request, response) => {
   const pathname = new URL(request.url || '/', 'http://localhost').pathname
 
-  if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
-    await bookingHandler(request, response)
-    return
-  }
+//   if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
+//     await bookingHandler(request, response)
+//     return
+//   }
 
   if (pathname === '/health') {
     response.writeHead(200, {
