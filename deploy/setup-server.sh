@@ -29,6 +29,7 @@ if id -nG "$APP_USER" | tr ' ' '\n' | grep -Eq '^(sudo|docker|lxd)$'; then
 fi
 sudo install -d -o "$APP_USER" -g "$APP_USER" -m 755 "$APP_DIR" "$APP_DIR/releases"
 sudo install -d -o "$APP_USER" -g "$APP_USER" -m 700 "$APP_DIR/shared" "$APP_DIR/incoming" "/home/$APP_USER/.ssh"
+sudo install -d -o "$APP_USER" -g "$APP_USER" -m 700 "$APP_DIR/shared/booking-security"
 sudo -u "$APP_USER" -H pm2 install pm2-logrotate
 sudo -u "$APP_USER" -H pm2 set pm2-logrotate:max_size 10M
 sudo -u "$APP_USER" -H pm2 set pm2-logrotate:retain 14

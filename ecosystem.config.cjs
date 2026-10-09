@@ -17,6 +17,8 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: process.env.PORT || 4000,
         HOST: '127.0.0.1',
+        BOOKING_TRUSTED_PROXIES: '127.0.0.1,::1',
+        BOOKING_RATE_LIMIT_FILE: `${appDir}/shared/booking-security/quotas.json`,
       },
     },
   ],

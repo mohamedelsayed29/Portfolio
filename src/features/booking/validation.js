@@ -18,6 +18,8 @@ export const INITIAL_VALUES = {
   heardFrom: '',
   consent: false,
   projectSlug: '',
+  turnstileToken: '',
+  bookingVerification: '',
 }
 
 /**
@@ -58,6 +60,10 @@ const MESSAGES = {
     en: 'We need your permission to reply.',
     ar: 'نحتاج موافقتك حتى نتمكن من الرد عليك.',
   },
+  turnstileToken: {
+    en: 'Please complete the security check.',
+    ar: 'يرجى إكمال التحقق الأمني.',
+  },
 }
 
 export function validateStep(step, values) {
@@ -85,6 +91,7 @@ export function validateStep(step, values) {
       errors.email = MESSAGES.emailInvalid
     }
     if (!values.consent) errors.consent = MESSAGES.consent
+    if (!values.turnstileToken) errors.turnstileToken = MESSAGES.turnstileToken
   }
 
   return errors
@@ -103,6 +110,8 @@ export function toBookingPayload(values) {
     projectSlug: values.projectSlug || undefined,
     consent: values.consent,
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    turnstileToken: values.turnstileToken,
+    bookingVerification: values.bookingVerification,
   }
 
   if (values.type === 'project') {

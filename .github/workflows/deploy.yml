@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
       - name: Package release
         run: npm prune --omit=dev
       - name: Real PM2 activation and rollback test
@@ -69,6 +70,10 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: release
+      - name: Require booking verification configuration
+        env:
+          SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+        run: test -n "$SITE_KEY" || { echo 'Configure the public VITE_TURNSTILE_SITE_KEY variable before deployment'; exit 1; }
       - name: Configure verified SSH
         env:
           DEPLOY_KEY: ${{ secrets.EC2_SSH_KEY }}
@@ -100,6 +105,15 @@ jobs:
           APP_DIR="$1"
           RELEASE="$2"
           CHECKSUM="$3"
+          node - "$APP_DIR/shared/.env.production" <<'PREFLIGHT'
+          try {
+            process.loadEnvFile(process.argv[2]);
+            if (!process.env.RESEND_API_KEY || !process.env.TURNSTILE_SECRET_KEY) throw new Error();
+          } catch {
+            console.error('Configure private Resend and Turnstile runtime keys before deployment');
+            process.exit(1);
+          }
+          PREFLIGHT
           archive="$APP_DIR/incoming/$RELEASE.tgz"
           printf '%s  %s\n' "$CHECKSUM" "$archive" | sha256sum -c -
           mkdir "$APP_DIR/releases/$RELEASE"

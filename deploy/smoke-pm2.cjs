@@ -17,6 +17,10 @@ async function main() {
   const port = probe.address().port
   await new Promise(resolve => probe.close(resolve))
   const env = { ...process.env, APP_DIR: app, PORT: String(port), PM2_HOME: path.join(root, 'pm2-home') }
+  // Do not reuse a keep-alive connection owned by a process that PM2 replaced.
+  const request = (route, options = {}) => fetch(`http://127.0.0.1:${port}${route}`, {
+    ...options, headers: { ...options.headers, Connection: 'close' }, signal: AbortSignal.timeout(5000),
+  })
   const run = (cmd, args, cwd = root) => spawnSync(cmd, args, { cwd, env, encoding: 'utf8', timeout: 60000 })
   let failure
   try {
@@ -32,25 +36,36 @@ async function main() {
     }
     fs.writeFileSync(path.join(app, 'releases/3-broken/server/index.js'), 'throw new Error("intentional deployment test failure")\n')
     const activate = name => run('bash', [path.join(source, 'deploy/activate-release.sh'), name])
+    const stateFile = path.join(app, 'shared/booking-security/quotas.json')
+    let savedQuota
     for (const name of ['1-good', '2-good']) {
       const result = activate(name)
       assert.equal(result.status, 0, result.stdout + result.stderr)
-      assert.deepEqual(await (await fetch(`http://127.0.0.1:${port}/health`)).json(), { ok: true, release: name })
+      assert.deepEqual(await (await request('/health')).json(), { ok: true, release: name })
+      if (savedQuota) assert.equal(fs.readFileSync(stateFile, 'utf8'), savedQuota)
+      const rejected = await request('/api/send-booking', {
+        method: 'POST', headers: { 'X-Real-IP': '192.0.2.1' },
+      })
+      assert.equal(rejected.status, 403)
+      savedQuota = fs.readFileSync(stateFile, 'utf8')
+      assert.equal(fs.statSync(stateFile).mode & 0o777, 0o600)
       console.log(`REAL_PM2_ACTIVATION_OK ${name}`)
     }
-    const homepage = await fetch(`http://127.0.0.1:${port}/`)
+    const homepage = await request('/')
     assert.equal(homepage.status, 200)
     const asset = (await homepage.text()).match(/(?:src|href)="(\/assets\/[^" ]+)"/)[1]
-    assert.equal((await fetch(`http://127.0.0.1:${port}${asset}`)).status, 200)
-    const invalid = await fetch(`http://127.0.0.1:${port}/api/send-booking`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}',
+    assert.equal((await request(asset)).status, 200)
+    const invalid = await request('/api/send-booking', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Real-IP': '192.0.2.1' }, body: '{}',
     })
-    assert.equal(invalid.status, 400)
+    assert.equal(invalid.status, 403)
+    savedQuota = fs.readFileSync(stateFile, 'utf8')
     const broken = activate('3-broken')
     assert.equal(broken.status, 1, broken.stdout + broken.stderr)
     assert.match(broken.stdout, /ROLLBACK_OK/)
     assert.equal(fs.realpathSync(path.join(app, 'current')), path.join(app, 'releases/2-good'))
-    assert.deepEqual(await (await fetch(`http://127.0.0.1:${port}/health`)).json(), { ok: true, release: '2-good' })
+    assert.deepEqual(await (await request('/health')).json(), { ok: true, release: '2-good' })
+    assert.equal(fs.readFileSync(stateFile, 'utf8'), savedQuota)
     const appProcess = JSON.parse(run('pm2', ['jlist']).stdout).find(entry => entry.name === 'hammerload')
     assert.equal(appProcess.pm2_env.status, 'online')
     assert.equal(appProcess.pm2_env.pm_exec_path, path.join(app, 'current/server/index.js'))
@@ -69,4 +84,4 @@ async function main() {
   }
   if (failure) throw failure
 }
-main().catch(error => { console.error(error.message); process.exitCode = 1 })
+main().catch(error => { console.error(error); process.exitCode = 1 })

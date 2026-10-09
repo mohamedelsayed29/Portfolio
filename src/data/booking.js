@@ -25,28 +25,28 @@ export const BOOKING_TYPES = [
 ]
 
 export const BUDGET_RANGES = [
-  { value: 'under-5k', label: { en: 'Under $5,000', ar: 'أقل من 5,000 دولار' }, min: 0, max: 5000 },
+  { value: 'under-5k', label: { en: 'Under 5,000 EGP', ar: 'أقل من 5,000 جنيه مصري' }, min: 0, max: 5000 },
   {
     value: '5k-15k',
-    label: { en: '$5,000 – $15,000', ar: '5,000 – 15,000 دولار' },
+    label: { en: '5,000 – 15,000 EGP', ar: '5,000 – 15,000 جنيه مصري' },
     min: 5000,
     max: 15000,
   },
   {
     value: '15k-40k',
-    label: { en: '$15,000 – $40,000', ar: '15,000 – 40,000 دولار' },
+    label: { en: '15,000 – 40,000 EGP', ar: '15,000 – 40,000 جنيه مصري' },
     min: 15000,
     max: 40000,
   },
   {
     value: '40k-100k',
-    label: { en: '$40,000 – $100,000', ar: '40,000 – 100,000 دولار' },
+    label: { en: '40,000 – 100,000 EGP', ar: '40,000 – 100,000 جنيه مصري' },
     min: 40000,
     max: 100000,
   },
   {
     value: '100k-plus',
-    label: { en: '$100,000+', ar: 'أكثر من 100,000 دولار' },
+    label: { en: '100,000+ EGP', ar: 'أكثر من 100,000 جنيه مصري' },
     min: 100000,
     max: null,
   },

@@ -8,7 +8,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { test } from 'node:test'
 
-async function startRuntime(t, extraEnv = {}) {
+async function startRuntime(t, extraEnv = {}, throughWrapper = false) {
   const dir = mkdtempSync(join(tmpdir(), 'hammerload-runtime-'))
   const probe = createServer()
   probe.listen(0, '127.0.0.1')
@@ -25,7 +25,12 @@ async function startRuntime(t, extraEnv = {}) {
   delete env.PORT
   delete env.HOST
   if (!Object.hasOwn(extraEnv, 'HAMMERLOAD_RELEASE')) delete env.HAMMERLOAD_RELEASE
-  const child = spawn(process.execPath, ['server/index.js'], { cwd: dir, env, stdio: ['ignore', 'pipe', 'pipe'] })
+  delete env.pm_exec_path
+  if (throughWrapper) {
+    env.pm_exec_path = join(dir, 'server/index.js')
+    writeFileSync(join(dir, 'pm2-wrapper.mjs'), 'await import("./server/index.js")\n')
+  }
+  const child = spawn(process.execPath, [throughWrapper ? 'pm2-wrapper.mjs' : 'server/index.js'], { cwd: dir, env, stdio: ['ignore', 'pipe', 'pipe'] })
   let output = ''
   child.stdout.on('data', data => { output += data })
   child.stderr.on('data', data => { output += data })
@@ -75,4 +80,9 @@ test('SIGTERM drains and exits successfully for PM2 reload', async t => {
   const [code, signal] = await exited
   assert.equal(code, 0)
   assert.equal(signal, null)
+})
+
+test('PM2-style ESM wrapper starts the actual server without losing release identity', async t => {
+  const { base, dir } = await startRuntime(t, { NODE_ENV: 'production' }, true)
+  assert.deepEqual(await (await fetch(`${base}/health`)).json(), { ok: true, release: dir.split('/').at(-1) })
 })

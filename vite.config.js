@@ -9,8 +9,13 @@ const resolvePath = (path) => fileURLToPath(new URL(path, import.meta.url))
 function bookingApiPlugin(env) {
   const handler = createBookingRequestHandler({ env })
   const install = (server) => {
-    server.middlewares.use('/api/send-booking', handler)
-    server.middlewares.use('/api/bookings', handler)
+    server.middlewares.use((request, response, next) => {
+      const pathname = new URL(request.url || '/', 'http://localhost').pathname
+      if (pathname === '/api/send-booking' || pathname === '/api/bookings') {
+        return handler(request, response)
+      }
+      next()
+    })
   }
 
   return {

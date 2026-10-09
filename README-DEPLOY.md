@@ -87,6 +87,9 @@ Set these environment secrets (the existing EC2 names also work on Lightsail):
 | `EC2_KNOWN_HOSTS` | Verified ED25519 known-hosts line |
 | `EC2_PORT` | Optional, default `22` |
 
+Set repository variable `VITE_TURNSTILE_SITE_KEY` to the public site key for a
+Turnstile widget allowing `hammerload.com` and `www.hammerload.com`. Put its
+private `TURNSTILE_SECRET_KEY` only in the server's protected environment file.
 Optional repository variable `VITE_API_URL` is normally empty for same-origin
 API calls. Never put secrets in `VITE_*`, which become public browser JS.
 Set repository variable `DEPLOY_ENABLED=true` only after setup and SSH testing.
@@ -144,6 +147,7 @@ Copy the reviewed Nginx template to the new instance, then:
 
 ```bash
 sudo install -m 644 ~/nginx-hammerload.conf /etc/nginx/sites-available/hammerload
+sudo install -m 644 ~/hammerload-booking.conf /etc/nginx/snippets/hammerload-booking.conf
 sudo ln -sfn /etc/nginx/sites-available/hammerload /etc/nginx/sites-enabled/hammerload
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo systemctl reload nginx
@@ -152,6 +156,11 @@ curl --cacert /etc/ssl/cloudflare/origin-ca.pem \
 curl --cacert /etc/ssl/cloudflare/origin-ca.pem \
   --resolve hammerload.com:443:127.0.0.1 https://hammerload.com/health
 ```
+
+Upload `nginx/snippets/hammerload-booking.conf` as `~/hammerload-booking.conf`
+before running those commands. The old `scripts/install-nginx-security.sh`
+targets DigitalOcean's Docker/Let's Encrypt layout: do not run it on this
+native instance or let it replace the new TLS paths.
 
 Origin CA is trusted by Cloudflare, not ordinary browser trust stores. Keep
 Cloudflare proxy ON. For direct public-browser HTTPS use a publicly trusted
@@ -171,6 +180,39 @@ do not send real booking emails without approval.
 
 Once live requests have side effects, investigate before reversing DNS: doing
 so blindly may lose requests or send emails twice.
+
+## Booking Protection
+
+The migration retains the latest booking validation, Turnstile verification,
+CSP, static-file confinement, private logs and persistent abuse quotas.
+Missing verification keys fail closed: a healthy homepage alone is not proof
+that the booking form is ready. Check the actual form before DNS cutover.
+
+PM2 runs exactly one fork worker. Its configured trusted proxy peers are
+`127.0.0.1,::1`, not the old Docker gateway. Nginx overwrites `X-Real-IP` after
+accepting Cloudflare headers only from its published proxy ranges.
+Both API aliases share these application quotas:
+
+| Scope | Maximum |
+| --- | --- |
+| Attempts per IP | 5 per 15 minutes and 20 per day |
+| Global attempts | 120 per minute and 1,000 per hour |
+| Deliveries per email | 3 per hour and 5 per day |
+| Global deliveries | 30 per hour and 100 per day |
+| In-flight booking requests | 8 |
+| JSON body | 16 KiB within 10 seconds |
+
+`shared/booking-security/quotas.json` stores hashed quota keys with atomic writes.
+The directory is private (700), files are 600, and it stays outside releases so
+activation, rollback and pruning never clear quotas. Back it up privately.
+If the old running site uses a persistent quota store, inspect and preserve that
+state before final cutover; do not assume older stateless-container findings
+still describe a recently updated deployment. Corrupt or unwritable storage
+refuses bookings. Multiple workers require a shared atomic store such as Redis.
+
+Turnstile checks token hostname, action `booking`, age and replay protection.
+Logs omit booking names, emails, message bodies, provider internals and tokens.
+The frontend retains EGP budgets and booking buttons in both languages.
 
 ## Operations
 

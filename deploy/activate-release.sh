@@ -27,6 +27,8 @@ done
 [ -f "$SHARED_ENV" ] || { echo "Missing shared environment file"; exit 1; }
 [ ! -e "$CURRENT" ] || [ -L "$CURRENT" ] || { echo "current must be a symlink"; exit 1; }
 chmod 600 "$SHARED_ENV"
+mkdir -p "$APP_DIR/shared/booking-security"
+chmod 700 "$APP_DIR/shared/booking-security"
 ln -sfn "$SHARED_ENV" "$RELEASE_DIR/.env.production"
 
 PREVIOUS=""

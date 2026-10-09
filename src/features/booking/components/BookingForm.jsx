@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowLeft, ArrowRight, CircleAlert, Send } from 'lucide-react'
 import { Button } from '@components/ui'
@@ -10,6 +11,7 @@ import { SlotPicker } from './SlotPicker'
 import { ProjectDetailsStep } from './ProjectDetailsStep'
 import { ContactStep } from './ContactStep'
 import { BookingSuccess } from './BookingSuccess'
+import { BookingVerification } from './BookingVerification'
 
 const STRINGS = {
   en: {
@@ -53,6 +55,7 @@ export function BookingForm({ initialValues = {}, onDone }) {
     submitError,
     result,
   } = form
+  const onVerificationChange = useCallback((token) => clearField('turnstileToken', token), [clearField])
 
   if (status === 'success') {
     return <BookingSuccess result={result} onReset={() => reset()} onDone={onDone} />
@@ -83,6 +86,18 @@ export function BookingForm({ initialValues = {}, onDone }) {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex min-w-0 flex-col gap-8">
+      <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+        <label htmlFor="booking-verification">Leave this field empty</label>
+        <input
+          id="booking-verification"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={values.bookingVerification}
+          onChange={(event) => setField('bookingVerification', event.target.value)}
+        />
+      </div>
       <StepIndicator steps={steps} currentIndex={stepIndex} />
 
       <AnimatePresence mode="wait" initial={false}>
@@ -107,6 +122,13 @@ export function BookingForm({ initialValues = {}, onDone }) {
         </motion.div>
       </AnimatePresence>
 
+      {isLastStep && (
+        <div className="flex flex-col gap-2">
+          <BookingVerification onChange={onVerificationChange} revision={form.verificationRevision} />
+          {errors.turnstileToken && <p role="alert" className="text-[14px] text-danger">{errors.turnstileToken}</p>}
+        </div>
+      )}
+
       {submitError && (
         <p
           role="alert"
@@ -130,6 +152,7 @@ export function BookingForm({ initialValues = {}, onDone }) {
           type="submit"
           size="md"
           loading={status === 'submitting'}
+          disabled={isLastStep && !values.turnstileToken}
           icon={isLastStep ? SendIcon : ForwardIcon}
         >
           {isLastStep ? s.sendRequest : s.continue}

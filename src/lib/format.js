@@ -23,18 +23,19 @@ export function toISODate(date) {
   return `${d.getFullYear()}-${month}-${day}`
 }
 
-export function formatCurrency(amount, currency = 'USD', lang = 'en') {
+export function formatCurrency(amount, currency = 'EGP', lang = 'en') {
   return new Intl.NumberFormat(NUMBER_LOCALES[lang] ?? NUMBER_LOCALES.en, {
     style: 'currency',
     currency,
+    currencyDisplay: 'code',
     maximumFractionDigits: 0,
   }).format(amount)
 }
 
 export function formatBudgetRange(range, lang = 'en') {
   if (!range) return '—'
-  if (range.max === null) return `${formatCurrency(range.min, 'USD', lang)}+`
-  return `${formatCurrency(range.min, 'USD', lang)} – ${formatCurrency(range.max, 'USD', lang)}`
+  if (range.max === null) return `${formatCurrency(range.min, 'EGP', lang)}+`
+  return `${formatCurrency(range.min, 'EGP', lang)} – ${formatCurrency(range.max, 'EGP', lang)}`
 }
 
 /** English-only; Arabic callers should use explicit localized strings instead. */
