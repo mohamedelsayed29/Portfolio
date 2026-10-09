@@ -1,0 +1,112 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:server
+      - run: npm run test:deploy
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+      - name: Package release
+        run: npm prune --omit=dev
+      - name: Real PM2 activation and rollback test
+        run: npm exec --yes --package=pm2@7.0.4 -- node deploy/smoke-pm2.cjs
+      - name: Archive release
+        if: github.event_name != 'pull_request'
+        run: |
+          tar -czf release.tgz \
+            dist server node_modules package.json package-lock.json \
+            ecosystem.config.cjs deploy/activate-release.sh
+          sha256sum release.tgz > release.tgz.sha256
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: release
+          path: |
+            release.tgz
+            release.tgz.sha256
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    environment: production
+    env:
+      APP_DIR: /var/www/hammerload
+      RELEASE: ${{ github.run_number }}-${{ github.run_attempt }}-${{ github.sha }}
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      EC2_USER: ${{ secrets.EC2_USER }}
+      EC2_PORT: ${{ secrets.EC2_PORT || '22' }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release
+      - name: Configure verified SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.EC2_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.EC2_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          [[ "$EC2_HOST" =~ ^[a-zA-Z0-9.-]+$ ]] && [[ "$EC2_HOST" != -* ]]
+          [[ "$EC2_USER" =~ ^[a-z_][a-z0-9_-]*$ ]]
+          [[ "$EC2_PORT" =~ ^[0-9]+$ ]] && (( EC2_PORT >= 1 && EC2_PORT <= 65535 ))
+          test -n "$DEPLOY_KEY" && test -n "$KNOWN_HOSTS"
+          umask 077
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          lookup="$EC2_HOST"
+          if [ "$EC2_PORT" != 22 ]; then lookup="[$EC2_HOST]:$EC2_PORT"; fi
+          ssh-keygen -F "$lookup" -f ~/.ssh/known_hosts > /dev/null
+      - name: Upload and activate release
+        run: |
+          set -euo pipefail
+          sha256sum -c release.tgz.sha256
+          checksum="$(sha256sum release.tgz | cut -d ' ' -f 1)"
+          opts=(-i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$HOME/.ssh/known_hosts" -o HostKeyAlgorithms=ssh-ed25519 -o ConnectTimeout=15)
+          scp "${opts[@]}" -P "$EC2_PORT" release.tgz \
+            "$EC2_USER@$EC2_HOST:$APP_DIR/incoming/$RELEASE.tgz"
+          ssh "${opts[@]}" -p "$EC2_PORT" "$EC2_USER@$EC2_HOST" bash -s -- "$APP_DIR" "$RELEASE" "$checksum" <<'REMOTE'
+          set -euo pipefail
+          APP_DIR="$1"
+          RELEASE="$2"
+          CHECKSUM="$3"
+          archive="$APP_DIR/incoming/$RELEASE.tgz"
+          printf '%s  %s\n' "$CHECKSUM" "$archive" | sha256sum -c -
+          mkdir "$APP_DIR/releases/$RELEASE"
+          tar --no-same-owner --no-same-permissions -xzf "$archive" -C "$APP_DIR/releases/$RELEASE"
+          rm -f "$archive"
+          APP_DIR="$APP_DIR" bash "$APP_DIR/releases/$RELEASE/deploy/activate-release.sh" "$RELEASE"
+          REMOTE
+      - name: Remove runner SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

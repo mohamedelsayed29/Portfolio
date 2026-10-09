@@ -1,35 +1,26 @@
-import { createReadStream, existsSync, readFileSync } from 'node:fs'
+import { createReadStream, existsSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import { createServer } from 'node:http'
-import { extname, join, normalize } from 'node:path'
+import { basename, extname, join, normalize } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createBookingRequestHandler } from './booking.js'
 
 const root = fileURLToPath(new URL('../dist', import.meta.url))
-const port = Number(process.env.PORT || 4000)
 
 function loadEnvFile(path) {
-  if (!existsSync(path)) return
-
-  const contents = readFileSync(path, 'utf8')
-  for (const line of contents.split('\n')) {
-    const trimmed = line.trim()
-    if (!trimmed || trimmed.startsWith('#')) continue
-
-    const separatorIndex = trimmed.indexOf('=')
-    if (separatorIndex === -1) continue
-
-    const key = trimmed.slice(0, separatorIndex).trim()
-    const rawValue = trimmed.slice(separatorIndex + 1).trim()
-    if (!key || process.env[key] !== undefined) continue
-
-    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
-  }
+  if (existsSync(path)) process.loadEnvFile(path)
 }
 
+loadEnvFile('.env.production')
 loadEnvFile('.env')
 loadEnvFile('.env.local')
 
+const port = Number(process.env.PORT || 4000)
+const host = process.env.HOST || '127.0.0.1'
+// Report the executing module's real release, not a PM2 environment label.
+const release = process.env.NODE_ENV === 'production'
+  ? basename(fileURLToPath(new URL('../', import.meta.url)))
+  : process.env.HAMMERLOAD_RELEASE
 const bookingHandler = createBookingRequestHandler()
 
 const CONTENT_TYPES = {
@@ -70,7 +61,7 @@ const server = createServer(async (request, response) => {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store',
     })
-    response.end(JSON.stringify({ ok: true }))
+    response.end(JSON.stringify({ ok: true, release }))
     return
   }
 
@@ -106,6 +97,13 @@ const server = createServer(async (request, response) => {
   serveFile(response, file)
 })
 
-server.listen(port, () => {
-  console.log(`HammerLoad server listening on http://localhost:${port}`)
+server.listen(port, host, () => {
+  console.log(`HammerLoad server listening on http://${host}:${port}`)
 })
+
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.on(signal, () => {
+    server.close(() => process.exit(0))
+    setTimeout(() => process.exit(1), 4000).unref()
+  })
+}
