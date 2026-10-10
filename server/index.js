@@ -1,7 +1,7 @@
 import { createReadStream, existsSync, readFileSync, realpathSync } from 'node:fs'
 import { realpath, stat } from 'node:fs/promises'
 import { createServer } from 'node:http'
-import { extname, join, resolve, sep } from 'node:path'
+import { basename, extname, join, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { securityHeaders } from './headers.js'
 import { createBookingRequestHandler } from './booking.js'
@@ -9,16 +9,7 @@ import { createBookingRequestHandler } from './booking.js'
 const defaultRoot = fileURLToPath(new URL('../dist', import.meta.url))
 
 function loadEnvFile(path) {
-  if (!existsSync(path)) return
-  for (const line of readFileSync(path, 'utf8').split('\n')) {
-    const trimmed = line.trim()
-    if (!trimmed || trimmed.startsWith('#')) continue
-    const separatorIndex = trimmed.indexOf('=')
-    if (separatorIndex === -1) continue
-    const key = trimmed.slice(0, separatorIndex).trim()
-    const rawValue = trimmed.slice(separatorIndex + 1).trim()
-    if (key && process.env[key] === undefined) process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
-  }
+  if (existsSync(path)) process.loadEnvFile(path)
 }
 
 const CONTENT_TYPES = {
@@ -41,7 +32,7 @@ const CONTENT_TYPES = {
   '.woff2': 'font/woff2',
 }
 
-export function createPortfolioServer({ rootDirectory = defaultRoot, bookingOptions } = {}) {
+export function createPortfolioServer({ rootDirectory = defaultRoot, bookingOptions, release } = {}) {
   const root = realpathSync(rootDirectory)
   const htmlHeaders = new Map()
   // Both routes share the same quota and concurrency protections.
@@ -79,7 +70,7 @@ export function createPortfolioServer({ rootDirectory = defaultRoot, bookingOpti
       }
       if (pathname === '/health') {
         response.writeHead(200, { ...securityHeaders(), 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' })
-        response.end(request.method === 'HEAD' ? undefined : JSON.stringify({ ok: true }))
+        response.end(request.method === 'HEAD' ? undefined : JSON.stringify({ ok: true, release }))
         return
       }
 
@@ -130,11 +121,25 @@ export function createPortfolioServer({ rootDirectory = defaultRoot, bookingOpti
   return server
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+// PM2 imports ESM through its fork container instead of making it argv[1].
+const entryPoint = process.env.pm_exec_path || process.argv[1]
+if (entryPoint && realpathSync(entryPoint) === fileURLToPath(import.meta.url)) {
+  loadEnvFile('.env.production')
   loadEnvFile('.env')
   loadEnvFile('.env.local')
   const port = Number(process.env.PORT || 4000)
-  createPortfolioServer().listen(port, () => {
-    console.log(`HammerLoad server listening on http://localhost:${port}`)
+  const host = process.env.HOST || '127.0.0.1'
+  // Identify the executing module, not a potentially stale PM2 environment label.
+  const release = process.env.NODE_ENV === 'production'
+    ? basename(fileURLToPath(new URL('../', import.meta.url)))
+    : process.env.HAMMERLOAD_RELEASE
+  const server = createPortfolioServer({ release }).listen(port, host, () => {
+    console.log(`HammerLoad server listening on http://${host}:${port}`)
   })
+  for (const signal of ['SIGINT', 'SIGTERM']) {
+    process.on(signal, () => {
+      server.close(() => process.exit(0))
+      setTimeout(() => process.exit(1), 4000).unref()
+    })
+  }
 }

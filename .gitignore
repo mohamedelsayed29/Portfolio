@@ -14,6 +14,10 @@ dist-ssr
 .env*
 !.env.example
 
+# Generated marketing deliverables and temporary production work live outside this repo.
+/output/
+/tmp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
