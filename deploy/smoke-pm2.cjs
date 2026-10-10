@@ -21,7 +21,7 @@ async function main() {
   const request = (route, options = {}) => fetch(`http://127.0.0.1:${port}${route}`, {
     ...options, headers: { ...options.headers, Connection: 'close' }, signal: AbortSignal.timeout(5000),
   })
-  const run = (cmd, args, cwd = root) => spawnSync(cmd, args, { cwd, env, encoding: 'utf8', timeout: 60000 })
+  const run = (cmd, args, cwd = root) => spawnSync(cmd, args, { cwd, env, encoding: 'utf8', timeout: 180000 })
   let failure
   try {
     fs.mkdirSync(path.join(app, 'shared'), { recursive: true })

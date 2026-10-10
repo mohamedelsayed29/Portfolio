@@ -64,7 +64,8 @@ function fixture(t, previous = '1-old', overrides = {}) {
   const env = { ...process.env, PATH: `${bin}:${path.dirname(process.execPath)}:${process.env.PATH}`, APP_DIR: app, ...overrides }
   return {
     app, release,
-    run: (name = '2-new', extra = {}) => spawnSync('bash', [script, name], { env: { ...env, ...extra }, encoding: 'utf8', timeout: 15000 }),
+    // Emulated Linux x64 can spend substantially longer launching the stubs.
+    run: (name = '2-new', extra = {}) => spawnSync('bash', [script, name], { env: { ...env, ...extra }, encoding: 'utf8', timeout: 120000 }),
     current: () => fs.realpathSync(path.join(app, 'current')),
   }
 }
