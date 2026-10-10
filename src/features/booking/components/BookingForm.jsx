@@ -85,8 +85,8 @@ export function BookingForm({ initialValues = {}, onDone }) {
   const ForwardIcon = isRTL ? ArrowLeft : ArrowRight
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex min-w-0 flex-col gap-8">
-      <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+    <form onSubmit={handleSubmit} noValidate className="relative flex min-w-0 flex-col gap-8">
+      <div aria-hidden="true" className="pointer-events-none absolute left-0 top-0 h-px w-px overflow-hidden opacity-0">
         <label htmlFor="booking-verification">Leave this field empty</label>
         <input
           id="booking-verification"
