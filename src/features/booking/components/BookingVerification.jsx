@@ -48,6 +48,7 @@ export function BookingVerification({ onChange, revision }) {
         action: 'booking',
         language,
         theme: 'auto',
+        size: 'compact',
         'response-field': false,
         callback: (token) => { if (!cancelled) onChange(token) },
         'expired-callback': () => { if (!cancelled) onChange('') },
