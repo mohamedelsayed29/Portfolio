@@ -63,7 +63,7 @@ export function Navbar() {
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
         <div
           className={cn(
-            'pointer-events-auto mx-auto flex h-14 w-full max-w-[1320px] items-center justify-between gap-6',
+            'pointer-events-auto mx-auto flex h-14 w-full max-w-[1320px] items-center justify-between gap-2 sm:gap-6',
             'rounded-full border py-2 pe-2 ps-4 backdrop-blur-xl sm:ps-6',
             'transition-[transform,background-color,border-color,box-shadow] duration-[600ms] ease-[var(--ease-apple)]',
             'will-change-transform',
@@ -72,7 +72,7 @@ export function Navbar() {
             !raised && (onDark ? 'shadow-[0_8px_32px_rgba(0,0,0,0.35)]' : 'shadow-card'),
           )}
         >
-          <Logo onDark={onDark} />
+          <Logo onDark={onDark} className="shrink-0 max-sm:[&_.hammerload-mark]:size-6 max-sm:[&_.font-brand]:text-[18px]" />
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label={s.primaryNav}>
             {navLinks.map((link) => (
@@ -98,9 +98,9 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-1.5">
-            <LanguageToggle onDark={onDark} />
-            <ThemeToggle onDark={onDark} />
+          <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+            <LanguageToggle onDark={onDark} className="max-sm:size-8" />
+            <ThemeToggle onDark={onDark} className="max-sm:size-8" />
             <Button
               to={localizedPath('/book', language)}
               size="sm"
@@ -115,7 +115,7 @@ export function Navbar() {
               aria-label={menuOpen ? s.closeMenu : s.openMenu}
               aria-expanded={menuOpen}
               className={cn(
-                'grid size-10 place-items-center rounded-full transition-colors lg:hidden',
+                'grid size-8 place-items-center rounded-full transition-colors sm:size-10 lg:hidden',
                 onDark ? 'text-white hover:bg-white/10' : 'text-text hover:bg-surface-muted',
               )}
             >
