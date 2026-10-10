@@ -139,7 +139,7 @@ export function BookingForm({ initialValues = {}, onDone }) {
         </p>
       )}
 
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         {isFirstStep ? (
           <span className="text-[13px] text-text-subtle">{s.takesAMinute}</span>
         ) : (
@@ -150,6 +150,7 @@ export function BookingForm({ initialValues = {}, onDone }) {
 
         <Button
           type="submit"
+          className="ms-auto"
           size="md"
           loading={status === 'submitting'}
           disabled={isLastStep && !values.turnstileToken}
